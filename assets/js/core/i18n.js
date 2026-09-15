@@ -205,7 +205,35 @@ const DN_I18N_DICTIONARY = {
     "portal.admin_overview": "Overview & Performance",
     "portal.admin_hotels": "Manage Hotels",
     "portal.admin_tours": "Manage Tours",
-    "portal.admin_orders": "Customer Bookings"
+    "portal.admin_orders": "Customer Bookings",
+
+    // Authentication (Login & Register)
+    "nav.login": "Sign In",
+    "nav.signup": "Sign Up",
+    "nav.logout": "Sign Out",
+    "auth.login_title": "Sign In",
+    "auth.login_subtitle": "Explore Da Nang tours & stays at the best rates",
+    "auth.register_title": "Create an Account",
+    "auth.register_subtitle": "Join DaNang for less and earn welcome rewards",
+    "auth.email_label": "Email or Phone Number",
+    "auth.password_label": "Password",
+    "auth.fullname_label": "Full Name",
+    "auth.phone_label": "Phone Number",
+    "auth.forgot_password": "Forgot password?",
+    "auth.remember_me": "Remember me",
+    "auth.submit_login": "Sign In",
+    "auth.submit_register": "Create Account",
+    "auth.demo_hint": "Quick Demo Login:",
+    "auth.or_continue": "Or continue with",
+    "auth.or_register_with": "Or register with",
+    "auth.no_account": "Don't have an account?",
+    "auth.register_now": "Sign up now",
+    "auth.have_account": "Already have an account?",
+    "auth.login_now": "Sign in",
+    "auth.back_home": "Home",
+    "auth.welcome_bonus_title": "Get 500 Loyalty Points Instantly!",
+    "auth.welcome_bonus_desc": "Applied directly as a discount on your first tour or hotel booking.",
+    "auth.terms_agree": "I agree to the Terms of Service and Privacy Policy of DaNang for less."
   },
 
   vn: {
@@ -408,7 +436,35 @@ const DN_I18N_DICTIONARY = {
     "portal.admin_overview": "Tổng Quan & Doanh Thu",
     "portal.admin_hotels": "Quản Lý Khách Sạn",
     "portal.admin_tours": "Quản Lý Chuyến Đi",
-    "portal.admin_orders": "Đơn Đặt Của Khách"
+    "portal.admin_orders": "Đơn Đặt Của Khách",
+
+    // Authentication (Login & Register)
+    "nav.login": "Đăng nhập",
+    "nav.signup": "Đăng ký",
+    "nav.logout": "Đăng xuất",
+    "auth.login_title": "Đăng Nhập",
+    "auth.login_subtitle": "Khám phá tour & khách sạn giá tốt nhất tại Đà Nẵng",
+    "auth.register_title": "Tạo Tài Khoản",
+    "auth.register_subtitle": "Gia nhập DaNang for less và nhận ngay ưu đãi thành viên",
+    "auth.email_label": "Email hoặc Số điện thoại",
+    "auth.password_label": "Mật khẩu",
+    "auth.fullname_label": "Họ và tên",
+    "auth.phone_label": "Số điện thoại",
+    "auth.forgot_password": "Quên mật khẩu?",
+    "auth.remember_me": "Ghi nhớ đăng nhập",
+    "auth.submit_login": "Đăng Nhập",
+    "auth.submit_register": "Đăng Ký Tài Khoản",
+    "auth.demo_hint": "Đăng nhập nhanh thử nghiệm:",
+    "auth.or_continue": "Hoặc tiếp tục với",
+    "auth.or_register_with": "Hoặc đăng ký với",
+    "auth.no_account": "Bạn chưa có tài khoản?",
+    "auth.register_now": "Đăng ký ngay",
+    "auth.have_account": "Bạn đã có tài khoản?",
+    "auth.login_now": "Đăng nhập",
+    "auth.back_home": "Trang chủ",
+    "auth.welcome_bonus_title": "Tặng ngay 500 Điểm Loyalty!",
+    "auth.welcome_bonus_desc": "Áp dụng giảm trực tiếp khi đặt phòng hoặc tour đầu tiên.",
+    "auth.terms_agree": "Tôi đồng ý với Điều khoản dịch vụ và Chính sách bảo mật của DaNang for less."
   }
 };
 

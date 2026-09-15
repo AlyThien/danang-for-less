@@ -59,18 +59,47 @@
         <a href="../../index.html#secret-deals" data-i18n="nav.offers" class="text-gray-600 hover:text-brand-crimson transition">Special Offers</a>
       </nav>
 
-      <div class="flex items-center space-x-3">
+      <div class="flex items-center space-x-3 sm:space-x-4">
         <div class="lang-pill-switch bg-gray-100 px-3 py-1.5 rounded-full text-xs font-semibold text-gray-700 flex items-center gap-1.5 border border-gray-200">
           <span data-lang="en" class="text-brand-crimson font-bold cursor-pointer">EN</span>
           <span class="text-gray-300">|</span>
           <span data-lang="vn" class="text-gray-400 hover:text-gray-700 cursor-pointer">VN</span>
         </div>
-        <a href="../portal/user.html" class="w-10 h-10 rounded-full bg-brand-crimson text-white font-bold text-xs flex items-center justify-center shadow-md">
-          TN
-        </a>
+        <div class="header-auth-container flex items-center space-x-2"></div>
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-xl text-gray-700 hover:bg-gray-100 transition" aria-label="Mở menu">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
       </div>
     </div>
   </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-drawer-overlay" class="fixed inset-0 bg-black/50 z-50 hidden backdrop-blur-sm transition-opacity"></div>
+  <div id="mobile-drawer" class="fixed top-0 right-0 w-72 h-full bg-white z-50 transform translate-x-full transition-transform duration-300 shadow-2xl p-6 flex flex-col justify-between">
+    <div>
+      <div class="flex items-center justify-between pb-4 border-b border-gray-100">
+        <span class="font-extrabold text-lg text-brand-crimson">DaNang for less</span>
+        <button id="mobile-close-btn" class="text-gray-400 hover:text-gray-700 text-xl p-1">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="mobile-auth-container" class="mt-4"></div>
+      <nav class="mt-2 flex flex-col space-y-3 text-base font-semibold text-gray-700">
+        <a href="index.html" class="flex items-center gap-3 p-2 rounded-xl bg-red-50 text-brand-crimson font-bold">
+          <i class="fa-solid fa-compass w-5 text-brand-crimson"></i> <span data-i18n="nav.tours">Tours</span>
+        </a>
+        <a href="../stays/index.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-solid fa-hotel w-5 text-brand-crimson"></i> <span data-i18n="nav.hotels">Hotels & Stays</span>
+        </a>
+        <a href="../../index.html#travel-guide" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-solid fa-map-location-dot w-5 text-brand-crimson"></i> <span data-i18n="nav.guides">Guides</span>
+        </a>
+        <a href="../../index.html#secret-deals" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-solid fa-bolt text-brand-crimson"></i> <span data-i18n="nav.offers">Special Offers</span>
+        </a>
+      </nav>
+    </div>
+  </div>
 
   <!-- PAGE HERO HEADER -->
   <section class="bg-[#24080F] text-white py-12 px-4 sm:px-6 lg:px-8">
@@ -445,6 +474,7 @@
 
   <script src="../../assets/js/core/mock-data.js"></script>
   <script src="../../assets/js/core/i18n.js"></script>
+  <script src="../../assets/js/core/auth.js"></script>
   <script src="../../assets/js/core/navigation.js"></script>
 </body>
 </html>

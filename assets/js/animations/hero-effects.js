@@ -18,30 +18,49 @@ function initSearchTabs() {
 
   if (!tabs.length) return;
 
+  let activeMode = 'tours';
+
   const updateTabContent = (mode) => {
     const isVn = (window.dnI18n && window.dnI18n.currentLang === 'vn');
     if (mode === 'tours') {
       if (destinationInput) destinationInput.placeholder = isVn ? 'Bà Nà, Hội An, Sơn Trà...' : 'Where are you going?';
-      if (dateInput) dateInput.textContent = isVn ? 'Chọn ngày khởi hành' : 'Select Departure Date';
-      if (guestsInput) guestsInput.textContent = isVn ? '2 Người lớn · Tour ghép' : '2 adults · Group Tour';
+      if (dateInput) {
+        dateInput.textContent = isVn ? 'Chọn ngày khởi hành' : 'Select Departure Date';
+        dateInput.removeAttribute('data-i18n');
+      }
+      if (guestsInput) {
+        guestsInput.textContent = isVn ? '2 Người lớn · Tour ghép' : '2 adults · Group Tour';
+        guestsInput.removeAttribute('data-i18n');
+      }
       if (searchBtn) searchBtn.setAttribute('data-target-url', 'pages/tours/index.html');
     } else if (mode === 'hotels') {
       if (destinationInput) destinationInput.placeholder = isVn ? 'Bãi biển Mỹ Khê, Bán đảo Sơn Trà...' : 'My Khe Beach, Son Tra Peninsula...';
-      if (dateInput) dateInput.textContent = isVn ? 'Nhận phòng — Trả phòng' : 'Check-in — Check-out';
-      if (guestsInput) guestsInput.textContent = isVn ? '2 Người lớn · 1 Phòng' : '2 adults · 1 room';
+      if (dateInput) {
+        dateInput.textContent = isVn ? 'Nhận phòng — Trả phòng' : 'Check-in — Check-out';
+        dateInput.removeAttribute('data-i18n');
+      }
+      if (guestsInput) {
+        guestsInput.textContent = isVn ? '2 Người lớn · 1 Phòng' : '2 adults · 1 room';
+        guestsInput.removeAttribute('data-i18n');
+      }
       if (searchBtn) searchBtn.setAttribute('data-target-url', 'pages/stays/index.html');
     } else {
       if (destinationInput) destinationInput.placeholder = isVn ? 'Combo Tour + Khách sạn tiết kiệm...' : 'Special Tour + Hotel Combos...';
-      if (dateInput) dateInput.textContent = isVn ? 'Thời gian linh hoạt' : 'Flexible Dates';
-      if (guestsInput) guestsInput.textContent = isVn ? '2 Người lớn' : '2 Adults';
+      if (dateInput) {
+        dateInput.textContent = isVn ? 'Thời gian linh hoạt' : 'Flexible Dates';
+        dateInput.removeAttribute('data-i18n');
+      }
+      if (guestsInput) {
+        guestsInput.textContent = isVn ? '2 Người lớn' : '2 Adults';
+        guestsInput.removeAttribute('data-i18n');
+      }
       if (searchBtn) searchBtn.setAttribute('data-target-url', 'pages/tours/index.html');
     }
   };
 
-  let activeMode = 'tours';
-
   tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
+    tab.addEventListener('click', (e) => {
+      e.preventDefault();
       tabs.forEach(t => {
         t.classList.remove('bg-brand-crimson', 'text-white', 'shadow-md');
         t.classList.add('bg-white/80', 'text-gray-700');
@@ -60,11 +79,13 @@ function initSearchTabs() {
   });
 
   if (searchBtn) {
-    searchBtn.addEventListener('click', () => {
+    searchBtn.addEventListener('click', (e) => {
+      e.preventDefault();
       const url = searchBtn.getAttribute('data-target-url') || 'pages/tours/index.html';
       const currentPath = window.location.pathname;
       const isNested = currentPath.includes('/pages/');
-      const target = isNested ? '../../' + url : url;
+      const query = destinationInput ? encodeURIComponent(destinationInput.value.trim()) : '';
+      const target = (isNested ? '../../' + url : url) + (query ? `?q=${query}` : '');
       window.location.href = target;
     });
   }

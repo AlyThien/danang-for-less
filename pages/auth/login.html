@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng Nhập - DaNang for less</title>
+  <meta name="description" content="Đăng nhập tài khoản DaNang for less để quản lý đặt tour, khách sạn và tích điểm ưu đãi thành viên.">
+
+  <!-- Google Fonts: Inter & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              crimson: '#8F1D2C',
+              darkcrimson: '#731422',
+              cream: '#FFFDF9',
+              sand: '#FAF7F2',
+              espresso: '#1F060A',
+              gold: '#E5B567',
+              ocean: '#0E7490'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Project Styles -->
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/animations.css">
+</head>
+<body class="bg-brand-sand/50 text-espresso font-sans antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- TOP BAR -->
+  <header class="w-full bg-white border-b border-gray-200/80 py-4 px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="../../index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-brand-crimson flex items-center justify-center text-white shadow-md shadow-brand-crimson/20 group-hover:scale-105 transition-transform duration-300">
+          <i class="fa-solid fa-umbrella-beach text-lg"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-extrabold text-xl sm:text-2xl tracking-tight text-espresso leading-none">
+            DaNang <span class="text-brand-crimson font-serif italic font-normal text-lg sm:text-xl">for less</span>
+          </span>
+          <span data-i18n="brand.tagline" class="text-[11px] text-gray-400 font-medium tracking-wide mt-1">Experience Da Nang on a budget</span>
+        </div>
+      </a>
+
+      <!-- Controls: Back & Language -->
+      <div class="flex items-center space-x-4">
+        <!-- Language Switcher Pill -->
+        <div class="lang-pill-switch bg-gray-100 px-3 py-1.5 rounded-full text-xs font-semibold text-gray-700 flex items-center gap-1.5 border border-gray-200">
+          <span data-lang="en" class="text-brand-crimson font-bold cursor-pointer">EN</span>
+          <span class="text-gray-300">|</span>
+          <span data-lang="vn" class="text-gray-400 hover:text-gray-700 cursor-pointer">VN</span>
+        </div>
+
+        <a href="../../index.html" class="text-xs font-semibold text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span data-i18n="auth.back_home">Trang chủ</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- AUTH MAIN CONTAINER -->
+  <main class="flex-1 flex items-center justify-center p-4 sm:p-6 py-12">
+    <div class="w-full max-w-md bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-gray-200/80 space-y-6">
+      
+      <!-- Card Header -->
+      <div class="text-center space-y-1.5">
+        <h1 data-i18n="auth.login_title" class="text-2xl sm:text-3xl font-extrabold text-espresso tracking-tight">Đăng Nhập</h1>
+        <p data-i18n="auth.login_subtitle" class="text-xs sm:text-sm text-gray-500">Khám phá tour & khách sạn giá tốt nhất tại Đà Nẵng</p>
+      </div>
+
+      <!-- Quick Demo Login Presets -->
+      <div class="p-3.5 bg-red-50/70 border border-red-100 rounded-2xl space-y-2">
+        <p class="text-[11px] font-bold text-brand-crimson uppercase tracking-wider flex items-center gap-1.5">
+          <i class="fa-solid fa-bolt"></i> <span data-i18n="auth.demo_hint">Đăng nhập nhanh thử nghiệm:</span>
+        </p>
+        <div class="grid grid-cols-2 gap-2">
+          <button type="button" id="btn-demo-user" class="w-full py-2 px-3 rounded-xl bg-white hover:bg-brand-crimson hover:text-white border border-red-200 text-brand-crimson text-xs font-bold transition shadow-sm flex items-center justify-center gap-1.5">
+            <i class="fa-regular fa-user"></i> <span>Du Khách</span>
+          </button>
+          <button type="button" id="btn-demo-admin" class="w-full py-2 px-3 rounded-xl bg-white hover:bg-indigo-600 hover:text-white border border-indigo-200 text-indigo-700 text-xs font-bold transition shadow-sm flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-shield-halved"></i> <span>Quản Trị (Admin)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form" class="space-y-4">
+        <!-- Field 1: Email -->
+        <div class="space-y-1 text-left">
+          <label for="email" data-i18n="auth.email_label" class="block text-xs font-bold text-gray-700">Email hoặc Số điện thoại</label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+              <i class="fa-regular fa-envelope text-sm"></i>
+            </span>
+            <input type="text" id="email" required placeholder="tuan.nguyen@example.com" 
+                   class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 text-sm font-medium text-espresso placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-crimson/20 focus:border-brand-crimson transition">
+          </div>
+        </div>
+
+        <!-- Field 2: Password -->
+        <div class="space-y-1 text-left">
+          <div class="flex items-center justify-between">
+            <label for="password" data-i18n="auth.password_label" class="block text-xs font-bold text-gray-700">Mật khẩu</label>
+            <a href="#" class="text-[11px] font-semibold text-brand-crimson hover:underline" data-i18n="auth.forgot_password">Quên mật khẩu?</a>
+          </div>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+              <i class="fa-solid fa-lock text-sm"></i>
+            </span>
+            <input type="password" id="password" required placeholder="••••••••" 
+                   class="w-full pl-10 pr-10 py-3 rounded-xl border border-gray-200 text-sm font-medium text-espresso placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-crimson/20 focus:border-brand-crimson transition">
+            <button type="button" id="toggle-password" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-gray-400 hover:text-gray-600">
+              <i class="fa-regular fa-eye text-sm"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Checkbox: Remember me -->
+        <div class="flex items-center justify-between text-xs text-gray-600 pt-1">
+          <label class="flex items-center gap-2 cursor-pointer select-none">
+            <input type="checkbox" id="remember" checked class="rounded border-gray-300 text-brand-crimson focus:ring-brand-crimson">
+            <span data-i18n="auth.remember_me">Ghi nhớ đăng nhập</span>
+          </label>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="w-full py-3.5 px-4 rounded-xl bg-brand-crimson hover:bg-brand-darkcrimson text-white font-bold text-sm shadow-lg shadow-brand-crimson/25 transition transform active:scale-98 flex items-center justify-center gap-2">
+          <span data-i18n="auth.submit_login">Đăng Nhập</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+
+      <!-- Social Login Divider -->
+      <div class="relative flex py-2 items-center">
+        <div class="flex-grow border-t border-gray-200"></div>
+        <span data-i18n="auth.or_continue" class="flex-shrink mx-4 text-gray-400 text-xs font-semibold uppercase tracking-wider">Hoặc tiếp tục với</span>
+        <div class="flex-grow border-t border-gray-200"></div>
+      </div>
+
+      <!-- Social Buttons -->
+      <div class="grid grid-cols-2 gap-3">
+        <button type="button" onclick="loginDemo('user')" class="flex items-center justify-center gap-2.5 py-2.5 px-4 rounded-xl border border-gray-200 hover:bg-gray-50 text-xs font-semibold text-gray-700 transition">
+          <i class="fa-brands fa-google text-red-500 text-sm"></i>
+          <span>Google</span>
+        </button>
+        <button type="button" onclick="loginDemo('user')" class="flex items-center justify-center gap-2.5 py-2.5 px-4 rounded-xl border border-gray-200 hover:bg-gray-50 text-xs font-semibold text-gray-700 transition">
+          <i class="fa-brands fa-facebook text-blue-600 text-sm"></i>
+          <span>Facebook</span>
+        </button>
+      </div>
+
+      <!-- Footer Prompt: Register Link -->
+      <div class="text-center pt-2 border-t border-gray-100 text-xs text-gray-600">
+        <span data-i18n="auth.no_account">Bạn chưa có tài khoản?</span>
+        <a href="register.html" class="font-bold text-brand-crimson hover:underline ml-1" data-i18n="auth.register_now">Đăng ký ngay</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="text-center py-6 text-xs text-gray-400 border-t border-gray-200/80 bg-white">
+    <p>© 2026 DaNang for less. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../../assets/js/core/i18n.js"></script>
+  <script src="../../assets/js/core/auth.js"></script>
+  <script>
+    // Password visibility toggle
+    const toggleBtn = document.getElementById('toggle-password');
+    const pwdInput = document.getElementById('password');
+    if (toggleBtn && pwdInput) {
+      toggleBtn.addEventListener('click', () => {
+        const isPwd = pwdInput.type === 'password';
+        pwdInput.type = isPwd ? 'text' : 'password';
+        toggleBtn.innerHTML = isPwd ? '<i class="fa-regular fa-eye-slash text-sm"></i>' : '<i class="fa-regular fa-eye text-sm"></i>';
+      });
+    }
+
+    // Demo presets
+    function loginDemo(role) {
+      if (role === 'admin') {
+        window.dnAuth.login('admin@danangforless.com', 'admin123');
+        window.location.href = '../portal/admin.html';
+      } else {
+        window.dnAuth.login('tuan.nguyen@example.com', 'user123');
+        window.location.href = '../../index.html';
+      }
+    }
+
+    document.getElementById('btn-demo-user').addEventListener('click', () => loginDemo('user'));
+    document.getElementById('btn-demo-admin').addEventListener('click', () => loginDemo('admin'));
+
+    // Handle Form Submit
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const user = window.dnAuth.login(email, password);
+      
+      // Redirect based on role
+      if (user.role === 'admin') {
+        window.location.href = '../portal/admin.html';
+      } else {
+        window.location.href = '../../index.html';
+      }
+    });
+  </script>
+</body>
+</html>
