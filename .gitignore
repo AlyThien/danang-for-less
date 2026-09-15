@@ -1,0 +1,17 @@
+# Environment variables (Sensitive credentials)
+.env
+.env.*
+!.env.example
+
+# Vercel & build artifacts
+.vercel
+node_modules/
+dist/
+
+# OS and Log files
+.DS_Store
+Thumbs.db
+*.log
+
+# Experimental prototypes
+hero-bento-preview.html

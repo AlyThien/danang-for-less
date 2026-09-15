@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marble Mountains & Hoi An Ancient Town - DaNang for less</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              crimson: '#8F1D2C',
+              darkcrimson: '#731422',
+              cream: '#FFFDF9',
+              sand: '#FAF7F2',
+              espresso: '#1F060A',
+              gold: '#E5B567'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/animations.css">
+</head>
+<body class="bg-cream text-espresso font-sans antialiased overflow-x-hidden">
+
+  <!-- HEADER -->
+  <header class="w-full bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="../../index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-brand-crimson flex items-center justify-center text-white shadow-md">
+          <i class="fa-solid fa-umbrella-beach text-lg"></i>
+        </div>
+        <div>
+          <span class="font-extrabold text-xl sm:text-2xl tracking-tight text-espresso leading-none">
+            DaNang <span class="text-brand-crimson font-serif italic font-normal text-lg sm:text-xl">for less</span>
+          </span>
+          <span class="block text-[11px] text-gray-400 font-medium">Experience Da Nang on a budget</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-9 text-sm font-semibold">
+        <a href="index.html" data-i18n="nav.tours" class="text-brand-crimson font-bold">Tours</a>
+        <a href="../stays/index.html" data-i18n="nav.hotels" class="text-gray-600 hover:text-brand-crimson transition">Hotels & Stays</a>
+        <a href="../../index.html#travel-guide" data-i18n="nav.guides" class="text-gray-600 hover:text-brand-crimson transition">Guides</a>
+        <a href="../../index.html#secret-deals" data-i18n="nav.offers" class="text-gray-600 hover:text-brand-crimson transition">Special Offers</a>
+      </nav>
+
+      <div class="flex items-center space-x-3">
+        <div class="lang-pill-switch bg-gray-100 px-3 py-1.5 rounded-full text-xs font-semibold text-gray-700 flex items-center gap-1.5 border border-gray-200">
+          <span data-lang="en" class="text-brand-crimson font-bold cursor-pointer">EN</span>
+          <span class="text-gray-300">|</span>
+          <span data-lang="vn" class="text-gray-400 hover:text-gray-700 cursor-pointer">VN</span>
+        </div>
+        <a href="../portal/user.html" class="w-10 h-10 rounded-full bg-brand-crimson text-white font-bold text-xs flex items-center justify-center shadow-md">
+          TN
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    
+    <!-- Title & Breadcrumbs -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-espresso tracking-tight">Marble Mountains & Hoi An Ancient Town</h1>
+        <p class="text-xs sm:text-sm text-gray-500 mt-1">Marble Mountains & Hoi An Ancient Town</p>
+        <div class="flex items-center gap-3 text-xs text-gray-600 mt-2">
+          <span class="flex items-center gap-1 text-amber-500 font-bold">
+            <i class="fa-solid fa-star"></i> (4.8/5) <span class="text-gray-400 font-normal">120+ reviews</span>
+          </span>
+          <span>•</span>
+          <span class="flex items-center gap-1 text-gray-500">
+            <i class="fa-solid fa-location-dot text-brand-crimson"></i> Da Nang & Hoi An
+          </span>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-3 text-xs font-semibold text-gray-700">
+        <button class="w-9 h-9 rounded-full border border-gray-200 bg-white hover:bg-gray-50 flex items-center justify-center shadow-sm">
+          <i class="fa-regular fa-circle-question text-gray-600"></i>
+        </button>
+        <button class="w-9 h-9 rounded-full border border-gray-200 bg-white hover:bg-gray-50 flex items-center justify-center text-brand-crimson shadow-sm">
+          <i class="fa-regular fa-heart"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- BENTO PHOTO GALLERY (Matching Figma tour_detail.png) -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-3 h-[420px] sm:h-[480px] rounded-3xl overflow-hidden shadow-lg">
+      <div class="md:col-span-7 h-full relative group overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1528127269322-539801943592?w=1000&auto=format&fit=crop&q=80" 
+             alt="Marble Mountains Pagoda" class="w-full h-full object-cover img-zoom-target">
+        <span class="absolute top-4 left-4 bg-brand-crimson text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+          -35% OFF
+        </span>
+      </div>
+      <div class="md:col-span-5 grid grid-cols-2 gap-3 h-full">
+        <div class="relative overflow-hidden rounded-2xl group">
+          <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&auto=format&fit=crop&q=80" 
+               alt="Hoi An Lantern Street" class="w-full h-full object-cover img-zoom-target">
+        </div>
+        <div class="relative overflow-hidden rounded-2xl group">
+          <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=600&auto=format&fit=crop&q=80" 
+               alt="Temple Cave Rays" class="w-full h-full object-cover img-zoom-target">
+        </div>
+        <div class="relative overflow-hidden rounded-2xl group">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&auto=format&fit=crop&q=80" 
+               alt="Local Vietnamese Tea" class="w-full h-full object-cover img-zoom-target">
+        </div>
+        <div class="relative overflow-hidden rounded-2xl group cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&auto=format&fit=crop&q=80" 
+               alt="River Dining" class="w-full h-full object-cover img-zoom-target">
+          <div class="absolute inset-0 bg-espresso/70 backdrop-blur-[2px] flex items-center justify-center text-white font-bold text-sm">
+            <span>+12 Photos</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOUR OVERVIEW BAR (3 Cards) -->
+    <div class="bg-white rounded-2xl p-4 border border-gray-200/80 shadow-sm grid grid-cols-3 divide-x divide-gray-100 text-center">
+      <div class="space-y-1">
+        <i class="fa-regular fa-clock text-brand-crimson text-lg"></i>
+        <span class="block text-[10px] uppercase font-bold text-gray-400">Duration</span>
+        <span class="block text-xs sm:text-sm font-bold text-gray-800">8 Hours</span>
+      </div>
+      <div class="space-y-1">
+        <i class="fa-solid fa-users text-brand-crimson text-lg"></i>
+        <span class="block text-[10px] uppercase font-bold text-gray-400">Group Size</span>
+        <span class="block text-xs sm:text-sm font-bold text-gray-800">Max 12 people</span>
+      </div>
+      <div class="space-y-1">
+        <i class="fa-solid fa-language text-brand-crimson text-lg"></i>
+        <span class="block text-[10px] uppercase font-bold text-gray-400">Language</span>
+        <span class="block text-xs sm:text-sm font-bold text-gray-800">English & VN</span>
+      </div>
+    </div>
+
+    <!-- MAIN TWO-COLUMN CONTENT -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      
+      <!-- LEFT COLUMN -->
+      <div class="lg:col-span-8 space-y-10">
+        
+        <!-- Detailed Itinerary Timeline -->
+        <section class="space-y-6">
+          <h2 class="text-xl font-bold text-espresso">Detailed Itinerary</h2>
+          
+          <div class="relative border-l-2 border-red-200 ml-4 space-y-8 pl-6">
+            <!-- 08:00 AM -->
+            <div class="relative">
+              <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-brand-crimson border-4 border-white shadow"></span>
+              <span class="text-xs font-bold text-brand-crimson">08:00 AM</span>
+              <h4 class="font-bold text-sm text-espresso mt-0.5">Hotel Pickup</h4>
+              <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+                Our professional guide and driver will pick you up from your hotel in Da Nang city center or My Khe Beach.
+              </p>
+            </div>
+
+            <!-- 09:00 AM -->
+            <div class="relative">
+              <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-white border-2 border-brand-crimson"></span>
+              <span class="text-xs font-bold text-gray-400">09:00 AM</span>
+              <h4 class="font-bold text-sm text-espresso mt-0.5">Marble Mountains Exploration</h4>
+              <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+                Visit Huyen Khong Cave, Tam Thai Pagoda, and enjoy the panoramic view from the summit of the Water Mountain.
+              </p>
+            </div>
+
+            <!-- 12:30 PM -->
+            <div class="relative">
+              <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-white border-2 border-brand-crimson"></span>
+              <span class="text-xs font-bold text-gray-400">12:30 PM</span>
+              <h4 class="font-bold text-sm text-espresso mt-0.5">Local Vietnamese Lunch</h4>
+              <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+                Savor authentic local specialties in a charming riverside restaurant near Hoi An ancient town.
+              </p>
+            </div>
+
+            <!-- 03:00 PM -->
+            <div class="relative">
+              <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-white border-2 border-brand-crimson"></span>
+              <span class="text-xs font-bold text-gray-400">03:00 PM</span>
+              <h4 class="font-bold text-sm text-espresso mt-0.5">Hoi An Ancient Town Walking Tour</h4>
+              <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+                Explore the Japanese Covered Bridge, ancient merchant houses, and colorful lantern-lit streets.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Inclusions & Exclusions -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-6 border-t border-gray-100">
+          <div class="space-y-3">
+            <h3 class="text-base font-bold text-espresso">Inclusions</h3>
+            <ul class="space-y-2.5 text-xs text-gray-700">
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-emerald-600 text-sm"></i> Professional English-speaking guide
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-emerald-600 text-sm"></i> Air-conditioned transportation
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-emerald-600 text-sm"></i> All entrance fees (Marble Mt & Hoi An)
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-emerald-600 text-sm"></i> Lunch with local specialties
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-emerald-600 text-sm"></i> Bottled water during the tour
+              </li>
+            </ul>
+          </div>
+
+          <div class="space-y-3">
+            <h3 class="text-base font-bold text-espresso">Exclusions</h3>
+            <ul class="space-y-2.5 text-xs text-gray-700">
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-xmark text-brand-crimson text-sm"></i> Personal expenses
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-xmark text-brand-crimson text-sm"></i> Tips and gratuities for guide/driver
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-xmark text-brand-crimson text-sm"></i> Drinks during lunch
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Pickup & Drop-off Notice Box -->
+        <section class="p-5 rounded-2xl bg-brand-sand border border-gray-200 space-y-2 text-xs text-gray-700">
+          <h4 class="font-bold text-espresso">Pickup & Drop-off</h4>
+          <p><strong class="text-brand-crimson">• Pickup:</strong> Complimentary from hotels in Da Nang city center, My Khe beach area.</p>
+          <p><strong class="text-brand-crimson">• Drop-off:</strong> Returns to original departure point or specified drop-off location in Da Nang.</p>
+        </section>
+
+        <!-- Customer Reviews -->
+        <section class="space-y-4 pt-6 border-t border-gray-100">
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg font-bold text-espresso">Customer Reviews</h3>
+            <a href="#" class="text-xs font-bold text-brand-crimson hover:underline">Write a review</a>
+          </div>
+
+          <div class="space-y-4">
+            <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm space-y-2">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&auto=format&fit=crop&q=80" class="w-8 h-8 rounded-full object-cover">
+                  <div>
+                    <h5 class="font-bold text-xs text-gray-800">Sarah Jenkins</h5>
+                    <span class="text-[10px] text-gray-400">2 days ago</span>
+                  </div>
+                </div>
+                <div class="text-amber-500 text-xs">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <p class="text-xs text-gray-600 leading-relaxed italic">
+                "Amazing tour! Our guide, Huy, was so knowledgeable about the history of the Marble Mountains. Hoi An in the evening is magical with all the lanterns. Highly recommend this for anyone visiting Da Nang."
+              </p>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm space-y-2">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&auto=format&fit=crop&q=80" class="w-8 h-8 rounded-full object-cover">
+                  <div>
+                    <h5 class="font-bold text-xs text-gray-800">Marcus Thompson</h5>
+                    <span class="text-[10px] text-gray-400">1 week ago</span>
+                  </div>
+                </div>
+                <div class="text-amber-500 text-xs">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+              </div>
+              <p class="text-xs text-gray-600 leading-relaxed italic">
+                "Great value for money. The caves were stunning, though quite a bit of walking/climbing steps so wear good shoes. Lunch was delicious and more than enough food."
+              </p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- RIGHT STICKY BOOKING CARD -->
+      <div class="lg:col-span-4">
+        <div class="sticky top-28 space-y-4">
+          
+          <div class="bg-white rounded-3xl p-6 border border-gray-200/80 shadow-xl space-y-6">
+            <div class="flex items-baseline justify-between border-b border-gray-100 pb-4">
+              <div>
+                <span class="text-3xl font-black text-brand-crimson">$39.00</span>
+                <span class="text-xs text-gray-400 line-through ml-1">$60.00</span>
+                <span class="text-xs text-gray-500 block">per person</span>
+              </div>
+            </div>
+
+            <!-- Date Picker -->
+            <div>
+              <label class="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1">SELECT DATE</label>
+              <div class="p-3 rounded-xl bg-brand-sand border border-gray-200 flex items-center justify-between text-xs sm:text-sm font-semibold text-gray-800">
+                <span>Oct 24, 2024</span>
+                <i class="fa-regular fa-calendar text-brand-crimson"></i>
+              </div>
+            </div>
+
+            <!-- Travelers Interactive Counter -->
+            <div class="space-y-3">
+              <label class="block text-[10px] font-bold uppercase tracking-wider text-gray-400">TRAVELERS</label>
+              
+              <!-- Adults -->
+              <div data-counter-group data-min="1" data-max="10" class="flex items-center justify-between p-3 rounded-xl bg-brand-sand border border-gray-200">
+                <div>
+                  <span class="block text-xs font-bold text-gray-800">Adults</span>
+                  <span class="text-[10px] text-gray-400">Age 12+</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <button class="btn-counter-minus w-7 h-7 rounded-lg bg-white border border-gray-300 flex items-center justify-center text-gray-600 font-bold hover:bg-gray-50">-</button>
+                  <span class="counter-value font-bold text-sm text-gray-800 w-4 text-center">2</span>
+                  <button class="btn-counter-plus w-7 h-7 rounded-lg bg-white border border-gray-300 flex items-center justify-center text-gray-600 font-bold hover:bg-gray-50">+</button>
+                </div>
+              </div>
+
+              <!-- Children -->
+              <div data-counter-group data-min="0" data-max="6" class="flex items-center justify-between p-3 rounded-xl bg-brand-sand border border-gray-200">
+                <div>
+                  <span class="block text-xs font-bold text-gray-800">Children</span>
+                  <span class="text-[10px] text-gray-400">Age 4-11</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <button class="btn-counter-minus w-7 h-7 rounded-lg bg-white border border-gray-300 flex items-center justify-center text-gray-600 font-bold hover:bg-gray-50">-</button>
+                  <span class="counter-value font-bold text-sm text-gray-800 w-4 text-center">0</span>
+                  <button class="btn-counter-plus w-7 h-7 rounded-lg bg-white border border-gray-300 flex items-center justify-center text-gray-600 font-bold hover:bg-gray-50">+</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Price Breakdown -->
+            <div class="pt-4 border-t border-gray-100 text-xs text-gray-600 space-y-2">
+              <div class="flex justify-between">
+                <span>$39.00 × 2 Travelers</span>
+                <span class="font-semibold text-gray-800">$78.00</span>
+              </div>
+              <div class="flex justify-between pt-2 border-t border-gray-100 text-base font-bold text-espresso">
+                <span>Total</span>
+                <span class="text-2xl font-black text-brand-crimson">$78.00</span>
+              </div>
+            </div>
+
+            <a href="../booking/checkout.html" class="w-full block text-center brand-btn-primary py-3.5 text-sm font-bold shadow-lg shadow-brand-crimson/30">
+              Book Now
+            </a>
+
+            <div class="flex items-center justify-center gap-1.5 text-[11px] text-gray-400">
+              <i class="fa-solid fa-lock text-brand-crimson"></i>
+              <span>Secure Booking & Instant Confirmation</span>
+            </div>
+          </div>
+
+          <!-- Why Book With Us Box -->
+          <div class="bg-white rounded-2xl p-5 border border-gray-200/80 shadow-sm space-y-2.5 text-xs text-gray-700">
+            <h4 class="font-bold text-espresso text-xs">Why book with us?</h4>
+            <p class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 text-xs"></i> Best price guarantee</p>
+            <p class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 text-xs"></i> Free cancellation up to 24h</p>
+            <p class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 text-xs"></i> No hidden booking fees</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="bg-[#24080F] text-white pt-12 pb-8 border-t border-white/10 mt-16 text-center text-xs text-gray-400">
+    <p data-i18n="footer.copyright">© 2024 DaNang for less. All rights reserved.</p>
+  </footer>
+
+  <script src="../../assets/js/core/mock-data.js"></script>
+  <script src="../../assets/js/core/i18n.js"></script>
+  <script src="../../assets/js/core/navigation.js"></script>
+  <script src="../../assets/js/modules/booking-engine.js"></script>
+</body>
+</html>

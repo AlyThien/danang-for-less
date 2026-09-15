@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DaNang for less - Khám Phá Đà Nẵng Giá Tốt Nhất</title>
+  <meta name="description" content="Nền tảng du lịch và khách sạn Đà Nẵng: Tour Bà Nà Hills, Hội An, khách sạn Mỹ Khê với cam kết giá tốt nhất, tiết kiệm 20% - 40%.">
+
+  <!-- Google Fonts: Inter & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN with Custom Theme -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              crimson: '#8F1D2C',
+              darkcrimson: '#731422',
+              cream: '#FFFDF9',
+              sand: '#FAF7F2',
+              espresso: '#1F060A',
+              gold: '#E5B567',
+              ocean: '#0E7490'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Project Styles & Animations -->
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body class="bg-cream text-espresso font-sans antialiased overflow-x-hidden">
+
+  <!-- ========================================================================= -->
+  <!-- 1. GLOBAL HEADER                                                          -->
+  <!-- ========================================================================= -->
+  <header class="w-full bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200/80 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-brand-crimson flex items-center justify-center text-white shadow-md shadow-brand-crimson/20 group-hover:scale-105 transition-transform duration-300">
+          <i class="fa-solid fa-umbrella-beach text-lg"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-extrabold text-xl sm:text-2xl tracking-tight text-espresso leading-none">
+            DaNang <span class="text-brand-crimson font-serif italic font-normal text-lg sm:text-xl">for less</span>
+          </span>
+          <span data-i18n="brand.tagline" class="text-[11px] text-gray-400 font-medium tracking-wide mt-1">Experience Da Nang on a budget</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center space-x-9 text-sm font-semibold">
+        <a href="pages/tours/index.html" data-i18n="nav.tours" class="text-brand-crimson hover:text-brand-darkcrimson flex items-center gap-1.5 transition">
+          Tours
+        </a>
+        <a href="pages/stays/index.html" data-i18n="nav.hotels" class="text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition">
+          Hotels & Stays
+        </a>
+        <a href="#travel-guide" data-i18n="nav.guides" class="text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition">
+          Guides
+        </a>
+        <a href="#secret-deals" data-i18n="nav.offers" class="text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition">
+          Special Offers
+        </a>
+      </nav>
+
+      <!-- Right User Controls -->
+      <div class="flex items-center space-x-3 sm:space-x-4">
+        <!-- Language Switcher Pill -->
+        <div class="lang-pill-switch bg-gray-100/90 px-3 py-1.5 rounded-full text-xs font-semibold text-gray-700 flex items-center gap-1.5 border border-gray-200">
+          <span data-lang="en" class="text-brand-crimson font-bold cursor-pointer">EN</span>
+          <span class="text-gray-300">|</span>
+          <span data-lang="vn" class="text-gray-400 hover:text-gray-700 cursor-pointer">VN</span>
+        </div>
+
+        <!-- User Profile Avatar Pill -->
+        <a href="pages/portal/user.html" class="w-10 h-10 rounded-full bg-brand-crimson text-white font-bold text-xs flex items-center justify-center shadow-md hover:ring-2 hover:ring-brand-crimson/30 transition" title="Tài khoản khách hàng">
+          TN
+        </a>
+
+        <!-- Admin Shortcut -->
+        <a href="pages/portal/admin.html" class="hidden lg:flex items-center gap-1 text-xs font-semibold text-gray-500 hover:text-brand-crimson px-2.5 py-1.5 rounded-lg border border-gray-200 hover:border-red-200 transition" title="Trang quản trị">
+          <i class="fa-solid fa-chart-line text-brand-crimson"></i>
+          <span data-i18n="nav.admin">Admin</span>
+        </a>
+
+        <!-- Mobile Menu Trigger -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-xl text-gray-700 hover:bg-gray-100 transition">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-drawer-overlay" class="fixed inset-0 bg-black/50 z-50 hidden backdrop-blur-sm transition-opacity"></div>
+  <div id="mobile-drawer" class="fixed top-0 right-0 w-72 h-full bg-white z-50 transform translate-x-full transition-transform duration-300 shadow-2xl p-6 flex flex-col justify-between">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-gray-100">
+        <span class="font-bold text-lg text-brand-crimson">DaNang for less</span>
+        <button id="mobile-close-btn" class="text-gray-400 hover:text-gray-700 text-xl p-1">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <nav class="mt-6 flex flex-col space-y-4 text-base font-semibold text-gray-700">
+        <a href="pages/tours/index.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-solid fa-compass w-5 text-brand-crimson"></i> <span data-i18n="nav.tours">Tours</span>
+        </a>
+        <a href="pages/stays/index.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-solid fa-hotel w-5 text-brand-crimson"></i> <span data-i18n="nav.hotels">Hotels & Stays</span>
+        </a>
+        <a href="#travel-guide" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-solid fa-map-location-dot w-5 text-brand-crimson"></i> <span data-i18n="nav.guides">Guides</span>
+        </a>
+        <a href="#secret-deals" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-solid fa-bolt w-5 text-brand-crimson"></i> <span data-i18n="nav.offers">Special Offers</span>
+        </a>
+        <a href="pages/portal/user.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-regular fa-user w-5 text-brand-crimson"></i> <span data-i18n="nav.my_bookings">My Bookings & Loyalty</span>
+        </a>
+        <a href="pages/portal/admin.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-solid fa-gauge w-5 text-brand-crimson"></i> <span data-i18n="nav.admin_dashboard">Admin Dashboard</span>
+        </a>
+      </nav>
+    </div>
+    <div class="pt-6 border-t border-gray-100 text-xs text-gray-500">
+      <p><span data-i18n="nav.hotline">Hotline hỗ trợ:</span> <strong class="text-brand-crimson">+84 (0) 236 312 3456</strong></p>
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- 2. HERO SECTION (WITH KEN BURNS EFFECT & FLOATING SEARCH CARD)             -->
+  <!-- ========================================================================= -->
+  <section class="relative min-h-[620px] lg:min-h-[720px] flex items-center justify-center overflow-hidden">
+    
+    <!-- Background Image with Ken Burns animation & Figma Sunset Overlays -->
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <img src="assets/images/hero-figma-sunset.jpg" 
+           onerror="this.src='https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=1920&auto=format&fit=crop&q=85'"
+           alt="Da Nang Golden Bridge Ba Na Hills Sunset - Figma Original" 
+           class="w-full h-full object-cover hero-ken-burns filter brightness-95 contrast-[1.03]">
+      
+      <!-- Layer 1: Exact Figma 54:10 Sunset Linear Warm Gradient (#3D1A0E / rgba(61, 26, 14)) -->
+      <div class="absolute inset-0 hero-sunset-overlay pointer-events-none"></div>
+
+      <!-- Layer 2: Sunset Golden-Hour Glow & Atmospheric Warmth -->
+      <div class="absolute inset-0 hero-sunset-glow pointer-events-none"></div>
+
+      <!-- Layer 3: Contrast Vignette for Title & Search Card Clarity -->
+      <div class="absolute inset-0 hero-sunset-vignette pointer-events-none"></div>
+    </div>
+
+    <!-- Hero Content Container -->
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center flex flex-col items-center">
+      
+      <!-- Subtle Floating Badge -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-xs font-semibold tracking-wide mb-6 animate-float shadow-lg">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot-green"></span>
+        <span data-i18n="hero.guarantee_badge">Cam kết giá tốt nhất Đà Nẵng • Tiết kiệm 20% - 40%</span>
+      </div>
+
+      <!-- Main Headline from Figma -->
+      <h1 data-i18n="hero.headline" class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.15] max-w-4xl drop-shadow-md">
+        Experience Da Nang for Less
+      </h1>
+
+      <!-- Subtitles from Figma -->
+      <p data-i18n="hero.subtitle_1" class="mt-4 text-lg sm:text-2xl text-amber-200/95 font-medium">
+        Budget-friendly tours & stays.
+      </p>
+      <p data-i18n="hero.subtitle_2" class="text-sm sm:text-base text-gray-300 font-light mt-1">
+        Experience Da Nang on a budget. Hand-picked local deals with zero hidden fees.
+      </p>
+
+      <!-- ===================================================================== -->
+      <!-- FLOATING SEARCH ISLAND (Exactly matching Figma Component)             -->
+      <!-- ===================================================================== -->
+      <div class="w-full mt-10 max-w-4xl hero-tilt-card transition-transform duration-200">
+        
+        <!-- Search Tabs -->
+        <div class="flex items-center justify-center sm:justify-start gap-2 mb-2 px-2">
+          <button data-search-tab="tours" class="px-4 py-2 rounded-t-xl bg-brand-crimson text-white font-semibold text-xs sm:text-sm flex items-center gap-2 shadow-md search-tab-pill">
+            <i class="fa-solid fa-compass"></i> <span data-i18n="search.tab_tours">Tours</span>
+          </button>
+          <button data-search-tab="hotels" class="px-4 py-2 rounded-t-xl bg-white/80 backdrop-blur-md text-gray-700 hover:bg-white font-semibold text-xs sm:text-sm flex items-center gap-2 transition search-tab-pill">
+            <i class="fa-solid fa-hotel"></i> <span data-i18n="search.tab_hotels">Hotels & Stays</span>
+          </button>
+          <button data-search-tab="combos" class="px-4 py-2 rounded-t-xl bg-white/80 backdrop-blur-md text-gray-700 hover:bg-white font-semibold text-xs sm:text-sm flex items-center gap-2 transition search-tab-pill">
+            <i class="fa-solid fa-bolt text-amber-500"></i> <span data-i18n="search.tab_combos">Special Deals</span>
+          </button>
+        </div>
+
+        <!-- Main Search Bar Body -->
+        <div class="bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-4 shadow-2xl border border-white/80 grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
+          
+          <!-- Field 1: Destination -->
+          <div class="md:col-span-4 flex items-center gap-3 px-3.5 py-3 rounded-xl bg-brand-sand/70 hover:bg-brand-sand border border-gray-200/80 text-left transition">
+            <i class="fa-solid fa-location-dot text-brand-crimson text-lg"></i>
+            <div class="flex-1 min-w-0">
+              <span data-i18n="search.destination_label" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400">Destination</span>
+              <input type="text" id="search-destination" data-i18n-placeholder="search.destination_placeholder" placeholder="Where are you going?" 
+                     class="w-full bg-transparent font-semibold text-xs sm:text-sm text-gray-800 placeholder-gray-500 focus:outline-none">
+            </div>
+          </div>
+
+          <!-- Field 2: Dates -->
+          <div class="md:col-span-4 flex items-center gap-3 px-3.5 py-3 rounded-xl bg-brand-sand/70 hover:bg-brand-sand border border-gray-200/80 text-left cursor-pointer transition">
+            <i class="fa-regular fa-calendar text-brand-crimson text-lg"></i>
+            <div class="flex-1 min-w-0">
+              <span data-i18n="search.dates_label" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400">Time / Dates</span>
+              <span id="search-dates" data-i18n="search.dates_placeholder" class="block font-semibold text-xs sm:text-sm text-gray-800 truncate">
+                Check-in — Check-out
+              </span>
+            </div>
+          </div>
+
+          <!-- Field 3: Guests -->
+          <div class="md:col-span-2 flex items-center gap-2.5 px-3 py-3 rounded-xl bg-brand-sand/70 hover:bg-brand-sand border border-gray-200/80 text-left cursor-pointer transition">
+            <i class="fa-solid fa-user-group text-brand-crimson text-sm"></i>
+            <div class="flex-1 min-w-0">
+              <span data-i18n="search.guests_label" class="block text-[10px] font-bold uppercase tracking-wider text-gray-400">Travelers</span>
+              <span id="search-guests" data-i18n="search.guests_placeholder" class="block font-semibold text-xs text-gray-800 truncate">
+                2 adults · 1 room
+              </span>
+            </div>
+          </div>
+
+          <!-- Action Button: Deep Crimson -->
+          <div class="md:col-span-2">
+            <button id="hero-search-btn" data-target-url="pages/tours/index.html" class="w-full h-full py-3.5 px-6 rounded-xl bg-brand-crimson hover:bg-brand-darkcrimson text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 transition shadow-lg shadow-brand-crimson/30 group">
+              <span data-i18n="search.btn">Search</span>
+              <i class="fa-solid fa-magnifying-glass transition-transform group-hover:scale-110"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 3. VALUE PROPOSITION & TRUST BAR (Exactly matching Figma Section 1)       -->
+  <!-- ========================================================================= -->
+  <section class="w-full bg-white border-b border-gray-100 py-10 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Pillar 1: Best Price Guarantee -->
+        <div class="flex items-center gap-4 group p-3 rounded-2xl hover:bg-brand-sand/50 transition">
+          <div class="w-14 h-14 rounded-2xl bg-red-50 text-brand-crimson flex items-center justify-center text-xl shadow-sm group-hover:scale-110 group-hover:bg-brand-crimson group-hover:text-white transition duration-300">
+            <i class="fa-solid fa-tag"></i>
+          </div>
+          <div>
+            <h4 data-i18n="trust.best_price_title" class="font-bold text-base text-espresso group-hover:text-brand-crimson transition">Best Price Guarantee</h4>
+            <p data-i18n="trust.best_price_desc" class="text-xs text-gray-500 mt-0.5 leading-snug">We find the best local deals for you.</p>
+            <span data-i18n="trust.best_price_sub" class="text-[11px] text-gray-400 font-medium">Best price guaranteed.</span>
+          </div>
+        </div>
+
+        <!-- Pillar 2: Local Support -->
+        <div class="flex items-center gap-4 group p-3 rounded-2xl hover:bg-brand-sand/50 transition">
+          <div class="w-14 h-14 rounded-2xl bg-red-50 text-brand-crimson flex items-center justify-center text-xl shadow-sm group-hover:scale-110 group-hover:bg-brand-crimson group-hover:text-white transition duration-300">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+          <div>
+            <h4 data-i18n="trust.local_support_title" class="font-bold text-base text-espresso group-hover:text-brand-crimson transition">Local Support</h4>
+            <p data-i18n="trust.local_support_desc" class="text-xs text-gray-500 mt-0.5 leading-snug">24/7 bilingual assistance in Da Nang.</p>
+            <span data-i18n="trust.local_support_sub" class="text-[11px] text-gray-400 font-medium">Local support 24/7.</span>
+          </div>
+        </div>
+
+        <!-- Pillar 3: Curated Quality -->
+        <div class="flex items-center gap-4 group p-3 rounded-2xl hover:bg-brand-sand/50 transition">
+          <div class="w-14 h-14 rounded-2xl bg-red-50 text-brand-crimson flex items-center justify-center text-xl shadow-sm group-hover:scale-110 group-hover:bg-brand-crimson group-hover:text-white transition duration-300">
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <div>
+            <h4 data-i18n="trust.curated_title" class="font-bold text-base text-espresso group-hover:text-brand-crimson transition">Curated Quality</h4>
+            <p data-i18n="trust.curated_desc" class="text-xs text-gray-500 mt-0.5 leading-snug">Hand-picked budget stays & tours.</p>
+            <span data-i18n="trust.curated_sub" class="text-[11px] text-gray-400 font-medium">Curated quality experiences.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 4. FEATURED TOURS SECTION (4 Cards matching Figma Section 2)              -->
+  <!-- ========================================================================= -->
+  <section class="py-16 sm:py-20 bg-brand-sand/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+        <div>
+          <span data-i18n="tours.badge" class="text-xs font-bold text-brand-crimson uppercase tracking-wider">Experiences</span>
+          <h2 data-i18n="tours.title" class="text-3xl sm:text-4xl font-extrabold text-espresso tracking-tight mt-1">Featured Tours</h2>
+          <p data-i18n="tours.subtitle" class="text-sm text-gray-500 mt-1">Top rated budget experiences in Da Nang & Central Vietnam</p>
+        </div>
+        <a href="pages/tours/index.html" class="inline-flex items-center gap-2 text-sm font-bold text-brand-crimson hover:text-brand-darkcrimson group transition">
+          <span data-i18n="tours.see_all">See all tours</span>
+          <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+        </a>
+      </div>
+
+      <!-- Tour Cards 4-Column Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- CARD 1: Ba Na Hills Full Day -->
+        <div class="brand-card overflow-hidden flex flex-col group reveal-init">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=600&auto=format&fit=crop&q=80" 
+                 alt="Ba Na Hills Golden Bridge" 
+                 class="w-full h-full object-cover img-zoom-target">
+            <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-md text-brand-crimson text-xs font-extrabold px-2.5 py-1 rounded-full shadow-sm">
+              -20%
+            </span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 data-i18n="tours.bana_title" class="font-bold text-base text-espresso group-hover:text-brand-crimson transition leading-tight">
+                Ba Na Hills Full Day
+              </h3>
+              <p data-i18n="tours.bana_sub" class="text-xs text-gray-400 mt-0.5">Ba Na Hills Full Day Tour</p>
+              
+              <div class="flex items-center gap-3 text-xs text-gray-500 mt-3">
+                <span class="flex items-center gap-1">
+                  <i class="fa-regular fa-clock text-gray-400"></i> 8 <span data-i18n="tours.hours">hours</span>
+                </span>
+                <span class="flex items-center gap-1 text-amber-500 font-semibold">
+                  <i class="fa-solid fa-star text-xs"></i> 4.8 <span class="text-gray-400 font-normal">(124)</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
+              <div>
+                <span class="text-xs text-gray-400 line-through">$55</span>
+                <span class="text-xl font-extrabold text-brand-crimson ml-1">$44</span>
+              </div>
+              <a href="pages/tours/detail.html" data-i18n="tours.book_btn" class="brand-btn-outline px-4 py-1.5 text-xs font-bold">
+                Book
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2: Hoi An Evening Tour -->
+        <div class="brand-card overflow-hidden flex flex-col group reveal-init stagger-delay-1">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&auto=format&fit=crop&q=80" 
+                 alt="Hoi An Evening Tour" 
+                 class="w-full h-full object-cover img-zoom-target">
+            <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-md text-brand-crimson text-xs font-extrabold px-2.5 py-1 rounded-full shadow-sm">
+              -15%
+            </span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 data-i18n="tours.hoian_title" class="font-bold text-base text-espresso group-hover:text-brand-crimson transition leading-tight">
+                Hoi An Evening Tour
+              </h3>
+              <p data-i18n="tours.hoian_sub" class="text-xs text-gray-400 mt-0.5">Hoi An Ancient Town</p>
+              
+              <div class="flex items-center gap-3 text-xs text-gray-500 mt-3">
+                <span class="flex items-center gap-1">
+                  <i class="fa-regular fa-clock text-gray-400"></i> 5 <span data-i18n="tours.hours">hours</span>
+                </span>
+                <span class="flex items-center gap-1 text-amber-500 font-semibold">
+                  <i class="fa-solid fa-star text-xs"></i> 4.9 <span class="text-gray-400 font-normal">(89)</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
+              <div>
+                <span class="text-xs text-gray-400 line-through">$30</span>
+                <span class="text-xl font-extrabold text-brand-crimson ml-1">$25</span>
+              </div>
+              <a href="pages/tours/detail.html" data-i18n="tours.book_btn" class="brand-btn-outline px-4 py-1.5 text-xs font-bold">
+                Book
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: Marble Mountains -->
+        <div class="brand-card overflow-hidden flex flex-col group reveal-init stagger-delay-2">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1528127269322-539801943592?w=600&auto=format&fit=crop&q=80" 
+                 alt="Marble Mountains" 
+                 class="w-full h-full object-cover img-zoom-target">
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 data-i18n="tours.marble_title" class="font-bold text-base text-espresso group-hover:text-brand-crimson transition leading-tight">
+                Marble Mountains
+              </h3>
+              <p data-i18n="tours.marble_sub" class="text-xs text-gray-400 mt-0.5">Marble Mountains</p>
+              
+              <div class="flex items-center gap-3 text-xs text-gray-500 mt-3">
+                <span class="flex items-center gap-1">
+                  <i class="fa-regular fa-clock text-gray-400"></i> 3 <span data-i18n="tours.hours">hours</span>
+                </span>
+                <span class="flex items-center gap-1 text-amber-500 font-semibold">
+                  <i class="fa-solid fa-star text-xs"></i> 4.7 <span class="text-gray-400 font-normal">(215)</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
+              <div>
+                <span class="text-xs text-gray-400 line-through">$25</span>
+                <span class="text-xl font-extrabold text-brand-crimson ml-1">$18</span>
+              </div>
+              <a href="pages/tours/detail.html" data-i18n="tours.book_btn" class="brand-btn-outline px-4 py-1.5 text-xs font-bold">
+                Book
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4: Han River Night Cruise -->
+        <div class="brand-card overflow-hidden flex flex-col group reveal-init stagger-delay-3">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&auto=format&fit=crop&q=80" 
+                 alt="Han River Night Cruise" 
+                 class="w-full h-full object-cover img-zoom-target">
+            <span data-i18n="tours.new_badge" class="absolute top-3 left-3 bg-brand-crimson text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-sm">
+              New
+            </span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 data-i18n="tours.hanriver_title" class="font-bold text-base text-espresso group-hover:text-brand-crimson transition leading-tight">
+                Han River Night Cruise
+              </h3>
+              <p data-i18n="tours.hanriver_sub" class="text-xs text-gray-400 mt-0.5">Han River Night Cruise</p>
+              
+              <div class="flex items-center gap-3 text-xs text-gray-500 mt-3">
+                <span class="flex items-center gap-1">
+                  <i class="fa-regular fa-clock text-gray-400"></i> 1.5 <span data-i18n="tours.hours">hours</span>
+                </span>
+                <span class="flex items-center gap-1 text-amber-500 font-semibold">
+                  <i class="fa-solid fa-star text-xs"></i> 4.6 <span class="text-gray-400 font-normal">(78)</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
+              <div>
+                <span class="text-xl font-extrabold text-brand-crimson">$22</span>
+              </div>
+              <a href="pages/tours/detail.html" data-i18n="tours.book_btn" class="brand-btn-outline px-4 py-1.5 text-xs font-bold">
+                Book
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 5. TOP-RATED HOTELS SECTION (3 Cards matching Figma Section 3)            -->
+  <!-- ========================================================================= -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+        <div>
+          <span data-i18n="hotels.badge" class="text-xs font-bold text-brand-crimson uppercase tracking-wider">Accommodations</span>
+          <h2 data-i18n="hotels.title" class="text-3xl sm:text-4xl font-extrabold text-espresso tracking-tight mt-1">Top-Rated Hotels</h2>
+          <p data-i18n="hotels.subtitle" class="text-sm text-gray-500 mt-1">Handpicked stays in Da Nang & Hoi An</p>
+        </div>
+        <a href="pages/stays/index.html" class="inline-flex items-center gap-2 text-sm font-bold text-brand-crimson hover:text-brand-darkcrimson group transition">
+          <span data-i18n="hotels.see_all">See all hotels</span>
+          <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+        </a>
+      </div>
+
+      <!-- Hotel Cards 3-Column Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- HOTEL 1: The Bliss Oceanfront Hotel -->
+        <div class="brand-card overflow-hidden flex flex-col group reveal-init">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&auto=format&fit=crop&q=80" 
+                 alt="The Bliss Oceanfront Hotel" 
+                 class="w-full h-full object-cover img-zoom-target">
+            <span data-i18n="hotels.tag_oceanfront" class="absolute top-3.5 right-3.5 bg-espresso/80 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1 rounded-full">
+              Oceanfront
+            </span>
+          </div>
+
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-bold text-lg text-espresso group-hover:text-brand-crimson transition leading-snug">
+                The Bliss Oceanfront Hotel
+              </h3>
+              <p class="text-xs text-gray-500 flex items-center gap-1.5 mt-1">
+                <i class="fa-solid fa-location-dot text-brand-crimson text-xs"></i> My Khe Beach, Da Nang
+              </p>
+
+              <!-- Star Rating -->
+              <div class="flex items-center gap-1 text-brand-crimson text-xs mt-2.5">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span class="font-bold ml-1 text-gray-800">5.0</span>
+              </div>
+
+              <!-- Amenity Badges -->
+              <div class="flex flex-wrap gap-1.5 mt-3 text-[11px] text-gray-600">
+                <span data-i18n="hotels.pool" class="px-2.5 py-1 rounded-md bg-brand-sand border border-gray-200/60">Pool</span>
+                <span data-i18n="hotels.spa" class="px-2.5 py-1 rounded-md bg-brand-sand border border-gray-200/60">Spa</span>
+                <span data-i18n="hotels.breakfast" class="px-2.5 py-1 rounded-md bg-brand-sand border border-gray-200/60">Breakfast</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
+              <div>
+                <span data-i18n="hotels.from" class="block text-[10px] text-gray-400">from</span>
+                <div class="leading-none">
+                  <span class="text-2xl font-black text-brand-crimson">$85</span>
+                  <span data-i18n="hotels.per_night" class="text-xs text-gray-500 font-medium">/night</span>
+                </div>
+              </div>
+              <a href="pages/stays/detail.html" data-i18n="hotels.view_hotel" class="brand-btn-primary px-5 py-2.5 text-xs sm:text-sm font-semibold">
+                View Hotel
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- HOTEL 2: InterContinental Sun Peninsula -->
+        <div class="brand-card overflow-hidden flex flex-col group reveal-init stagger-delay-1">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&auto=format&fit=crop&q=80" 
+                 alt="InterContinental Sun Peninsula" 
+                 class="w-full h-full object-cover img-zoom-target">
+            <span data-i18n="hotels.tag_luxury" class="absolute top-3.5 right-3.5 bg-brand-crimson text-white text-[11px] font-bold px-3 py-1 rounded-full">
+              Luxury
+            </span>
+          </div>
+
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-bold text-lg text-espresso group-hover:text-brand-crimson transition leading-snug">
+                InterContinental Sun Peninsula
+              </h3>
+              <p class="text-xs text-gray-500 flex items-center gap-1.5 mt-1">
+                <i class="fa-solid fa-location-dot text-brand-crimson text-xs"></i> Son Tra Peninsula, Da Nang
+              </p>
+
+              <!-- Star Rating -->
+              <div class="flex items-center gap-1 text-brand-crimson text-xs mt-2.5">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <span class="font-bold ml-1 text-gray-800">4.9</span>
+              </div>
+
+              <!-- Amenity Badges -->
+              <div class="flex flex-wrap gap-1.5 mt-3 text-[11px] text-gray-600">
+                <span data-i18n="hotels.resort" class="px-2.5 py-1 rounded-md bg-brand-sand border border-gray-200/60">Resort</span>
+                <span data-i18n="hotels.spa" class="px-2.5 py-1 rounded-md bg-brand-sand border border-gray-200/60">Spa</span>
+                <span data-i18n="hotels.fine_dining" class="px-2.5 py-1 rounded-md bg-brand-sand border border-gray-200/60">Fine Dining</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
+              <div>
+                <span data-i18n="hotels.from" class="block text-[10px] text-gray-400">from</span>
+                <div class="leading-none">
+                  <span class="text-2xl font-black text-brand-crimson">$145</span>
+                  <span data-i18n="hotels.per_night" class="text-xs text-gray-500 font-medium">/night</span>
+                </div>
+              </div>
+              <a href="pages/stays/detail.html" data-i18n="hotels.view_hotel" class="brand-btn-primary px-5 py-2.5 text-xs sm:text-sm font-semibold">
+                View Hotel
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- HOTEL 3: Sala Danang Beach Hotel -->
+        <div class="brand-card overflow-hidden flex flex-col group reveal-init stagger-delay-2">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&auto=format&fit=crop&q=80" 
+                 alt="Sala Danang Beach Hotel" 
+                 class="w-full h-full object-cover img-zoom-target">
+            <span data-i18n="hotels.tag_best_value" class="absolute top-3.5 right-3.5 bg-amber-600 text-white text-[11px] font-bold px-3 py-1 rounded-full">
+              Best Value
+            </span>
+          </div>
+
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-bold text-lg text-espresso group-hover:text-brand-crimson transition leading-snug">
+                Sala Danang Beach Hotel
+              </h3>
+              <p class="text-xs text-gray-500 flex items-center gap-1.5 mt-1">
+                <i class="fa-solid fa-location-dot text-brand-crimson text-xs"></i> My Khe Beach, Da Nang
+              </p>
+
+              <!-- Star Rating -->
+              <div class="flex items-center gap-1 text-brand-crimson text-xs mt-2.5">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span class="font-bold ml-1 text-gray-800">4.7</span>
+              </div>
+
+              <!-- Amenity Badges -->
+              <div class="flex flex-wrap gap-1.5 mt-3 text-[11px] text-gray-600">
+                <span data-i18n="hotels.city_view" class="px-2.5 py-1 rounded-md bg-brand-sand border border-gray-200/60">City View</span>
+                <span data-i18n="hotels.pool" class="px-2.5 py-1 rounded-md bg-brand-sand border border-gray-200/60">Pool</span>
+                <span data-i18n="hotels.wifi" class="px-2.5 py-1 rounded-md bg-brand-sand border border-gray-200/60">WiFi</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
+              <div>
+                <span data-i18n="hotels.from" class="block text-[10px] text-gray-400">from</span>
+                <div class="leading-none">
+                  <span class="text-2xl font-black text-brand-crimson">$55</span>
+                  <span data-i18n="hotels.per_night" class="text-xs text-gray-500 font-medium">/night</span>
+                </div>
+              </div>
+              <a href="pages/stays/detail.html" data-i18n="hotels.view_hotel" class="brand-btn-primary px-5 py-2.5 text-xs sm:text-sm font-semibold">
+                View Hotel
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 6. TRAVEL GUIDE BANNER (Exactly matching Figma Section 5)                 -->
+  <!-- ========================================================================= -->
+  <section id="travel-guide" class="relative py-20 overflow-hidden map-pattern-bg text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Content -->
+        <div class="lg:col-span-6 space-y-6">
+          <span data-i18n="guide.badge" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-red-300 text-xs font-bold uppercase tracking-wider border border-white/15">
+            Travel Guides
+          </span>
+
+          <h2 data-i18n-html="guide.headline_html" class="text-4xl sm:text-5xl font-black text-white leading-[1.15] tracking-tight">
+            Explore Da Nang <br>
+            <span class="text-red-400 font-serif italic font-normal">Your Way</span>
+          </h2>
+
+          <p data-i18n="guide.desc" class="text-gray-300 text-sm sm:text-base leading-relaxed max-w-lg">
+            From hidden street food gems to pristine beaches and ancient temples — our insider travel guides help you discover the best of Da Nang without breaking the bank.
+          </p>
+
+          <div class="pt-2">
+            <a href="pages/tours/index.html" class="inline-flex items-center gap-3 brand-btn-primary px-7 py-3.5 text-sm font-bold shadow-xl shadow-red-950/40 group">
+              <span data-i18n="guide.btn">View Travel Guides</span>
+              <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Visual Showcase -->
+        <div class="lg:col-span-6">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-white/20 group">
+            <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=800&auto=format&fit=crop&q=80" 
+                 alt="Da Nang Lanterns and Pagoda" 
+                 class="w-full h-80 sm:h-96 object-cover img-zoom-target">
+            
+            <div class="absolute inset-0 bg-gradient-to-t from-espresso/80 via-transparent to-transparent"></div>
+            
+            <div class="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white">
+              <div>
+                <span data-i18n="guide.insider_badge" class="text-xs text-amber-300 font-bold uppercase tracking-wider">Insider Secrets</span>
+                <h4 data-i18n="guide.card_title" class="text-xl font-bold mt-0.5">Top 15 local street food gems in Da Nang</h4>
+              </div>
+              <span class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-brand-crimson transition">
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 7. SECRET DEALS NEWSLETTER BANNER (Matching Figma Section 4)              -->
+  <!-- ========================================================================= -->
+  <section id="secret-deals" class="py-16 sm:py-20 bg-brand-sand/50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      
+      <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-gray-200/80 reveal-init">
+        
+        <span data-i18n="deals.badge" class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-red-50 text-brand-crimson text-xs font-bold uppercase tracking-wider mb-4 border border-red-100">
+          Exclusive Deals
+        </span>
+
+        <h2 data-i18n="deals.title" class="text-3xl sm:text-4xl font-extrabold text-espresso tracking-tight">
+          Get Secret Deals!
+        </h2>
+
+        <p data-i18n="deals.desc" class="text-gray-500 text-sm sm:text-base mt-2 max-w-xl mx-auto">
+          Join 10,000+ travelers getting exclusive deals, hidden gems & local tips straight to their inbox.
+        </p>
+
+        <!-- Form Input & Button -->
+        <div class="mt-8 max-w-md mx-auto flex flex-col sm:flex-row gap-2.5">
+          <div class="relative flex-1">
+            <i class="fa-regular fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            <input type="email" data-i18n-placeholder="deals.placeholder" placeholder="Enter your email address..." 
+                   class="w-full pl-11 pr-4 py-3.5 rounded-xl bg-brand-sand border border-gray-200 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-brand-crimson focus:bg-white transition">
+          </div>
+          <button data-i18n="deals.btn" class="brand-btn-primary px-7 py-3.5 text-sm font-bold shadow-md whitespace-nowrap">
+            Subscribe
+          </button>
+        </div>
+
+        <p data-i18n="deals.note" class="text-[12px] text-gray-400 mt-3">
+          No spam, ever. Unsubscribe anytime.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 8. GLOBAL FOOTER                                                          -->
+  <!-- ========================================================================= -->
+  <footer class="bg-[#24080F] text-white pt-16 pb-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        
+        <!-- Cột 1: Thương hiệu -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-brand-crimson flex items-center justify-center text-white shadow-md">
+              <i class="fa-solid fa-umbrella-beach text-lg"></i>
+            </div>
+            <div>
+              <span class="font-extrabold text-xl tracking-tight text-white">
+                DaNang <span class="text-red-400 font-serif italic font-normal text-lg">for less</span>
+              </span>
+              <p data-i18n="brand.tagline" class="text-xs text-gray-400">Experience Da Nang on a budget</p>
+            </div>
+          </div>
+
+          <p data-i18n="footer.intro" class="text-xs sm:text-sm text-gray-300/80 leading-relaxed max-w-sm pt-2">
+            Your trusted local partner for high-quality travel experiences at affordable prices in Da Nang and Central Vietnam.
+          </p>
+
+          <div class="flex items-center space-x-3 pt-2">
+            <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-crimson flex items-center justify-center text-white transition duration-200">
+              <i class="fa-brands fa-facebook-f text-xs"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-crimson flex items-center justify-center text-white transition duration-200">
+              <i class="fa-brands fa-instagram text-xs"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-crimson flex items-center justify-center text-white transition duration-200">
+              <i class="fa-brands fa-tiktok text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Cột 2: Explore -->
+        <div class="space-y-3">
+          <h4 data-i18n="footer.explore" class="text-sm font-bold text-white uppercase tracking-wider">Explore</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-gray-300/80">
+            <li><a href="pages/tours/index.html" data-i18n="nav.tours" class="hover:text-red-400 transition">Tours</a></li>
+            <li><a href="pages/stays/index.html" data-i18n="nav.hotels" class="hover:text-red-400 transition">Hotels</a></li>
+            <li><a href="pages/stays/index.html" data-i18n="footer.homestays" class="hover:text-red-400 transition">Homestay & Villas</a></li>
+            <li><a href="#travel-guide" data-i18n="footer.travel_guide" class="hover:text-red-400 transition">Travel Guide</a></li>
+            <li><a href="#secret-deals" data-i18n="nav.offers" class="hover:text-red-400 transition">Special Offers</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 3: For Partners -->
+        <div class="space-y-3">
+          <h4 data-i18n="footer.partners" class="text-sm font-bold text-white uppercase tracking-wider">For Partners</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-gray-300/80">
+            <li><a href="pages/portal/admin.html" data-i18n="footer.list_property" class="hover:text-red-400 transition">List Your Property</a></li>
+            <li><a href="pages/portal/admin.html" data-i18n="footer.tour_operator" class="hover:text-red-400 transition">Tour Operator</a></li>
+            <li><a href="#" data-i18n="footer.affiliate" class="hover:text-red-400 transition">Affiliate Program</a></li>
+            <li><a href="#" data-i18n="footer.partnership" class="hover:text-red-400 transition">Business Partnership</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 4: Support & Legal -->
+        <div class="space-y-3">
+          <h4 data-i18n="footer.support" class="text-sm font-bold text-white uppercase tracking-wider">Support & Legal</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-gray-300/80">
+            <li><a href="#" data-i18n="footer.help_center" class="hover:text-red-400 transition">Help Center</a></li>
+            <li><a href="#" data-i18n="footer.cancel_policy" class="hover:text-red-400 transition">Cancellation Policy</a></li>
+            <li><a href="#" data-i18n="footer.terms" class="hover:text-red-400 transition">Terms of Use</a></li>
+            <li><a href="#" data-i18n="footer.privacy" class="hover:text-red-400 transition">Privacy Policy</a></li>
+            <li><a href="#" data-i18n="footer.community" class="hover:text-red-400 transition">Community Guidelines</a></li>
+          </ul>
+
+          <div class="pt-2">
+            <div class="lang-pill-switch inline-flex bg-white/10 px-3 py-1.5 rounded-full text-xs font-semibold text-gray-300 items-center gap-1.5 border border-white/10">
+              <span data-lang="vn" class="text-white font-bold cursor-pointer">VN</span>
+              <span class="text-white/40">|</span>
+              <span data-lang="en" class="text-gray-400 hover:text-white cursor-pointer">EN</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+        <div class="space-y-1 text-center md:text-left">
+          <p data-i18n="footer.copyright">© 2024 DaNang for less. All rights reserved.</p>
+          <p data-i18n="footer.license" class="text-[11px] text-gray-500">International Travel Business License No: 79-1234/2024/TCDL-GP LHQT</p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-gray-300">
+          <a href="tel:+842363123456" class="hover:text-white flex items-center gap-2 transition">
+            <i class="fa-solid fa-phone text-red-400"></i>
+            <span>+84 (0) 236 312 3456</span>
+          </a>
+          <a href="mailto:hello@danangforless.com" class="hover:text-white flex items-center gap-2 transition">
+            <i class="fa-solid fa-envelope text-red-400"></i>
+            <span>hello@danangforless.com</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT MODULES & PLUGINS                                              -->
+  <!-- ========================================================================= -->
+  <script src="assets/js/core/mock-data.js"></script>
+  <script src="assets/js/core/i18n.js"></script>
+  <script src="assets/js/core/navigation.js"></script>
+  <script src="assets/js/modules/live-social.js"></script>
+  <script src="assets/js/animations/hero-effects.js"></script>
+  <script src="assets/js/animations/scroll-reveal.js"></script>
+
+</body>
+</html>

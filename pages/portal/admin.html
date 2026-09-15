@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - DaNang for less</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              crimson: '#8F1D2C',
+              darkcrimson: '#731422',
+              cream: '#FFFDF9',
+              sand: '#FAF7F2',
+              espresso: '#1F060A',
+              gold: '#E5B567'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/animations.css">
+</head>
+<body class="bg-gray-100/70 text-espresso font-sans antialiased overflow-x-hidden">
+
+  <!-- TOP ADMIN BAR -->
+  <header class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+    <div class="px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <a href="../../index.html" class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-brand-crimson flex items-center justify-center text-white shadow">
+            <i class="fa-solid fa-umbrella-beach text-sm"></i>
+          </div>
+          <span class="font-extrabold text-lg tracking-tight text-espresso">
+            DaNang <span class="text-brand-crimson font-serif italic font-normal text-sm">for less</span>
+          </span>
+        </a>
+        <span class="text-xs bg-red-50 text-brand-crimson font-bold px-2.5 py-0.5 rounded-full border border-red-100">
+          Admin Panel
+        </span>
+      </div>
+
+      <div class="flex items-center space-x-6 text-xs font-semibold text-gray-600">
+        <nav class="hidden md:flex items-center space-x-6">
+          <a href="../tours/index.html" data-i18n="nav.tours" class="hover:text-brand-crimson">Tours</a>
+          <a href="../stays/index.html" data-i18n="nav.hotels" class="hover:text-brand-crimson">Hotels & Stays</a>
+          <a href="../../index.html#travel-guide" data-i18n="nav.guides" class="hover:text-brand-crimson">Guides</a>
+          <a href="../../index.html#secret-deals" data-i18n="nav.offers" class="hover:text-brand-crimson">Special Offers</a>
+        </nav>
+
+        <div class="flex items-center space-x-3">
+          <div class="lang-pill-switch bg-gray-100 px-2.5 py-1 rounded-full text-[11px] font-bold text-gray-700 flex items-center gap-1 border border-gray-200">
+            <span data-lang="en" class="text-brand-crimson cursor-pointer">EN</span>
+            <span class="text-gray-300">|</span>
+            <span data-lang="vn" class="text-gray-400 hover:text-gray-700 cursor-pointer">VN</span>
+          </div>
+          <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=80&auto=format&fit=crop&q=80" 
+               alt="Admin Profile" class="w-9 h-9 rounded-full object-cover border-2 border-brand-crimson">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex min-h-[calc(100vh-64px)]">
+    
+    <!-- ===================================================================== -->
+    <!-- LEFT ADMIN SIDEBAR (Matching Figma admin_dashboard.png)               -->
+    <!-- ===================================================================== -->
+    <aside class="w-64 bg-white border-r border-gray-200 p-5 flex flex-col justify-between hidden md:flex flex-shrink-0">
+      <div class="space-y-6">
+        <nav class="space-y-1 text-xs font-semibold text-gray-600">
+          <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-brand-crimson text-white font-bold shadow-md">
+            <i class="fa-solid fa-gauge text-sm w-4"></i> Dashboard
+          </a>
+          <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-gray-50 hover:text-espresso transition">
+            <i class="fa-solid fa-map-location-dot text-sm w-4"></i> Manage Tours
+          </a>
+          <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-gray-50 hover:text-espresso transition">
+            <i class="fa-solid fa-hotel text-sm w-4"></i> Manage Hotels
+          </a>
+          <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-gray-50 hover:text-espresso transition">
+            <i class="fa-regular fa-calendar-check text-sm w-4"></i> Manage Bookings
+          </a>
+          <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-gray-50 hover:text-espresso transition">
+            <i class="fa-solid fa-users text-sm w-4"></i> Manage Users
+          </a>
+          <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-gray-50 hover:text-espresso transition">
+            <i class="fa-solid fa-chart-pie text-sm w-4"></i> Reports
+          </a>
+          <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-gray-50 hover:text-espresso transition">
+            <i class="fa-solid fa-gear text-sm w-4"></i> Settings
+          </a>
+        </nav>
+      </div>
+
+      <!-- Bottom Profile Status -->
+      <div class="space-y-4 pt-6 border-t border-gray-100 text-xs">
+        <a href="../../index.html" class="flex items-center gap-2.5 text-gray-500 hover:text-brand-crimson font-semibold">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+        </a>
+        <div class="p-3 rounded-2xl bg-brand-sand border border-gray-200">
+          <span class="block text-[10px] text-gray-400 font-bold uppercase">Logged in as</span>
+          <span class="block text-xs font-bold text-gray-800">Admin User</span>
+          <span class="text-[10px] text-brand-crimson font-medium">Super Administrator</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ===================================================================== -->
+    <!-- MAIN ADMIN DASHBOARD CONTENT                                          -->
+    <!-- ===================================================================== -->
+    <main class="flex-1 p-6 sm:p-8 space-y-8 overflow-y-auto">
+      
+      <!-- Top Title Bar -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <nav class="flex items-center space-x-2 text-xs text-gray-400 font-medium">
+            <a href="../../index.html" class="hover:text-brand-crimson">Home</a>
+            <span>/</span>
+            <span class="text-gray-700 font-bold">Dashboard</span>
+          </nav>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-espresso tracking-tight mt-1">Admin Dashboard</h1>
+          <p class="text-xs sm:text-sm text-gray-500">Welcome back! Here's what's happening with DaNang for Less.</p>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="bg-white border border-gray-200 rounded-xl px-3.5 py-2 text-xs font-bold text-gray-700 shadow-sm flex items-center gap-2">
+            <i class="fa-regular fa-calendar text-brand-crimson"></i>
+            <span>Jun 2024</span>
+          </div>
+          <button class="brand-btn-primary px-4 py-2 text-xs font-bold shadow flex items-center gap-1.5">
+            <i class="fa-solid fa-plus"></i> Add New Tour
+          </button>
+        </div>
+      </div>
+
+      <!-- 4 KEY STAT CARDS (Matching Figma admin_dashboard.png) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        
+        <!-- CARD 1: Total Tours -->
+        <div class="bg-white rounded-3xl p-5 border border-gray-200/80 shadow-sm flex items-center justify-between">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400">TOTAL TOURS</span>
+            <div class="text-3xl font-black text-espresso mt-1">48</div>
+            <span class="text-xs font-bold text-emerald-600 flex items-center gap-1 mt-1">
+              <i class="fa-solid fa-arrow-trend-up text-[10px]"></i> +6 this month
+            </span>
+          </div>
+          <div class="w-12 h-12 rounded-2xl bg-red-50 text-brand-crimson flex items-center justify-center text-lg">
+            <i class="fa-solid fa-map"></i>
+          </div>
+        </div>
+
+        <!-- CARD 2: Total Hotels -->
+        <div class="bg-white rounded-3xl p-5 border border-gray-200/80 shadow-sm flex items-center justify-between">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400">TOTAL HOTELS</span>
+            <div class="text-3xl font-black text-espresso mt-1">23</div>
+            <span class="text-xs font-bold text-emerald-600 flex items-center gap-1 mt-1">
+              <i class="fa-solid fa-arrow-trend-up text-[10px]"></i> +2 this month
+            </span>
+          </div>
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-hotel"></i>
+          </div>
+        </div>
+
+        <!-- CARD 3: Total Bookings -->
+        <div class="bg-white rounded-3xl p-5 border border-gray-200/80 shadow-sm flex items-center justify-between">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400">TOTAL BOOKINGS</span>
+            <div class="text-3xl font-black text-espresso mt-1">1,204</div>
+            <span class="text-xs font-bold text-emerald-600 flex items-center gap-1 mt-1">
+              <i class="fa-solid fa-arrow-trend-up text-[10px]"></i> +12.4% vs last month
+            </span>
+          </div>
+          <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg">
+            <i class="fa-regular fa-calendar-check"></i>
+          </div>
+        </div>
+
+        <!-- CARD 4: Total Revenue -->
+        <div class="bg-[#8F1D2C] text-white rounded-3xl p-5 shadow-lg flex items-center justify-between">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-red-200">TOTAL REVENUE</span>
+            <div class="text-3xl font-black text-white mt-1">$84,200</div>
+            <span class="text-xs font-bold text-amber-300 flex items-center gap-1 mt-1">
+              <i class="fa-solid fa-arrow-trend-up text-[10px]"></i> +18.2% vs last month
+            </span>
+          </div>
+          <div class="w-12 h-12 rounded-2xl bg-white/20 text-white flex items-center justify-center text-lg">
+            <i class="fa-solid fa-sack-dollar"></i>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- MANAGE TOURS TABLE (Matching Figma admin_dashboard.png) -->
+      <div class="bg-white rounded-3xl border border-gray-200/80 shadow-sm overflow-hidden space-y-4 p-6">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h3 class="font-bold text-lg text-espresso">Manage Tours</h3>
+            <p class="text-xs text-gray-400">View and manage all listed tour packages</p>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <i class="fa-solid fa-magnifying-glass text-gray-400 text-xs absolute left-3 top-1/2 -translate-y-1/2"></i>
+              <input type="text" placeholder="Search tours..." class="pl-8 pr-4 py-2 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-800 focus:outline-none">
+            </div>
+            <button class="px-3 py-2 rounded-xl border border-gray-200 hover:bg-gray-50 text-xs font-semibold text-gray-700 flex items-center gap-1.5">
+              <i class="fa-solid fa-filter text-xs text-gray-500"></i> Filter
+            </button>
+            <button class="brand-btn-primary px-3.5 py-2 text-xs font-bold flex items-center gap-1.5 shadow">
+              <i class="fa-solid fa-plus text-xs"></i> Add Tour
+            </button>
+          </div>
+        </div>
+
+        <!-- Table Responsive Container -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-brand-sand/60 text-gray-400 font-bold uppercase tracking-wider text-[10px]">
+              <tr>
+                <th class="py-3 px-4">Tour Name</th>
+                <th class="py-3 px-4">Location</th>
+                <th class="py-3 px-4">Price</th>
+                <th class="py-3 px-4">Duration</th>
+                <th class="py-3 px-4">Status</th>
+                <th class="py-3 px-4 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100 font-medium text-gray-700">
+              <!-- ROW 1 -->
+              <tr class="hover:bg-gray-50/60 transition">
+                <td class="py-3.5 px-4 flex items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=80&auto=format&fit=crop&q=80" class="w-10 h-10 rounded-xl object-cover">
+                  <div>
+                    <span class="font-bold text-gray-900 block">Ba Na Hills Full Day Tour</span>
+                    <span class="text-[10px] text-gray-400">ID: TUR-0012</span>
+                  </div>
+                </td>
+                <td class="py-3.5 px-4"><i class="fa-solid fa-location-dot text-brand-crimson mr-1"></i> Ba Na Hills, Da Nang</td>
+                <td class="py-3.5 px-4"><strong class="text-brand-crimson">$44</strong> <span class="text-gray-400 line-through ml-1">$55</span></td>
+                <td class="py-3.5 px-4"><i class="fa-regular fa-clock text-gray-400 mr-1"></i> 8 hours</td>
+                <td class="py-3.5 px-4">
+                  <span class="bg-emerald-50 text-emerald-700 font-bold text-[10px] px-2.5 py-0.5 rounded-full">Active</span>
+                </td>
+                <td class="py-3.5 px-4 text-right space-x-2">
+                  <button class="px-2.5 py-1 rounded-lg border border-gray-200 hover:bg-gray-100 font-semibold text-gray-700">Edit</button>
+                  <button class="px-2.5 py-1 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 font-semibold">Delete</button>
+                </td>
+              </tr>
+
+              <!-- ROW 2 -->
+              <tr class="hover:bg-gray-50/60 transition">
+                <td class="py-3.5 px-4 flex items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=80&auto=format&fit=crop&q=80" class="w-10 h-10 rounded-xl object-cover">
+                  <div>
+                    <span class="font-bold text-gray-900 block">Hoi An Evening Tour</span>
+                    <span class="text-[10px] text-gray-400">ID: TUR-0013</span>
+                  </div>
+                </td>
+                <td class="py-3.5 px-4"><i class="fa-solid fa-location-dot text-brand-crimson mr-1"></i> Hoi An Ancient Town</td>
+                <td class="py-3.5 px-4"><strong class="text-brand-crimson">$25</strong> <span class="text-gray-400 line-through ml-1">$30</span></td>
+                <td class="py-3.5 px-4"><i class="fa-regular fa-clock text-gray-400 mr-1"></i> 5 hours</td>
+                <td class="py-3.5 px-4">
+                  <span class="bg-emerald-50 text-emerald-700 font-bold text-[10px] px-2.5 py-0.5 rounded-full">Active</span>
+                </td>
+                <td class="py-3.5 px-4 text-right space-x-2">
+                  <button class="px-2.5 py-1 rounded-lg border border-gray-200 hover:bg-gray-100 font-semibold text-gray-700">Edit</button>
+                  <button class="px-2.5 py-1 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 font-semibold">Delete</button>
+                </td>
+              </tr>
+
+              <!-- ROW 3 -->
+              <tr class="hover:bg-gray-50/60 transition">
+                <td class="py-3.5 px-4 flex items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1528127269322-539801943592?w=80&auto=format&fit=crop&q=80" class="w-10 h-10 rounded-xl object-cover">
+                  <div>
+                    <span class="font-bold text-gray-900 block">Marble Mountains Half Day</span>
+                    <span class="text-[10px] text-gray-400">ID: TUR-0014</span>
+                  </div>
+                </td>
+                <td class="py-3.5 px-4"><i class="fa-solid fa-location-dot text-brand-crimson mr-1"></i> Marble Mountains, DN</td>
+                <td class="py-3.5 px-4"><strong class="text-brand-crimson">$18</strong> <span class="text-gray-400 line-through ml-1">$25</span></td>
+                <td class="py-3.5 px-4"><i class="fa-regular fa-clock text-gray-400 mr-1"></i> 3 hours</td>
+                <td class="py-3.5 px-4">
+                  <span class="bg-amber-50 text-amber-700 font-bold text-[10px] px-2.5 py-0.5 rounded-full">Draft</span>
+                </td>
+                <td class="py-3.5 px-4 text-right space-x-2">
+                  <button class="px-2.5 py-1 rounded-lg border border-gray-200 hover:bg-gray-100 font-semibold text-gray-700">Edit</button>
+                  <button class="px-2.5 py-1 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 font-semibold">Delete</button>
+                </td>
+              </tr>
+
+              <!-- ROW 4 -->
+              <tr class="hover:bg-gray-50/60 transition">
+                <td class="py-3.5 px-4 flex items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=80&auto=format&fit=crop&q=80" class="w-10 h-10 rounded-xl object-cover">
+                  <div>
+                    <span class="font-bold text-gray-900 block">Han River Night Cruise</span>
+                    <span class="text-[10px] text-gray-400">ID: TUR-0015</span>
+                  </div>
+                </td>
+                <td class="py-3.5 px-4"><i class="fa-solid fa-location-dot text-brand-crimson mr-1"></i> Han River, Da Nang</td>
+                <td class="py-3.5 px-4"><strong class="text-brand-crimson">$22</strong></td>
+                <td class="py-3.5 px-4"><i class="fa-regular fa-clock text-gray-400 mr-1"></i> 1.5 hours</td>
+                <td class="py-3.5 px-4">
+                  <span class="bg-emerald-50 text-emerald-700 font-bold text-[10px] px-2.5 py-0.5 rounded-full">Active</span>
+                </td>
+                <td class="py-3.5 px-4 text-right space-x-2">
+                  <button class="px-2.5 py-1 rounded-lg border border-gray-200 hover:bg-gray-100 font-semibold text-gray-700">Edit</button>
+                  <button class="px-2.5 py-1 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 font-semibold">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Table Footer Pagination -->
+        <div class="flex items-center justify-between pt-4 border-t border-gray-100 text-xs text-gray-500">
+          <span>Showing 4 of 48 tours</span>
+          <div class="flex gap-1.5">
+            <button class="w-8 h-8 rounded-lg border border-gray-200 flex items-center justify-center hover:bg-gray-100"><i class="fa-solid fa-chevron-left text-[10px]"></i></button>
+            <button class="w-8 h-8 rounded-lg bg-brand-crimson text-white font-bold">1</button>
+            <button class="w-8 h-8 rounded-lg border border-gray-200 hover:bg-gray-100">2</button>
+            <button class="w-8 h-8 rounded-lg border border-gray-200 hover:bg-gray-100">3</button>
+            <button class="w-8 h-8 rounded-lg border border-gray-200 flex items-center justify-center hover:bg-gray-100"><i class="fa-solid fa-chevron-right text-[10px]"></i></button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- BOTTOM TWO COLUMNS: RECENT BOOKINGS & REVENUE OVERVIEW -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- Recent Bookings (7 cols) -->
+        <div class="lg:col-span-7 bg-white rounded-3xl p-6 border border-gray-200/80 shadow-sm space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-gray-100">
+            <div>
+              <h3 class="font-bold text-base text-espresso">Recent Bookings</h3>
+              <p class="text-[11px] text-gray-400">Latest customer reservations</p>
+            </div>
+            <a href="#" class="text-xs font-bold text-brand-crimson hover:underline">View All →</a>
+          </div>
+
+          <div class="space-y-3 text-xs">
+            <div class="flex items-center justify-between p-3 rounded-2xl bg-brand-sand/60">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-red-100 text-brand-crimson font-bold text-xs flex items-center justify-center">NL</div>
+                <div>
+                  <span class="font-bold text-gray-900 block">Nguyen Thi Lan</span>
+                  <span class="text-[10px] text-gray-500">Ba Na Hills Full Day • 2 guests</span>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="font-bold text-gray-800">$88</span>
+                <span class="block text-[10px] text-emerald-600 font-bold">Confirmed</span>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between p-3 rounded-2xl bg-brand-sand/60">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center">SM</div>
+                <div>
+                  <span class="font-bold text-gray-900 block">Sarah Mitchell</span>
+                  <span class="text-[10px] text-gray-500">Bliss Oceanfront Hotel • 3 nights</span>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="font-bold text-gray-800">$255</span>
+                <span class="block text-[10px] text-emerald-600 font-bold">Confirmed</span>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between p-3 rounded-2xl bg-brand-sand/60">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-amber-100 text-amber-700 font-bold text-xs flex items-center justify-center">TM</div>
+                <div>
+                  <span class="font-bold text-gray-900 block">Tran Van Minh</span>
+                  <span class="text-[10px] text-gray-500">Hoi An Evening Tour • 4 guests</span>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="font-bold text-gray-800">$100</span>
+                <span class="block text-[10px] text-amber-600 font-bold">Pending</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Revenue Overview Chart Card (5 cols) -->
+        <div class="lg:col-span-5 bg-white rounded-3xl p-6 border border-gray-200/80 shadow-sm space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-gray-100">
+            <div>
+              <h3 class="font-bold text-base text-espresso">Revenue Overview</h3>
+              <p class="text-[11px] text-gray-400">Monthly revenue (USD)</p>
+            </div>
+            <div class="flex gap-1 bg-gray-100 p-1 rounded-xl text-[10px] font-bold">
+              <span class="bg-brand-crimson text-white px-2 py-0.5 rounded-lg">2024</span>
+              <span class="text-gray-500 px-2 py-0.5 cursor-pointer">2023</span>
+            </div>
+          </div>
+
+          <!-- Simulated CSS Bar Chart -->
+          <div class="h-44 flex items-end justify-between gap-1.5 pt-6 px-2">
+            <div class="flex-1 flex flex-col items-center gap-1.5">
+              <div class="w-full bg-red-200 rounded-t h-16"></div>
+              <span class="text-[9px] text-gray-400">Jan</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-1.5">
+              <div class="w-full bg-red-200 rounded-t h-20"></div>
+              <span class="text-[9px] text-gray-400">Feb</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-1.5">
+              <div class="w-full bg-red-300 rounded-t h-24"></div>
+              <span class="text-[9px] text-gray-400">Mar</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-1.5">
+              <div class="w-full bg-red-300 rounded-t h-28"></div>
+              <span class="text-[9px] text-gray-400">Apr</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-1.5">
+              <div class="w-full bg-brand-crimson rounded-t h-36"></div>
+              <span class="text-[9px] font-bold text-brand-crimson">May</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-1.5">
+              <div class="w-full bg-brand-crimson rounded-t h-40"></div>
+              <span class="text-[9px] font-bold text-brand-crimson">Jun</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-2 pt-4 border-t border-gray-100 text-center text-xs">
+            <div>
+              <span class="text-[10px] text-gray-400 block">Best Month</span>
+              <strong class="text-gray-800 text-xs">June ($14,200)</strong>
+            </div>
+            <div>
+              <span class="text-[10px] text-gray-400 block">Avg/Month</span>
+              <strong class="text-emerald-600 text-xs">+$7,017</strong>
+            </div>
+            <div>
+              <span class="text-[10px] text-gray-400 block">YTD Total</span>
+              <strong class="text-brand-crimson text-xs">$84,200</strong>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="../../assets/js/core/mock-data.js"></script>
+  <script src="../../assets/js/core/i18n.js"></script>
+  <script src="../../assets/js/core/navigation.js"></script>
+</body>
+</html>

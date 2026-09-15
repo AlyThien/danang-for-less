@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tour & Trải Nghiệm Đà Nẵng - DaNang for less</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              crimson: '#8F1D2C',
+              darkcrimson: '#731422',
+              cream: '#FFFDF9',
+              sand: '#FAF7F2',
+              espresso: '#1F060A',
+              gold: '#E5B567'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/animations.css">
+</head>
+<body class="bg-cream text-espresso font-sans antialiased overflow-x-hidden">
+
+  <!-- HEADER -->
+  <header class="w-full bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="../../index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-brand-crimson flex items-center justify-center text-white shadow-md">
+          <i class="fa-solid fa-umbrella-beach text-lg"></i>
+        </div>
+        <div>
+          <span class="font-extrabold text-xl sm:text-2xl tracking-tight text-espresso leading-none">
+            DaNang <span class="text-brand-crimson font-serif italic font-normal text-lg sm:text-xl">for less</span>
+          </span>
+          <span class="block text-[11px] text-gray-400 font-medium">Experience Da Nang on a budget</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-9 text-sm font-semibold">
+        <a href="index.html" data-i18n="nav.tours" class="text-brand-crimson font-bold border-b-2 border-brand-crimson pb-1">Tours</a>
+        <a href="../stays/index.html" data-i18n="nav.hotels" class="text-gray-600 hover:text-brand-crimson transition">Hotels & Stays</a>
+        <a href="../../index.html#travel-guide" data-i18n="nav.guides" class="text-gray-600 hover:text-brand-crimson transition">Guides</a>
+        <a href="../../index.html#secret-deals" data-i18n="nav.offers" class="text-gray-600 hover:text-brand-crimson transition">Special Offers</a>
+      </nav>
+
+      <div class="flex items-center space-x-3">
+        <div class="lang-pill-switch bg-gray-100 px-3 py-1.5 rounded-full text-xs font-semibold text-gray-700 flex items-center gap-1.5 border border-gray-200">
+          <span data-lang="en" class="text-brand-crimson font-bold cursor-pointer">EN</span>
+          <span class="text-gray-300">|</span>
+          <span data-lang="vn" class="text-gray-400 hover:text-gray-700 cursor-pointer">VN</span>
+        </div>
+        <a href="../portal/user.html" class="w-10 h-10 rounded-full bg-brand-crimson text-white font-bold text-xs flex items-center justify-center shadow-md">
+          TN
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HERO HEADER -->
+  <section class="bg-[#24080F] text-white py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto space-y-2">
+      <nav class="flex items-center space-x-2 text-xs text-gray-400 font-medium">
+        <a href="../../index.html" class="hover:text-white">Home</a>
+        <span>/</span>
+        <span class="text-amber-400 font-semibold">Tours in Da Nang</span>
+      </nav>
+      <h1 data-i18n="tours.page_title" class="text-3xl sm:text-4xl font-extrabold tracking-tight">Explore Da Nang Tours</h1>
+      <p data-i18n="tours.page_subtitle" class="text-sm text-gray-300">Discover Da Nang travel experiences at the best prices</p>
+    </div>
+  </section>
+
+  <!-- MAIN LISTING LAYOUT -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      
+      <!-- LEFT FILTERS -->
+      <aside class="lg:col-span-3 space-y-6">
+        <div class="bg-white rounded-3xl p-6 border border-gray-200/80 shadow-sm space-y-6">
+          <div class="flex items-center justify-between pb-4 border-b border-gray-100">
+            <h3 data-i18n="stays.filters_title" class="font-bold text-base text-espresso">Filters</h3>
+            <button data-i18n="stays.clear_all" class="text-xs font-semibold text-brand-crimson hover:underline">Clear all</button>
+          </div>
+
+          <!-- Tour Type -->
+          <div class="space-y-3">
+            <h4 data-i18n="tours.tour_type" class="text-xs font-bold uppercase tracking-wider text-gray-500">Tour Type</h4>
+            <div class="space-y-2 text-xs text-gray-700">
+              <label class="flex items-center justify-between cursor-pointer">
+                <span class="flex items-center gap-2">
+                  <input type="checkbox" checked class="w-4 h-4 rounded text-brand-crimson focus:ring-brand-crimson">
+                  <span>Nature & Scenery</span>
+                </span>
+                <span class="text-gray-400">(12)</span>
+              </label>
+              <label class="flex items-center justify-between cursor-pointer">
+                <span class="flex items-center gap-2">
+                  <input type="checkbox" class="w-4 h-4 rounded text-brand-crimson focus:ring-brand-crimson">
+                  <span>Culture & Heritage</span>
+                </span>
+                <span class="text-gray-400">(8)</span>
+              </label>
+              <label class="flex items-center justify-between cursor-pointer">
+                <span class="flex items-center gap-2">
+                  <input type="checkbox" class="w-4 h-4 rounded text-brand-crimson focus:ring-brand-crimson">
+                  <span>Food & Nightlife</span>
+                </span>
+                <span class="text-gray-400">(5)</span>
+              </label>
+              <label class="flex items-center justify-between cursor-pointer">
+                <span class="flex items-center gap-2">
+                  <input type="checkbox" class="w-4 h-4 rounded text-brand-crimson focus:ring-brand-crimson">
+                  <span>Adventure</span>
+                </span>
+                <span class="text-gray-400">(4)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Duration -->
+          <div class="space-y-3 pt-4 border-t border-gray-100">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-500">Duration</h4>
+            <div class="space-y-2 text-xs text-gray-700">
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="duration" class="w-4 h-4 text-brand-crimson focus:ring-brand-crimson">
+                <span>Half Day (&lt; 6 hrs)</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="duration" checked class="w-4 h-4 text-brand-crimson focus:ring-brand-crimson">
+                <span class="font-bold text-gray-900">Full Day (6-10 hrs)</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="duration" class="w-4 h-4 text-brand-crimson focus:ring-brand-crimson">
+                <span>Multi-day (1+ nights)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Price Range -->
+          <div class="space-y-3 pt-4 border-t border-gray-100">
+            <div class="flex items-center justify-between">
+              <h4 class="text-xs font-bold uppercase tracking-wider text-gray-500">Price Range</h4>
+              <span class="text-xs font-bold text-brand-crimson">$40</span>
+            </div>
+            <input type="range" min="10" max="200" value="40" class="w-full accent-brand-crimson cursor-pointer">
+            <div class="flex items-center justify-between text-[11px] text-gray-400">
+              <span>$10</span>
+              <span>$200+</span>
+            </div>
+          </div>
+
+          <button class="w-full py-2.5 rounded-xl bg-brand-crimson text-white font-bold text-xs shadow-md hover:bg-brand-darkcrimson transition">
+            Apply Filters
+          </button>
+        </div>
+      </aside>
+
+      <!-- RIGHT 6-CARD GRID (Matching Figma tours_page.png) -->
+      <section class="lg:col-span-9 space-y-6">
+        <div class="flex items-center justify-between pb-2">
+          <h2 class="text-sm sm:text-base font-bold text-gray-800">
+            <span class="text-brand-crimson font-black">24</span> tours available in Da Nang
+          </h2>
+          <div class="flex items-center gap-2 text-xs text-gray-500">
+            <span>Sort by:</span>
+            <select class="bg-white border border-gray-200 rounded-lg px-3 py-1.5 text-xs font-semibold text-gray-700">
+              <option>Most Popular</option>
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- TOUR 1: Marble Mountains & Hoi An -->
+          <div class="brand-card overflow-hidden flex flex-col group">
+            <div class="relative h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1528127269322-539801943592?w=600&auto=format&fit=crop&q=80" 
+                   alt="Marble Mountains" class="w-full h-full object-cover img-zoom-target">
+              <div class="absolute top-3 left-3 flex gap-1.5">
+                <span class="bg-brand-crimson text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">BEST SELLER</span>
+                <span class="bg-black/60 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">-35% OFF</span>
+              </div>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center text-xs text-amber-500 gap-1 mb-1">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  <span class="text-gray-500 text-[11px]">(4.8/5)</span>
+                </div>
+                <h3 class="font-bold text-base text-espresso group-hover:text-brand-crimson transition">
+                  <a href="detail.html">Marble Mountains & Hoi An</a>
+                </h3>
+                <p class="text-[10px] uppercase font-bold text-brand-crimson tracking-wider mt-0.5">MARBLE MOUNTAINS & HOI AN ANCIENT TOWN</p>
+                <p class="text-xs text-gray-500 mt-2 line-clamp-2">
+                  Explore the mystical caves followed by a magical evening in Hoi An ancient town.
+                </p>
+                <div class="flex items-center gap-3 text-xs text-gray-500 mt-3 pt-2 border-t border-gray-100">
+                  <span><i class="fa-regular fa-clock text-brand-crimson mr-1"></i> 8 Hours</span>
+                  <span><i class="fa-solid fa-van-shuttle text-brand-crimson mr-1"></i> Pickup Incl.</span>
+                </div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
+                <div>
+                  <span class="text-xs text-gray-400 line-through">$60.00</span>
+                  <span class="text-xl font-black text-brand-crimson ml-1">$39.00</span>
+                </div>
+                <a href="detail.html" class="brand-btn-primary px-4 py-1.5 text-xs font-bold">Book Now</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOUR 2: Ba Na Hills Full Day -->
+          <div class="brand-card overflow-hidden flex flex-col group">
+            <div class="relative h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=600&auto=format&fit=crop&q=80" 
+                   alt="Ba Na Hills" class="w-full h-full object-cover img-zoom-target">
+              <span class="absolute top-3 right-3 bg-brand-crimson text-white text-[10px] font-bold px-2 py-0.5 rounded-full">-20% OFF</span>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center text-xs text-amber-500 gap-1 mb-1">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  <span class="text-gray-500 text-[11px]">(5.0/5)</span>
+                </div>
+                <h3 class="font-bold text-base text-espresso group-hover:text-brand-crimson transition">
+                  <a href="detail.html">Ba Na Hills Full Day</a>
+                </h3>
+                <p class="text-[10px] uppercase font-bold text-brand-crimson tracking-wider mt-0.5">BA NA HILLS - GOLDEN BRIDGE</p>
+                <p class="text-xs text-gray-500 mt-2 line-clamp-2">
+                  Visit the world-famous Golden Bridge and enjoy the theme park above the clouds.
+                </p>
+                <div class="flex items-center gap-3 text-xs text-gray-500 mt-3 pt-2 border-t border-gray-100">
+                  <span><i class="fa-regular fa-clock text-brand-crimson mr-1"></i> 10 Hours</span>
+                  <span><i class="fa-solid fa-ticket text-brand-crimson mr-1"></i> Ticket Incl.</span>
+                </div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
+                <div>
+                  <span class="text-xs text-gray-400 line-through">$85.00</span>
+                  <span class="text-xl font-black text-brand-crimson ml-1">$68.00</span>
+                </div>
+                <a href="detail.html" class="brand-btn-primary px-4 py-1.5 text-xs font-bold">Book Now</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOUR 3: Son Tra Sunset & Lady Buddha -->
+          <div class="brand-card overflow-hidden flex flex-col group">
+            <div class="relative h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=600&auto=format&fit=crop&q=80" 
+                   alt="Son Tra" class="w-full h-full object-cover img-zoom-target">
+              <span class="absolute top-3 right-3 bg-brand-crimson text-white text-[10px] font-bold px-2 py-0.5 rounded-full">-50% OFF</span>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center text-xs text-amber-500 gap-1 mb-1">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                  <span class="text-gray-500 text-[11px]">(4.2/5)</span>
+                </div>
+                <h3 class="font-bold text-base text-espresso group-hover:text-brand-crimson transition">
+                  <a href="detail.html">Son Tra Sunset & Lady Buddha</a>
+                </h3>
+                <p class="text-[10px] uppercase font-bold text-brand-crimson tracking-wider mt-0.5">SON TRA PENINSULA & LINH UNG</p>
+                <p class="text-xs text-gray-500 mt-2 line-clamp-2">
+                  The best view of the Da Nang coastline and the tallest Lady Buddha statue in VN.
+                </p>
+                <div class="flex items-center gap-3 text-xs text-gray-500 mt-3 pt-2 border-t border-gray-100">
+                  <span><i class="fa-regular fa-clock text-brand-crimson mr-1"></i> 4 Hours</span>
+                  <span><i class="fa-solid fa-camera text-brand-crimson mr-1"></i> Photo Stop</span>
+                </div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
+                <div>
+                  <span class="text-xs text-gray-400 line-through">$40.00</span>
+                  <span class="text-xl font-black text-brand-crimson ml-1">$20.00</span>
+                </div>
+                <a href="detail.html" class="brand-btn-primary px-4 py-1.5 text-xs font-bold">Book Now</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOUR 4: Da Nang Foodie Night -->
+          <div class="brand-card overflow-hidden flex flex-col group">
+            <div class="relative h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&auto=format&fit=crop&q=80" 
+                   alt="Foodie Night" class="w-full h-full object-cover img-zoom-target">
+              <span class="absolute top-3 right-3 bg-brand-crimson text-white text-[10px] font-bold px-2 py-0.5 rounded-full">-15% OFF</span>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center text-xs text-amber-500 gap-1 mb-1">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  <span class="text-gray-500 text-[11px]">(4.9/5)</span>
+                </div>
+                <h3 class="font-bold text-base text-espresso group-hover:text-brand-crimson transition">
+                  <a href="detail.html">Da Nang Foodie Night</a>
+                </h3>
+                <p class="text-[10px] uppercase font-bold text-brand-crimson tracking-wider mt-0.5">DA NANG FOOD TOUR</p>
+                <p class="text-xs text-gray-500 mt-2 line-clamp-2">
+                  Ride on motorbikes to taste hidden local gems and the best street food in town.
+                </p>
+                <div class="flex items-center gap-3 text-xs text-gray-500 mt-3 pt-2 border-t border-gray-100">
+                  <span><i class="fa-regular fa-clock text-brand-crimson mr-1"></i> 3.5 Hours</span>
+                  <span><i class="fa-solid fa-utensils text-brand-crimson mr-1"></i> All food incl.</span>
+                </div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
+                <div>
+                  <span class="text-xs text-gray-400 line-through">$45.00</span>
+                  <span class="text-xl font-black text-brand-crimson ml-1">$38.00</span>
+                </div>
+                <a href="detail.html" class="brand-btn-primary px-4 py-1.5 text-xs font-bold">Book Now</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOUR 5: My Son Sanctuary Half Day -->
+          <div class="brand-card overflow-hidden flex flex-col group">
+            <div class="relative h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&auto=format&fit=crop&q=80" 
+                   alt="My Son Sanctuary" class="w-full h-full object-cover img-zoom-target">
+              <span class="absolute top-3 right-3 bg-brand-crimson text-white text-[10px] font-bold px-2 py-0.5 rounded-full">-30% OFF</span>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center text-xs text-amber-500 gap-1 mb-1">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                  <span class="text-gray-500 text-[11px]">(4.6/5)</span>
+                </div>
+                <h3 class="font-bold text-base text-espresso group-hover:text-brand-crimson transition">
+                  <a href="detail.html">My Son Sanctuary Half Day</a>
+                </h3>
+                <p class="text-[10px] uppercase font-bold text-brand-crimson tracking-wider mt-0.5">MY SON SANCTUARY</p>
+                <p class="text-xs text-gray-500 mt-2 line-clamp-2">
+                  Discover the ancient Champa kingdom architecture in the heart of the jungle.
+                </p>
+                <div class="flex items-center gap-3 text-xs text-gray-500 mt-3 pt-2 border-t border-gray-100">
+                  <span><i class="fa-regular fa-clock text-brand-crimson mr-1"></i> 6 Hours</span>
+                  <span><i class="fa-solid fa-user-tie text-brand-crimson mr-1"></i> Guide Incl.</span>
+                </div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
+                <div>
+                  <span class="text-xs text-gray-400 line-through">$50.00</span>
+                  <span class="text-xl font-black text-brand-crimson ml-1">$35.00</span>
+                </div>
+                <a href="detail.html" class="brand-btn-primary px-4 py-1.5 text-xs font-bold">Book Now</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOUR 6: Han River Night Cruise -->
+          <div class="brand-card overflow-hidden flex flex-col group">
+            <div class="relative h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&auto=format&fit=crop&q=80" 
+                   alt="Han River" class="w-full h-full object-cover img-zoom-target">
+              <span class="absolute top-3 right-3 bg-brand-crimson text-white text-[10px] font-bold px-2 py-0.5 rounded-full">-10% OFF</span>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center text-xs text-amber-500 gap-1 mb-1">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  <span class="text-gray-500 text-[11px]">(4.7/5)</span>
+                </div>
+                <h3 class="font-bold text-base text-espresso group-hover:text-brand-crimson transition">
+                  <a href="detail.html">Han River Night Cruise</a>
+                </h3>
+                <p class="text-[10px] uppercase font-bold text-brand-crimson tracking-wider mt-0.5">HAN RIVER CRUISE</p>
+                <p class="text-xs text-gray-500 mt-2 line-clamp-2">
+                  Relax on a traditional wooden boat and see the famous Dragon Bridge fire show.
+                </p>
+                <div class="flex items-center gap-3 text-xs text-gray-500 mt-3 pt-2 border-t border-gray-100">
+                  <span><i class="fa-regular fa-clock text-brand-crimson mr-1"></i> 1.5 Hours</span>
+                  <span><i class="fa-solid fa-wine-glass text-brand-crimson mr-1"></i> Welcome Drink</span>
+                </div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
+                <div>
+                  <span class="text-xs text-gray-400 line-through">$25.00</span>
+                  <span class="text-xl font-black text-brand-crimson ml-1">$22.50</span>
+                </div>
+                <a href="detail.html" class="brand-btn-primary px-4 py-1.5 text-xs font-bold">Book Now</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- PAGINATION -->
+        <div class="flex items-center justify-center gap-2 pt-8">
+          <button class="w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-100 transition">
+            <i class="fa-solid fa-chevron-left text-xs"></i>
+          </button>
+          <button class="w-10 h-10 rounded-xl bg-brand-crimson text-white font-bold text-sm shadow">1</button>
+          <button class="w-10 h-10 rounded-xl bg-white border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-100 transition">2</button>
+          <button class="w-10 h-10 rounded-xl bg-white border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-100 transition">3</button>
+          <span class="px-2 text-gray-400">...</span>
+          <button class="w-10 h-10 rounded-xl bg-white border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-100 transition">8</button>
+          <button class="w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-100 transition">
+            <i class="fa-solid fa-chevron-right text-xs"></i>
+          </button>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- BOTTOM SECRET DEALS BANNER -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="bg-gradient-to-r from-red-100 via-pink-50 to-amber-50 rounded-3xl p-8 sm:p-12 border border-red-200/50 shadow-lg text-left">
+      <span class="text-xs font-bold text-brand-crimson uppercase tracking-wider">Insider Discounts</span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-espresso mt-1">Want Secret Deals?</h2>
+      <p class="text-sm text-gray-600 mt-1 max-w-xl">
+        Join 10,000+ travelers and get exclusive discounts for Da Nang tours sent straight to your inbox.
+      </p>
+      <div class="mt-4 flex flex-col sm:flex-row gap-2 max-w-md">
+        <input type="email" placeholder="Your email address" class="flex-1 px-4 py-3 rounded-xl bg-white border border-gray-200 text-sm focus:outline-none">
+        <button class="brand-btn-primary px-6 py-3 text-sm font-bold">Subscribe</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#24080F] text-white pt-12 pb-8 border-t border-white/10 mt-12 text-center text-xs text-gray-400">
+    <p data-i18n="footer.copyright">© 2024 DaNang for less. All rights reserved.</p>
+  </footer>
+
+  <script src="../../assets/js/core/mock-data.js"></script>
+  <script src="../../assets/js/core/i18n.js"></script>
+  <script src="../../assets/js/core/navigation.js"></script>
+</body>
+</html>

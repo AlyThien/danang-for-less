@@ -1,0 +1,177 @@
+/* ==========================================================================
+   DANANG FOR LESS - DESIGN SYSTEM & TOKENS
+   Figma Fidelity: "Tourist website"
+   ========================================================================== */
+
+:root {
+  /* Brand Crimson Palette */
+  --color-primary: #8F1D2C;
+  --color-primary-hover: #731422;
+  --color-primary-tint: #FDF2F4;
+  --color-primary-border: rgba(143, 29, 44, 0.18);
+
+  /* Warm Neutral Palette */
+  --color-cream: #FFFDF9;
+  --color-sand: #FAF7F2;
+  --color-sand-muted: #F3EFE9;
+  --color-espresso: #1F060A;
+  --color-espresso-subtle: #2D1A11;
+  --color-text-body: #4A3A35;
+  --color-text-muted: #7A6960;
+
+  /* Accent & Status Colors */
+  --color-gold: #E5B567;
+  --color-amber: #F59E0B;
+  --color-ocean: #0E7490;
+  --color-emerald: #10B981;
+
+  /* Layout & Elevations */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+
+  --shadow-subtle: 0 4px 20px -2px rgba(31, 6, 10, 0.05);
+  --shadow-card: 0 10px 25px -4px rgba(31, 6, 10, 0.08), 0 4px 10px -2px rgba(31, 6, 10, 0.04);
+  --shadow-hover: 0 20px 35px -6px rgba(31, 6, 10, 0.16), 0 8px 16px -4px rgba(31, 6, 10, 0.08);
+}
+
+/* Typography Overrides */
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--color-cream);
+  color: var(--color-espresso);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Custom Backgrounds & Gradients */
+.bg-cream { background-color: var(--color-cream); }
+.bg-sand { background-color: var(--color-sand); }
+.bg-espresso { background-color: var(--color-espresso); }
+.bg-primary-crimson { background-color: var(--color-primary); }
+
+.text-primary-crimson { color: var(--color-primary); }
+.text-espresso { color: var(--color-espresso); }
+.border-primary-tint { border-color: var(--color-primary-border); }
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.glass-dark {
+  background: rgba(31, 6, 10, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Cards & Interactions */
+.brand-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-subtle);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(143, 29, 44, 0.18);
+}
+
+.brand-btn-primary {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(143, 29, 44, 0.25);
+}
+
+.brand-btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(143, 29, 44, 0.35);
+}
+
+.brand-btn-outline {
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-primary);
+  background: transparent;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.brand-btn-outline:hover {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(143, 29, 44, 0.2);
+}
+
+/* Map Background Illustration Overlay */
+.map-pattern-bg {
+  background-color: #24080F;
+  background-image: radial-gradient(rgba(245, 158, 11, 0.2) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F3EFE9;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4A373;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* ==========================================================================
+   Hero Sunset Overlay (Exact Figma 54:10 Sunset Atmosphere)
+   ========================================================================== */
+.hero-sunset-overlay {
+  /* Exact Figma 54:10 Linear Warm Sunset Gradient: rgba(61, 26, 14) */
+  background: linear-gradient(
+    180deg, 
+    rgba(61, 26, 14, 0.65) 0%, 
+    rgba(61, 26, 14, 0.42) 50%, 
+    rgba(61, 26, 14, 0.65) 100%
+  );
+}
+
+.hero-sunset-glow {
+  /* Sunset golden-hour warmth & sky glow */
+  background: radial-gradient(
+    ellipse at 50% 20%, 
+    rgba(245, 158, 11, 0.26) 0%, 
+    rgba(225, 29, 72, 0.18) 45%, 
+    transparent 78%
+  );
+}
+
+.hero-sunset-vignette {
+  /* Bottom contrast gradient for text & floating search island legibility */
+  background: linear-gradient(
+    to top, 
+    rgba(31, 6, 10, 0.88) 0%, 
+    rgba(31, 6, 10, 0.35) 45%, 
+    transparent 85%
+  );
+}

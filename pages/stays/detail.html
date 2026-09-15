@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Bliss Oceanfront Hotel - DaNang for less</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              crimson: '#8F1D2C',
+              darkcrimson: '#731422',
+              cream: '#FFFDF9',
+              sand: '#FAF7F2',
+              espresso: '#1F060A',
+              gold: '#E5B567'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/animations.css">
+</head>
+<body class="bg-cream text-espresso font-sans antialiased overflow-x-hidden">
+
+  <!-- HEADER -->
+  <header class="w-full bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="../../index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-brand-crimson flex items-center justify-center text-white shadow-md">
+          <i class="fa-solid fa-umbrella-beach text-lg"></i>
+        </div>
+        <div>
+          <span class="font-extrabold text-xl sm:text-2xl tracking-tight text-espresso leading-none">
+            DaNang <span class="text-brand-crimson font-serif italic font-normal text-lg sm:text-xl">for less</span>
+          </span>
+          <span class="block text-[11px] text-gray-400 font-medium">Experience Da Nang on a budget</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-9 text-sm font-semibold">
+        <a href="../tours/index.html" data-i18n="nav.tours" class="text-gray-600 hover:text-brand-crimson transition">Tours</a>
+        <a href="index.html" data-i18n="nav.hotels" class="text-brand-crimson font-bold">Hotels & Stays</a>
+        <a href="../../index.html#travel-guide" data-i18n="nav.guides" class="text-gray-600 hover:text-brand-crimson transition">Guides</a>
+        <a href="../../index.html#secret-deals" data-i18n="nav.offers" class="text-gray-600 hover:text-brand-crimson transition">Special Offers</a>
+      </nav>
+
+      <div class="flex items-center space-x-3">
+        <div class="lang-pill-switch bg-gray-100 px-3 py-1.5 rounded-full text-xs font-semibold text-gray-700 flex items-center gap-1.5 border border-gray-200">
+          <span data-lang="en" class="text-brand-crimson font-bold cursor-pointer">EN</span>
+          <span class="text-gray-300">|</span>
+          <span data-lang="vn" class="text-gray-400 hover:text-gray-700 cursor-pointer">VN</span>
+        </div>
+        <a href="../portal/user.html" class="w-10 h-10 rounded-full bg-brand-crimson text-white font-bold text-xs flex items-center justify-center shadow-md">
+          TN
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    
+    <!-- BREADCRUMBS & ACTIONS -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <nav class="flex items-center space-x-2 text-xs text-gray-500 font-medium">
+        <a href="../../index.html" class="hover:text-brand-crimson">Home</a>
+        <span>/</span>
+        <a href="index.html" class="hover:text-brand-crimson">Da Nang Hotels</a>
+        <span>/</span>
+        <span class="text-gray-800 font-semibold truncate">The Bliss Oceanfront Hotel</span>
+      </nav>
+
+      <div class="flex items-center space-x-3 text-xs font-semibold text-gray-700">
+        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 transition shadow-sm">
+          <i class="fa-solid fa-share-nodes text-brand-crimson"></i> Share
+        </button>
+        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 transition shadow-sm">
+          <i class="fa-regular fa-heart text-brand-crimson"></i> Save
+        </button>
+      </div>
+    </div>
+
+    <!-- HOTEL TITLE & BADGES -->
+    <div class="space-y-2">
+      <div class="flex items-center gap-3">
+        <div class="flex items-center text-brand-crimson text-xs gap-0.5">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <span class="font-bold text-gray-800 ml-1.5">5.0 (420 reviews)</span>
+        </div>
+        <span class="bg-red-50 text-brand-crimson font-bold text-[11px] px-2.5 py-0.5 rounded-full border border-red-100">
+          TOP RATED HOTEL
+        </span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-espresso tracking-tight">The Bliss Oceanfront Hotel</h1>
+      <p class="text-sm text-gray-500 flex items-center gap-2">
+        <span class="font-semibold text-brand-crimson">Happy Hotel - Beachfront</span>
+        <span>|</span>
+        <span><i class="fa-solid fa-location-dot text-brand-crimson mr-1"></i> 230 Vo Nguyen Giap St, My Khe Beach, Da Nang, Vietnam</span>
+      </p>
+    </div>
+
+    <!-- BENTO PHOTO GALLERY (Exactly matching Figma hotel_detail.png) -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-3 h-[420px] sm:h-[480px] rounded-3xl overflow-hidden shadow-lg">
+      <!-- Left Big Picture (7 cols) -->
+      <div class="md:col-span-7 h-full relative group overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1000&auto=format&fit=crop&q=80" 
+             alt="Oceanfront King Room" 
+             class="w-full h-full object-cover img-zoom-target">
+      </div>
+      <!-- Right 4 Photos (5 cols, 2x2 grid) -->
+      <div class="md:col-span-5 grid grid-cols-2 gap-3 h-full">
+        <div class="relative overflow-hidden rounded-2xl group">
+          <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&auto=format&fit=crop&q=80" 
+               alt="Rooftop Pool Sunset" 
+               class="w-full h-full object-cover img-zoom-target">
+        </div>
+        <div class="relative overflow-hidden rounded-2xl group">
+          <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=600&auto=format&fit=crop&q=80" 
+               alt="Luxury Bathtub" 
+               class="w-full h-full object-cover img-zoom-target">
+        </div>
+        <div class="relative overflow-hidden rounded-2xl group">
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&auto=format&fit=crop&q=80" 
+               alt="Grand Lobby" 
+               class="w-full h-full object-cover img-zoom-target">
+        </div>
+        <div class="relative overflow-hidden rounded-2xl group cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&auto=format&fit=crop&q=80" 
+               alt="Dining with Sea View" 
+               class="w-full h-full object-cover img-zoom-target">
+          <div class="absolute inset-0 bg-espresso/70 backdrop-blur-[2px] flex items-center justify-center text-white font-bold text-sm hover:bg-espresso/80 transition">
+            <span>+18 More Photos</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN TWO-COLUMN CONTENT -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      
+      <!-- LEFT COLUMN: ABOUT, AMENITIES, ROOM SELECTION, LOCATION & POLICIES -->
+      <div class="lg:col-span-8 space-y-10">
+        
+        <!-- About the Property -->
+        <section class="space-y-3">
+          <h2 class="text-xl font-bold text-espresso">About the Property</h2>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            Experience the pinnacle of coastal luxury at The Bliss Oceanfront Hotel. Nestled directly on the pristine sands of My Khe Beach, our property offers panoramic views of the East Vietnam Sea and the iconic Son Tra Peninsula. Each room is meticulously designed with contemporary Vietnamese elegance, featuring floor-to-ceiling windows that invite the ocean breeze and natural light.
+          </p>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            Whether you're lounging by our rooftop infinity pool, indulging in world-class spa treatments, or savoring fresh local seafood at our signature restaurant, The Bliss provides an unforgettable sanctuary in the heart of Da Nang.
+          </p>
+        </section>
+
+        <!-- Popular Amenities (6 Crimson Badges matching Figma) -->
+        <section class="space-y-4 pt-6 border-t border-gray-100">
+          <h2 class="text-xl font-bold text-espresso">Popular Amenities</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="flex items-center gap-3 p-3 rounded-2xl bg-white border border-gray-200/80 shadow-sm">
+              <div class="w-10 h-10 rounded-xl bg-brand-crimson text-white flex items-center justify-center text-sm shadow">
+                <i class="fa-solid fa-wifi"></i>
+              </div>
+              <span class="text-xs font-bold text-gray-800">Free High-speed Wi-Fi</span>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-2xl bg-white border border-gray-200/80 shadow-sm">
+              <div class="w-10 h-10 rounded-xl bg-brand-crimson text-white flex items-center justify-center text-sm shadow">
+                <i class="fa-solid fa-water-ladder"></i>
+              </div>
+              <span class="text-xs font-bold text-gray-800">Infinity Rooftop Pool</span>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-2xl bg-white border border-gray-200/80 shadow-sm">
+              <div class="w-10 h-10 rounded-xl bg-brand-crimson text-white flex items-center justify-center text-sm shadow">
+                <i class="fa-solid fa-spa"></i>
+              </div>
+              <span class="text-xs font-bold text-gray-800">Full-service Spa</span>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-2xl bg-white border border-gray-200/80 shadow-sm">
+              <div class="w-10 h-10 rounded-xl bg-brand-crimson text-white flex items-center justify-center text-sm shadow">
+                <i class="fa-solid fa-utensils"></i>
+              </div>
+              <span class="text-xs font-bold text-gray-800">Signature Restaurant</span>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-2xl bg-white border border-gray-200/80 shadow-sm">
+              <div class="w-10 h-10 rounded-xl bg-brand-crimson text-white flex items-center justify-center text-sm shadow">
+                <i class="fa-solid fa-mug-saucer"></i>
+              </div>
+              <span class="text-xs font-bold text-gray-800">Daily Buffet Breakfast</span>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-2xl bg-white border border-gray-200/80 shadow-sm">
+              <div class="w-10 h-10 rounded-xl bg-brand-crimson text-white flex items-center justify-center text-sm shadow">
+                <i class="fa-solid fa-dumbbell"></i>
+              </div>
+              <span class="text-xs font-bold text-gray-800">24/7 Fitness Center</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Select Your Room (Table matching Figma hotel_detail.png) -->
+        <section class="space-y-4 pt-6 border-t border-gray-100">
+          <h2 class="text-xl font-bold text-espresso">Select Your Room</h2>
+          
+          <div class="bg-white rounded-3xl border border-gray-200/80 shadow-sm overflow-hidden divide-y divide-gray-100">
+            <!-- Table Header -->
+            <div class="bg-brand-sand/60 px-6 py-3.5 grid grid-cols-12 text-xs font-bold uppercase tracking-wider text-gray-500">
+              <div class="col-span-5">Room Type</div>
+              <div class="col-span-3">Capacity</div>
+              <div class="col-span-2">Price / Night</div>
+              <div class="col-span-2 text-right">Action</div>
+            </div>
+
+            <!-- ROOM 1: Deluxe City View -->
+            <div data-room-id="deluxe-city" data-room-name="Deluxe City View" data-room-price="85" class="p-6 grid grid-cols-12 gap-4 items-center">
+              <div class="col-span-5 flex items-center gap-4">
+                <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=300&auto=format&fit=crop&q=80" 
+                     alt="Deluxe City View" 
+                     class="w-20 h-20 rounded-xl object-cover">
+                <div>
+                  <h4 class="font-bold text-sm text-espresso">Deluxe City View</h4>
+                  <p class="text-xs text-gray-400 mt-0.5">32 sqm • 1 King Bed or 2 Twins</p>
+                  <div class="flex flex-wrap gap-1.5 mt-2">
+                    <span class="text-[10px] bg-emerald-50 text-emerald-700 font-semibold px-2 py-0.5 rounded">Breakfast Included</span>
+                    <span class="text-[10px] bg-gray-100 text-gray-600 font-semibold px-2 py-0.5 rounded">Free WiFi</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-span-3 flex items-center gap-2 text-xs text-gray-600 font-semibold">
+                <i class="fa-solid fa-user-group text-gray-400"></i> 2 Adults
+              </div>
+              <div class="col-span-2">
+                <span class="text-lg font-black text-brand-crimson">$85</span>
+                <span class="text-[10px] text-gray-400 block">Excl. taxes</span>
+              </div>
+              <div class="col-span-2 text-right">
+                <button class="btn-select-room brand-btn-primary px-5 py-2 text-xs font-bold shadow-md">
+                  Select Room
+                </button>
+              </div>
+            </div>
+
+            <!-- ROOM 2: Grand Ocean Suite -->
+            <div data-room-id="grand-ocean" data-room-name="Grand Ocean Suite" data-room-price="145" class="p-6 grid grid-cols-12 gap-4 items-center">
+              <div class="col-span-5 flex items-center gap-4">
+                <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=300&auto=format&fit=crop&q=80" 
+                     alt="Grand Ocean Suite" 
+                     class="w-20 h-20 rounded-xl object-cover">
+                <div>
+                  <h4 class="font-bold text-sm text-espresso">Grand Ocean Suite</h4>
+                  <p class="text-xs text-gray-400 mt-0.5">56 sqm • Separate Living Area</p>
+                  <div class="flex flex-wrap gap-1.5 mt-2">
+                    <span class="text-[10px] bg-emerald-50 text-emerald-700 font-semibold px-2 py-0.5 rounded">Breakfast Included</span>
+                    <span class="text-[10px] bg-purple-50 text-purple-700 font-semibold px-2 py-0.5 rounded">Exclusive Lounge</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-span-3 flex items-center gap-2 text-xs text-gray-600 font-semibold">
+                <i class="fa-solid fa-users text-gray-400"></i> 2 Adults, 1 Child
+              </div>
+              <div class="col-span-2">
+                <span class="text-lg font-black text-brand-crimson">$145</span>
+                <span class="text-[10px] text-gray-400 block">Excl. taxes</span>
+              </div>
+              <div class="col-span-2 text-right">
+                <button class="btn-select-room brand-btn-primary px-5 py-2 text-xs font-bold shadow-md">
+                  Select Room
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Location Section with Map Preview Card -->
+        <section class="space-y-4 pt-6 border-t border-gray-100">
+          <h2 class="text-xl font-bold text-espresso">Location</h2>
+          <div class="bg-white rounded-3xl p-4 border border-gray-200/80 shadow-sm space-y-4">
+            <!-- Simulated Stylized Map Card -->
+            <div class="relative h-64 rounded-2xl overflow-hidden bg-[#2D4A58] flex items-center justify-center">
+              <div class="absolute inset-0 opacity-40 bg-[radial-gradient(#E5B567_1px,transparent_1px)] [background-size:16px_16px]"></div>
+              <!-- Coastline Illustration SVG -->
+              <svg class="absolute inset-0 w-full h-full stroke-amber-200/40 fill-none" stroke-width="2">
+                <path d="M0,150 Q200,80 450,180 T900,100" />
+                <path d="M0,200 Q300,120 600,220 T1000,140" />
+              </svg>
+              <!-- Pin Marker -->
+              <div class="relative z-10 flex flex-col items-center animate-bounce">
+                <div class="bg-white px-3 py-1 rounded-full shadow-xl border border-red-200 text-xs font-bold text-espresso flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-brand-crimson"></span> The Bliss Oceanfront
+                </div>
+                <i class="fa-solid fa-location-dot text-brand-crimson text-3xl -mt-1 shadow-sm"></i>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between px-2 text-xs text-gray-600">
+              <div>
+                <p class="font-bold text-gray-800">230 Vo Nguyen Giap St, My Khe Beach</p>
+                <p class="text-gray-400">Da Nang, 550000, Vietnam</p>
+              </div>
+              <a href="https://maps.google.com" target="_blank" class="font-bold text-brand-crimson hover:underline">
+                Get Directions →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Hotel Policies -->
+        <section class="space-y-4 pt-6 border-t border-gray-100">
+          <h2 class="text-xl font-bold text-espresso">Hotel Policies</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs text-gray-600">
+            <div class="flex items-start gap-3 p-3 bg-white rounded-2xl border border-gray-100">
+              <div class="w-8 h-8 rounded-xl bg-red-50 text-brand-crimson flex items-center justify-center text-sm shadow-sm flex-shrink-0">
+                <i class="fa-regular fa-clock"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-800 text-xs">Check-in / Check-out</h4>
+                <p class="mt-0.5">Check-in: From 2:00 PM<br>Check-out: Until 12:00 PM</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3 bg-white rounded-2xl border border-gray-100">
+              <div class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm shadow-sm flex-shrink-0">
+                <i class="fa-solid fa-child"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-800 text-xs">Children & Extra Beds</h4>
+                <p class="mt-0.5">Children up to 6 stay free when using existing bedding. Extra beds available for $25/night.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3 bg-white rounded-2xl border border-gray-100">
+              <div class="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-sm shadow-sm flex-shrink-0">
+                <i class="fa-solid fa-ban"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-800 text-xs">Cancellation Policy</h4>
+                <p class="mt-0.5">Free cancellation until 48 hours before check-in. Cancellations within 48 hours incur a 1-night charge.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3 bg-white rounded-2xl border border-gray-100">
+              <div class="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-sm shadow-sm flex-shrink-0">
+                <i class="fa-solid fa-paw"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-800 text-xs">Pets</h4>
+                <p class="mt-0.5">Pets are not allowed in the property with the exception of service animals.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- RIGHT COLUMN: STICKY BOOKING CARD & CALCULATOR (Figma Component) -->
+      <div class="lg:col-span-4">
+        <div class="sticky top-28 space-y-4">
+          
+          <div class="bg-white rounded-3xl p-6 border border-gray-200/80 shadow-xl space-y-6">
+            
+            <!-- Price Display -->
+            <div class="flex items-baseline justify-between border-b border-gray-100 pb-4">
+              <div>
+                <span id="widget-base-price" class="text-3xl font-black text-brand-crimson">$85</span>
+                <span class="text-xs text-gray-400 font-medium">/ night</span>
+              </div>
+              <span class="text-xs text-emerald-600 font-bold bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100">
+                Best Rate Guaranteed
+              </span>
+            </div>
+
+            <!-- Date Selection Input -->
+            <div class="space-y-3">
+              <div class="p-3 rounded-xl bg-brand-sand border border-gray-200">
+                <label class="block text-[10px] font-bold uppercase tracking-wider text-gray-400">DATES</label>
+                <div class="flex items-center justify-between mt-1 text-xs sm:text-sm font-semibold text-gray-800">
+                  <span>Oct 12 — Oct 15</span>
+                  <i class="fa-regular fa-calendar text-brand-crimson"></i>
+                </div>
+              </div>
+
+              <div class="p-3 rounded-xl bg-brand-sand border border-gray-200">
+                <label class="block text-[10px] font-bold uppercase tracking-wider text-gray-400">GUESTS</label>
+                <div class="flex items-center justify-between mt-1 text-xs sm:text-sm font-semibold text-gray-800">
+                  <span id="count-adults">2 Adults, 1 Room</span>
+                  <i class="fa-solid fa-user-group text-brand-crimson"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Button: Leads directly to Checkout -->
+            <a href="../booking/checkout.html" class="w-full block text-center brand-btn-primary py-3.5 text-sm font-bold shadow-lg shadow-brand-crimson/25 hover:shadow-brand-crimson/40 transition">
+              Check Availability & Book
+            </a>
+
+            <!-- Price Breakdown Calculation -->
+            <div class="space-y-2 pt-4 border-t border-gray-100 text-xs text-gray-600">
+              <div class="flex justify-between">
+                <span id="booking-nights-count" data-nights="3">$85 × 3 nights</span>
+                <span id="calc-subtotal" class="font-semibold text-gray-800">$255.00</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Service fee</span>
+                <span id="calc-service-fee" class="font-semibold text-gray-800">$12.00</span>
+              </div>
+              <div class="flex justify-between pt-3 border-t border-gray-100 text-sm font-bold text-espresso">
+                <span>Total</span>
+                <span id="calc-total" class="text-xl font-black text-brand-crimson">$267.00</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Trust Box below Card -->
+          <div class="bg-red-50/70 rounded-2xl p-4 border border-red-100 flex items-start gap-3 text-xs text-gray-700">
+            <div class="w-8 h-8 rounded-xl bg-brand-crimson text-white flex items-center justify-center text-sm flex-shrink-0 shadow">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+              <h5 class="font-bold text-espresso">Book with Confidence</h5>
+              <p class="text-[11px] text-gray-500 mt-0.5 leading-snug">
+                Best Price Guarantee. If you find a lower price elsewhere, we'll match it and give you an extra 10% discount.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#24080F] text-white pt-16 pb-12 border-t border-white/10 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-gray-400">
+      <p data-i18n="footer.copyright">© 2024 DaNang for less. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/core/mock-data.js"></script>
+  <script src="../../assets/js/core/i18n.js"></script>
+  <script src="../../assets/js/core/navigation.js"></script>
+  <script src="../../assets/js/modules/booking-engine.js"></script>
+</body>
+</html>
