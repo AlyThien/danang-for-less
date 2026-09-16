@@ -273,7 +273,24 @@ const DN_I18N_DICTIONARY = {
     "auth.back_home": "Home",
     "auth.welcome_bonus_title": "Get 500 Loyalty Points Instantly!",
     "auth.welcome_bonus_desc": "Applied directly as a discount on your first tour or hotel booking.",
-    "auth.terms_agree": "I agree to the Terms of Service and Privacy Policy of DaNang for less."
+    "auth.terms_agree": "I agree to the Terms of Service and Privacy Policy of DaNang for less.",
+
+    // Wishlist / Saved Items
+    "wishlist.title": "Saved Items",
+    "wishlist.all": "All",
+    "wishlist.tours": "Tours",
+    "wishlist.stays": "Hotels & Stays",
+    "wishlist.empty_title": "Your Wishlist is Empty",
+    "wishlist.empty_desc": "Save items with the heart icon to view, compare or book them later.",
+    "wishlist.explore_btn": "Explore Tours & Stays",
+    "wishlist.clear_all": "Clear All",
+    "wishlist.view_detail": "View Details",
+    "wishlist.book_now": "Book Now",
+    "wishlist.toast_added": "Saved to your Wishlist!",
+    "wishlist.toast_removed": "Removed from Wishlist",
+    "wishlist.total_est": "Estimated Total:",
+    "wishlist.count_unit": "items",
+    "wishlist.view_in_portal": "View in My Account"
   },
 
   vn: {
@@ -544,7 +561,24 @@ const DN_I18N_DICTIONARY = {
     "auth.back_home": "Trang chủ",
     "auth.welcome_bonus_title": "Tặng ngay 500 Điểm Loyalty!",
     "auth.welcome_bonus_desc": "Áp dụng giảm trực tiếp khi đặt phòng hoặc tour đầu tiên.",
-    "auth.terms_agree": "Tôi đồng ý với Điều khoản dịch vụ và Chính sách bảo mật của DaNang for less."
+    "auth.terms_agree": "Tôi đồng ý với Điều khoản dịch vụ và Chính sách bảo mật của DaNang for less.",
+
+    // Wishlist / Saved Items
+    "wishlist.title": "Danh sách đã lưu",
+    "wishlist.all": "Tất cả",
+    "wishlist.tours": "Chuyến đi",
+    "wishlist.stays": "Khách sạn & Chỗ nghỉ",
+    "wishlist.empty_title": "Danh sách lưu đang trống",
+    "wishlist.empty_desc": "Hãy bấm vào biểu tượng trái tim trên các tour và khách sạn để lưu lại xem sau.",
+    "wishlist.explore_btn": "Khám phá ngay",
+    "wishlist.clear_all": "Xóa tất cả",
+    "wishlist.view_detail": "Xem chi tiết",
+    "wishlist.book_now": "Đặt ngay",
+    "wishlist.toast_added": "Đã thêm vào danh sách yêu thích!",
+    "wishlist.toast_removed": "Đã xóa khỏi danh sách yêu thích",
+    "wishlist.total_est": "Tạm tính:",
+    "wishlist.count_unit": "địa điểm",
+    "wishlist.view_in_portal": "Xem trong tài khoản"
   }
 };
 
