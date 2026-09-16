@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cẩm Nang Du Lịch Đà Nẵng - DaNang for less</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              crimson: '#8F1D2C',
+              darkcrimson: '#731422',
+              cream: '#FFFDF9',
+              sand: '#FAF7F2',
+              espresso: '#1F060A',
+              gold: '#E5B567'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/animations.css">
+</head>
+<body class="bg-cream text-espresso font-sans antialiased overflow-x-hidden">
+
+  <!-- HEADER -->
+  <header class="w-full bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="../../index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-brand-crimson flex items-center justify-center text-white shadow-md">
+          <i class="fa-solid fa-umbrella-beach text-lg"></i>
+        </div>
+        <div>
+          <span class="font-extrabold text-xl sm:text-2xl tracking-tight text-espresso leading-none">
+            DaNang <span class="text-brand-crimson font-serif italic font-normal text-lg sm:text-xl">for less</span>
+          </span>
+          <span class="block text-[11px] text-gray-400 font-medium">Experience Da Nang on a budget</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-9 text-sm font-semibold">
+        <a href="../tours/index.html" data-i18n="nav.tours" class="text-gray-600 hover:text-brand-crimson transition">Tours</a>
+        <a href="../stays/index.html" data-i18n="nav.hotels" class="text-gray-600 hover:text-brand-crimson transition">Hotels & Stays</a>
+        <a href="index.html" data-i18n="nav.guides" class="text-brand-crimson font-bold border-b-2 border-brand-crimson pb-1">Guides</a>
+        <a href="../../index.html#secret-deals" data-i18n="nav.offers" class="text-gray-600 hover:text-brand-crimson transition">Special Offers</a>
+      </nav>
+
+      <div class="flex items-center space-x-3 sm:space-x-4">
+        <div class="lang-pill-switch bg-gray-100 px-3 py-1.5 rounded-full text-xs font-semibold text-gray-700 flex items-center gap-1.5 border border-gray-200">
+          <span data-lang="en" class="text-brand-crimson font-bold cursor-pointer">EN</span>
+          <span class="text-gray-300">|</span>
+          <span data-lang="vn" class="text-gray-400 hover:text-gray-700 cursor-pointer">VN</span>
+        </div>
+        <div class="header-auth-container flex items-center space-x-2"></div>
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-xl text-gray-700 hover:bg-gray-100 transition" aria-label="Mở menu">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-drawer-overlay" class="fixed inset-0 bg-black/50 z-50 hidden backdrop-blur-sm transition-opacity"></div>
+  <div id="mobile-drawer" class="fixed top-0 right-0 w-72 h-full bg-white z-50 transform translate-x-full transition-transform duration-300 shadow-2xl p-6 flex flex-col justify-between">
+    <div>
+      <div class="flex items-center justify-between pb-4 border-b border-gray-100">
+        <span class="font-extrabold text-lg text-brand-crimson">DaNang for less</span>
+        <button id="mobile-close-btn" class="text-gray-400 hover:text-gray-700 text-xl p-1">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="mobile-auth-container" class="mt-4"></div>
+      <nav class="mt-2 flex flex-col space-y-3 text-base font-semibold text-gray-700">
+        <a href="../tours/index.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-solid fa-compass w-5 text-brand-crimson"></i> <span data-i18n="nav.tours">Tours</span>
+        </a>
+        <a href="../stays/index.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-solid fa-hotel w-5 text-brand-crimson"></i> <span data-i18n="nav.hotels">Hotels & Stays</span>
+        </a>
+        <a href="index.html" class="flex items-center gap-3 p-2 rounded-xl bg-red-50 text-brand-crimson font-bold">
+          <i class="fa-solid fa-map-location-dot w-5 text-brand-crimson"></i> <span data-i18n="nav.guides">Guides</span>
+        </a>
+        <a href="../../index.html#secret-deals" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-solid fa-bolt text-brand-crimson"></i> <span data-i18n="nav.offers">Special Offers</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- PAGE HERO HEADER -->
+  <section class="bg-[#24080F] text-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto space-y-4">
+      <nav class="flex items-center space-x-2 text-xs text-gray-400 font-medium">
+        <a href="../../index.html" data-i18n="guides.breadcrumb_home" class="hover:text-white transition">Home</a>
+        <span>/</span>
+        <span data-i18n="guides.breadcrumb_guides" class="text-amber-400 font-semibold">Travel Guides</span>
+      </nav>
+      <div class="space-y-2 max-w-3xl">
+        <h1 data-i18n="guides.page_title" class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">Da Nang Travel Guides & Local Tips</h1>
+        <p data-i18n="guides.page_subtitle" class="text-sm sm:text-base text-gray-300 leading-relaxed">Insider advice, budget itineraries, and local secrets to explore Da Nang smart and affordably.</p>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="flex flex-wrap items-center gap-2 pt-4">
+        <button class="px-4 py-2 rounded-full text-xs font-bold bg-brand-crimson text-white shadow-sm">
+          <span data-i18n="guides.filter_all">All Guides</span>
+        </button>
+        <button class="px-4 py-2 rounded-full text-xs font-semibold bg-white/10 hover:bg-white/20 text-gray-200 border border-white/10 transition">
+          <span data-i18n="guides.filter_itinerary">Itineraries</span>
+        </button>
+        <button class="px-4 py-2 rounded-full text-xs font-semibold bg-white/10 hover:bg-white/20 text-gray-200 border border-white/10 transition">
+          <span data-i18n="guides.filter_food">Food & Dining</span>
+        </button>
+        <button class="px-4 py-2 rounded-full text-xs font-semibold bg-white/10 hover:bg-white/20 text-gray-200 border border-white/10 transition">
+          <span data-i18n="guides.filter_budget">Budget Tips</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN ARTICLE CONTAINER -->
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+    
+    <!-- FEATURED SAMPLE ARTICLE CARD -->
+    <article class="bg-white rounded-3xl p-6 sm:p-12 border border-gray-200/80 shadow-md space-y-8">
+      
+      <!-- Article Header Meta -->
+      <div class="space-y-4 pb-6 border-b border-gray-100">
+        <div class="flex flex-wrap items-center gap-2 text-xs">
+          <span data-i18n="guides.featured_badge" class="px-3 py-1 rounded-full bg-red-100 text-brand-crimson font-bold uppercase tracking-wider">Featured Guide</span>
+          <span data-i18n="guides.category_budget" class="px-3 py-1 rounded-full bg-amber-50 text-amber-800 font-semibold border border-amber-200">Budget Travel</span>
+          <span data-i18n="guides.category_itinerary" class="px-3 py-1 rounded-full bg-blue-50 text-blue-800 font-semibold border border-blue-200">3D2N Itinerary</span>
+          <span data-i18n="guides.reading_time" class="text-gray-400 font-medium ml-auto flex items-center gap-1.5">
+            <i class="fa-regular fa-clock text-gray-400"></i> 5 min read
+          </span>
+        </div>
+
+        <h2 data-i18n="guides.sample_title" class="text-2xl sm:text-4xl font-extrabold text-espresso tracking-tight leading-tight">
+          The Ultimate 3D2N Da Nang Budget Guide: Eat, Stay & Explore Under $100
+        </h2>
+        
+        <p data-i18n="guides.sample_subtitle" class="text-sm sm:text-base text-gray-500 leading-relaxed">
+          How to experience the best of Da Nang, Son Tra, and Hoi An with high comfort and minimum expenses.
+        </p>
+
+        <!-- Author / Date / Share Bar -->
+        <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-crimson text-white font-bold flex items-center justify-center text-sm shadow-sm">
+              DN
+            </div>
+            <div>
+              <p data-i18n="guides.author" class="text-xs font-bold text-espresso">By DaNang Local Team</p>
+              <p data-i18n="guides.date" class="text-[11px] text-gray-400">Updated September 2024</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button onclick="navigator.clipboard.writeText(window.location.href); alert('Đã sao chép liên kết cẩm nang!');" class="px-3 py-1.5 rounded-xl border border-gray-200 text-xs font-semibold text-gray-600 hover:bg-gray-50 hover:text-brand-crimson transition flex items-center gap-1.5">
+              <i class="fa-solid fa-link text-xs"></i>
+              <span>Chia sẻ</span>
+            </button>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" class="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white transition flex items-center justify-center text-xs">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article Hero Image -->
+      <div class="relative rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+        <img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=1200&auto=format&fit=crop&q=80" 
+             alt="Da Nang Dragon Bridge and Cityscape" 
+             class="w-full h-64 sm:h-96 object-cover">
+        <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-lg text-xs font-medium">
+          <i class="fa-solid fa-camera mr-1.5 text-amber-400"></i> Cầu Rồng & Trung tâm Đà Nẵng về đêm
+        </div>
+      </div>
+
+      <!-- Quick Overview & Budget Breakdown Box -->
+      <div class="p-6 rounded-2xl bg-brand-sand border border-amber-200/70 space-y-4">
+        <div class="flex items-center gap-2.5 text-brand-crimson font-bold text-base sm:text-lg">
+          <i class="fa-solid fa-calculator text-lg"></i>
+          <h3 data-i18n="guides.overview_title">Quick Overview & Budget Breakdown</h3>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-1">
+          <div class="bg-white p-4 rounded-xl border border-gray-200/80 shadow-xs">
+            <p data-i18n="guides.budget_label" class="text-xs text-gray-500 font-medium">Estimated Total:</p>
+            <p data-i18n="guides.budget_val" class="text-sm sm:text-base font-extrabold text-brand-crimson mt-0.5">~$95 (2.300.000đ / person)</p>
+          </div>
+          <div class="bg-white p-4 rounded-xl border border-gray-200/80 shadow-xs">
+            <p data-i18n="guides.duration_label" class="text-xs text-gray-500 font-medium">Duration:</p>
+            <p data-i18n="guides.duration_val" class="text-sm sm:text-base font-extrabold text-espresso mt-0.5">3 Days 2 Nights</p>
+          </div>
+          <div class="bg-white p-4 rounded-xl border border-gray-200/80 shadow-xs">
+            <p data-i18n="guides.transport_label" class="text-xs text-gray-500 font-medium">Transport:</p>
+            <p data-i18n="guides.transport_val" class="text-sm sm:text-base font-extrabold text-espresso mt-0.5">Rental Motorbike ($5/day) or Grab</p>
+          </div>
+          <div class="bg-white p-4 rounded-xl border border-gray-200/80 shadow-xs">
+            <p data-i18n="guides.stay_label" class="text-xs text-gray-500 font-medium">Best Stay Area:</p>
+            <p data-i18n="guides.stay_val" class="text-sm sm:text-base font-extrabold text-espresso mt-0.5">My Khe Beach / An Thuong area</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detailed Day-by-Day Itinerary Section -->
+      <div class="space-y-8 pt-2">
+        
+        <!-- DAY 1 -->
+        <div class="space-y-3 pl-4 border-l-4 border-brand-crimson">
+          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-red-50 text-brand-crimson text-xs font-bold">
+            <i class="fa-regular fa-calendar-days"></i>
+            <span>DAY 01</span>
+          </div>
+          <h3 data-i18n="guides.day1_title" class="text-xl sm:text-2xl font-bold text-espresso">
+            Day 1: Son Tra Peninsula, My Khe Beach & Dragon Bridge Fire Show
+          </h3>
+          <div class="text-sm sm:text-base text-gray-600 space-y-3 leading-relaxed">
+            <p>
+              <strong>Buổi sáng:</strong> Đáp chuyến bay hoặc tàu hỏa đến Đà Nẵng, nhận phòng khách sạn gần biển Mỹ Khê. Thuê một chiếc xe máy số hoặc tay ga ngay tại khách sạn (khoảng 120.000đ - 150.000đ/ngày). Bắt đầu hành trình bằng việc chạy xe dọc cung đường Hoàng Sa lên <strong>Bán đảo Sơn Trà</strong>. Viếng thăm <em>Chùa Linh Ứng Bãi Bụt</em> chiêm bái Tượng Phật Bà Quan Âm cao 67m ngắm trọn vẹn vịnh biển Đà Nẵng (vào cổng hoàn toàn miễn phí).
+            </p>
+            <p>
+              <strong>Buổi trưa:</strong> Tấp vào quán <em>Mì Quảng Bà Mua</em> (đường Trần Bình Trọng) gọi một tô mì Quảng gà ta hoặc ếch đậm đà chỉ 35.000đ ăn kèm bánh tráng nướng giòn rụm và rau sống tươi xanh.
+            </p>
+            <p>
+              <strong>Buổi chiều:</strong> Tắm biển tại <strong>Bãi tắm Mỹ Khê</strong> — một trong những bãi biển quyến rũ nhất hành tinh. Thưởng thức nước dừa tươi (25.000đ) và dạo bước qua khu phố Tây An Thượng nhộn nhịp.
+            </p>
+            <p>
+              <strong>Buổi tối:</strong> Thưởng thức bữa tiệc hải sản tươi sống giá bình dân tại <em>Quán Năm Đảnh</em> (K77/51 Trần Duy Chiến) hoặc <em>Bé Mặn</em> ven biển. Đúng 21:00 cuối tuần (Thứ Bảy & Chủ Nhật), đến bờ đông Cầu Rồng để chiêm ngưỡng màn <strong>Cầu Rồng phun lửa và phun nước</strong> mãn nhãn.
+            </p>
+          </div>
+        </div>
+
+        <!-- DAY 2 -->
+        <div class="space-y-3 pl-4 border-l-4 border-amber-500">
+          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-amber-50 text-amber-800 text-xs font-bold">
+            <i class="fa-regular fa-calendar-days"></i>
+            <span>DAY 02</span>
+          </div>
+          <h3 data-i18n="guides.day2_title" class="text-xl sm:text-2xl font-bold text-espresso">
+            Day 2: Marble Mountains & Enchanting Hoi An Ancient Town
+          </h3>
+          <div class="text-sm sm:text-base text-gray-600 space-y-3 leading-relaxed">
+            <p>
+              <strong>Buổi sáng:</strong> Khởi hành chạy dọc đường biển Võ Nguyên Giáp về phía nam đến quần thể danh thắng <strong>Ngũ Hành Sơn (Marble Mountains)</strong>. Mua vé tham quan Thủy Sơn (chỉ 40.000đ/người), khám phá Động Huyền Không lung linh huyền ảo với những luồng sáng tự nhiên rọi từ vòm hang, leo lên Vọng Giang Đài phóng tầm mắt ngắm sông Cổ Cò.
+            </p>
+            <p>
+              <strong>Buổi trưa:</strong> Dừng chân ăn món <em>Bánh tráng cuốn thịt heo Đại Lộc</em> với chén mắm nêm thơm lừng, thịt luộc hai đầu da giòn mềm (khoảng 45.000đ/suất).
+            </p>
+            <p>
+              <strong>Buổi chiều & Tối:</strong> Di chuyển tiếp 20km vào <strong>Phố Cổ Hội An</strong>. Mua ly nước thảo mộc <em>Mót Hội An</em> mát lạnh (16.000đ), tản bộ ngắm Chùa Cầu cổ kính và những ngôi nhà mái ngói rêu phong sơn vàng đặc trưng. Khi hoàng hôn buông xuống, thuê một chiếc thuyền gỗ nhỏ thả hoa đăng cầu may mắn trên sông Hoài (50.000đ/thuyền), ăn tối món Cao lầu trứ danh trước khi chạy xe thong thả về lại Đà Nẵng.
+            </p>
+          </div>
+        </div>
+
+        <!-- DAY 3 -->
+        <div class="space-y-3 pl-4 border-l-4 border-emerald-600">
+          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 text-xs font-bold">
+            <i class="fa-regular fa-calendar-days"></i>
+            <span>DAY 03</span>
+          </div>
+          <h3 data-i18n="guides.day3_title" class="text-xl sm:text-2xl font-bold text-espresso">
+            Day 3: Con Market Street Food Safari & Han Market Souvenirs
+          </h3>
+          <div class="text-sm sm:text-base text-gray-600 space-y-3 leading-relaxed">
+            <p>
+              <strong>Buổi sáng:</strong> Bắt đầu ngày mới bằng tô <em>Bún chả cá cô Phi</em> hoặc <em>Bún mắm nêm bà Thuyên</em> (30.000đ). Tiến thẳng vào khu ẩm thực trứ danh của <strong>Chợ Cồn</strong> — thiên đường ăn vặt với hàng chục món: ốc hút nước dừa, bánh xèo giòn rụm, bánh bèo chén tôm chấy, chè sầu Liên ngọt bùi.
+            </p>
+            <p>
+              <strong>Buổi trưa:</strong> Ghé qua <strong>Chợ Hàn</strong> chọn mua quà đặc sản mang về cho người thân: chả bò Đà Nẵng loại 1, mực rim me hũ nhôm, bánh khô mè Cẩm Lệ (hãy chọn các sạp có bảng niêm yết giá của Ban Quản Lý Chợ để mua đúng giá).
+            </p>
+            <p>
+              <strong>Buổi chiều:</strong> Ghé quán cà phê ven sông Hàn ngắm cảnh cầu quay, check-out khách sạn và ra sân bay quốc tế Đà Nẵng (sân bay nằm ngay trong lòng thành phố nên chỉ mất 10 - 15 phút di chuyển).
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- MUST-TRY FOODS GRID -->
+      <div class="space-y-4 pt-4">
+        <h3 data-i18n="guides.food_title" class="text-xl sm:text-2xl font-bold text-espresso flex items-center gap-2">
+          <i class="fa-solid fa-bowl-food text-brand-crimson"></i> Must-Try Local Foods Under $2
+        </h3>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="bg-brand-sand p-4 rounded-2xl border border-gray-200/80 space-y-2">
+            <div class="flex justify-between items-start">
+              <h4 class="font-bold text-espresso text-sm">Mì Quảng Đà Nẵng</h4>
+              <span class="text-xs font-bold text-brand-crimson bg-red-100 px-2 py-0.5 rounded-full">25k - 35k</span>
+            </div>
+            <p class="text-xs text-gray-500">Sợi mì gạo dày ăn kèm gà ta hoặc tôm thịt, nước nhưỡng đậm vị và bánh tráng mè nướng.</p>
+            <p class="text-[11px] text-gray-400 font-semibold"><i class="fa-solid fa-location-dot mr-1 text-red-400"></i> Mì Quảng Bà Mua / Bếp Trang</p>
+          </div>
+
+          <div class="bg-brand-sand p-4 rounded-2xl border border-gray-200/80 space-y-2">
+            <div class="flex justify-between items-start">
+              <h4 class="font-bold text-espresso text-sm">Bánh Xèo & Nem Lụi</h4>
+              <span class="text-xs font-bold text-brand-crimson bg-red-100 px-2 py-0.5 rounded-full">35k - 50k</span>
+            </div>
+            <p class="text-xs text-gray-500">Vỏ giòn vàng rụm cuốn bánh tráng, rau sống tươi và nước tương gan đậu phộng béo bùi khó quên.</p>
+            <p class="text-[11px] text-gray-400 font-semibold"><i class="fa-solid fa-location-dot mr-1 text-red-400"></i> Bánh Xèo Bà Dưỡng (K280 Hoàng Diệu)</p>
+          </div>
+
+          <div class="bg-brand-sand p-4 rounded-2xl border border-gray-200/80 space-y-2">
+            <div class="flex justify-between items-start">
+              <h4 class="font-bold text-espresso text-sm">Bún Chả Cá Miền Trung</h4>
+              <span class="text-xs font-bold text-brand-crimson bg-red-100 px-2 py-0.5 rounded-full">30k - 40k</span>
+            </div>
+            <p class="text-xs text-gray-500">Chả cá thu quết tay dai ngọt, nước dùng nấu từ bí đỏ, cà chua và măng chua thanh mát tự nhiên.</p>
+            <p class="text-[11px] text-gray-400 font-semibold"><i class="fa-solid fa-location-dot mr-1 text-red-400"></i> Bún Chả Cá 109 Nguyễn Chí Thanh</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- INSIDER MONEY-SAVING TIPS -->
+      <div class="p-6 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200/80 space-y-3">
+        <h3 data-i18n="guides.tips_title" class="font-bold text-base sm:text-lg text-amber-900 flex items-center gap-2">
+          <i class="fa-solid fa-lightbulb text-amber-500"></i> 5 Money-Saving Insider Tips
+        </h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-amber-950/80 list-disc list-inside leading-relaxed">
+          <li><strong>Đặt trước khách sạn qua DaNang for less:</strong> Săn deal phòng giảm đến 25% kèm bữa sáng buffet miễn phí.</li>
+          <li><strong>Thuê xe máy tận nơi:</strong> Hãy liên hệ cửa hàng giao xe ngay tại sảnh sân bay hoặc khách sạn để tiết kiệm tiền taxi hai chiều.</li>
+          <li><strong>Thưởng thức ẩm thực trong chợ:</strong> Chợ Cồn và Chợ Bắc Mỹ An có chất lượng đồ ăn tươi ngon chuẩn vị người bản địa với giá chỉ bằng một nửa nhà hàng mặt phố.</li>
+          <li><strong>Canh đúng lịch Cầu Rồng:</strong> Màn phun lửa chỉ diễn ra đúng 21:00 Thứ 7 và Chủ Nhật hàng tuần, hãy chọn quán cà phê tầng thượng bờ Đông cầu trước 20:30 để có view đẹp nhất.</li>
+          <li><strong>Hỏi giá trước khi mua quà:</strong> Tại Chợ Hàn, ưu tiên chọn các quầy có bảng cam kết giá niêm yết từ ban quản lý để không lo bị thách giá.</li>
+        </ul>
+      </div>
+
+      <!-- IN-ARTICLE CALL TO ACTION BOX -->
+      <div class="p-8 rounded-2xl bg-[#24080F] text-white text-center space-y-4 shadow-xl">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-red-300 text-xs font-bold uppercase tracking-wider">
+          DaNang for less
+        </span>
+        <h3 data-i18n="guides.cta_title" class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Ready for your Da Nang adventure?</h3>
+        <p data-i18n="guides.cta_desc" class="text-gray-300 text-sm max-w-xl mx-auto leading-relaxed">Save up to 30% on handpicked tours and top-rated accommodations with instant confirmation.</p>
+        <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+          <a href="../tours/index.html" data-i18n="guides.cta_tours_btn" class="brand-btn-primary px-6 py-3 text-xs sm:text-sm font-bold shadow-lg">
+            Explore Affordable Tours
+          </a>
+          <a href="../stays/index.html" data-i18n="guides.cta_stays_btn" class="px-6 py-3 rounded-xl bg-white text-espresso hover:bg-gray-100 text-xs sm:text-sm font-bold shadow-lg transition">
+            Find Best Hotel Deals
+          </a>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- MORE GUIDES / RELATED POSTS GRID -->
+    <section class="mt-16 space-y-6">
+      <div class="flex items-center justify-between">
+        <h3 data-i18n="guides.related_title" class="text-xl sm:text-2xl font-bold text-espresso tracking-tight">
+          More Travel Guides & Local Recommendations
+        </h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-gray-200/80 shadow-sm hover:shadow-md transition group">
+          <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=600&auto=format&fit=crop&q=80" alt="Food gems" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-3 left-3 bg-brand-crimson text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Street Food</span>
+          </div>
+          <div class="p-5 space-y-2">
+            <h4 data-i18n="guides.card1_title" class="font-bold text-base text-espresso group-hover:text-brand-crimson transition line-clamp-2">
+              Top 15 Local Street Food Spots in Da Nang (No Tourist Traps)
+            </h4>
+            <p class="text-xs text-gray-500 line-clamp-2">Khám phá các hàng quán vỉa hè lâu năm với công thức nước chấm gia truyền đặc sắc.</p>
+            <div class="pt-2 flex items-center justify-between text-[11px] text-gray-400 font-semibold">
+              <span>4 min read</span>
+              <span class="text-brand-crimson font-bold group-hover:underline">Read more →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-gray-200/80 shadow-sm hover:shadow-md transition group">
+          <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop&q=80" alt="Hai Van Pass" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Motorbike Guide</span>
+          </div>
+          <div class="p-5 space-y-2">
+            <h4 data-i18n="guides.card2_title" class="font-bold text-base text-espresso group-hover:text-brand-crimson transition line-clamp-2">
+              Hai Van Pass by Motorbike: Safety Guide & Scenic Stops
+            </h4>
+            <p class="text-xs text-gray-500 line-clamp-2">Kinh nghiệm vượt đèo an toàn, những khúc cua ngoạn mục và các quán cà phê ngắm mây tuyệt đẹp.</p>
+            <div class="pt-2 flex items-center justify-between text-[11px] text-gray-400 font-semibold">
+              <span>6 min read</span>
+              <span class="text-brand-crimson font-bold group-hover:underline">Read more →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-gray-200/80 shadow-sm hover:shadow-md transition group">
+          <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&auto=format&fit=crop&q=80" alt="Resort stay" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-3 left-3 bg-amber-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Money Saver</span>
+          </div>
+          <div class="p-5 space-y-2">
+            <h4 data-i18n="guides.card3_title" class="font-bold text-base text-espresso group-hover:text-brand-crimson transition line-clamp-2">
+              How to Book Hotels in Da Nang with 25% Secret Discounts
+            </h4>
+            <p class="text-xs text-gray-500 line-clamp-2">Mẹo chọn thời điểm đặt phòng, chọn khu vực lưu trú phù hợp ngân sách và nhận mã ưu đãi.</p>
+            <div class="pt-2 flex items-center justify-between text-[11px] text-gray-400 font-semibold">
+              <span>3 min read</span>
+              <span class="text-brand-crimson font-bold group-hover:underline">Read more →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SECRET DEALS NEWSLETTER BANNER -->
+  <section class="py-16 bg-brand-sand/50 border-t border-gray-200/80">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-gray-200/80">
+        <span data-i18n="deals.badge" class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-red-50 text-brand-crimson text-xs font-bold uppercase tracking-wider mb-4 border border-red-100">
+          Exclusive Deals
+        </span>
+        <h2 data-i18n="deals.title" class="text-2xl sm:text-3xl font-extrabold text-espresso tracking-tight">
+          Get Secret Deals!
+        </h2>
+        <p data-i18n="deals.desc" class="text-gray-500 text-sm mt-2 max-w-xl mx-auto">
+          Join 10,000+ travelers getting exclusive deals, hidden gems & local tips straight to their inbox.
+        </p>
+        <form class="mt-6 flex flex-col sm:flex-row gap-2 max-w-md mx-auto" onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã đăng ký nhận tin!');">
+          <input type="email" required data-i18n-placeholder="deals.placeholder" placeholder="Enter your email address..." 
+                 class="flex-1 px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-crimson">
+          <button type="submit" data-i18n="deals.btn" class="brand-btn-primary px-6 py-3 text-sm font-bold shadow-md">
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#24080F] text-white pt-16 pb-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-brand-crimson flex items-center justify-center text-white shadow-md">
+              <i class="fa-solid fa-umbrella-beach text-lg"></i>
+            </div>
+            <div>
+              <span class="font-extrabold text-xl tracking-tight text-white">
+                DaNang <span class="text-red-400 font-serif italic font-normal text-lg">for less</span>
+              </span>
+              <p data-i18n="brand.tagline" class="text-xs text-gray-400">Experience Da Nang on a budget</p>
+            </div>
+          </div>
+          <p data-i18n="footer.intro" class="text-xs sm:text-sm text-gray-300/80 leading-relaxed max-w-sm pt-2">
+            Your trusted local partner for high-quality travel experiences at affordable prices in Da Nang and Central Vietnam.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <h4 data-i18n="footer.explore" class="text-sm font-bold text-white uppercase tracking-wider">Explore</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-gray-300/80">
+            <li><a href="../tours/index.html" data-i18n="nav.tours" class="hover:text-red-400 transition">Tours</a></li>
+            <li><a href="../stays/index.html" data-i18n="nav.hotels" class="hover:text-red-400 transition">Hotels</a></li>
+            <li><a href="../stays/index.html" data-i18n="footer.homestays" class="hover:text-red-400 transition">Homestay & Villas</a></li>
+            <li><a href="index.html" data-i18n="footer.travel_guide" class="hover:text-red-400 transition text-red-400 font-bold">Travel Guide</a></li>
+            <li><a href="../../index.html#secret-deals" data-i18n="nav.offers" class="hover:text-red-400 transition">Special Offers</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h4 data-i18n="footer.partners" class="text-sm font-bold text-white uppercase tracking-wider">For Partners</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-gray-300/80">
+            <li><a href="../portal/admin.html" data-i18n="footer.list_property" class="hover:text-red-400 transition">List Your Property</a></li>
+            <li><a href="../portal/admin.html" data-i18n="footer.tour_operator" class="hover:text-red-400 transition">Tour Operator</a></li>
+            <li><a href="#" data-i18n="footer.affiliate" class="hover:text-red-400 transition">Affiliate Program</a></li>
+            <li><a href="#" data-i18n="footer.partnership" class="hover:text-red-400 transition">Business Partnership</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h4 data-i18n="footer.support" class="text-sm font-bold text-white uppercase tracking-wider">Support & Legal</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-gray-300/80">
+            <li><a href="#" data-i18n="footer.help_center" class="hover:text-red-400 transition">Help Center</a></li>
+            <li><a href="#" data-i18n="footer.cancel_policy" class="hover:text-red-400 transition">Cancellation Policy</a></li>
+            <li><a href="#" data-i18n="footer.terms" class="hover:text-red-400 transition">Terms of Use</a></li>
+            <li><a href="#" data-i18n="footer.privacy" class="hover:text-red-400 transition">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+        <p data-i18n="footer.copyright">© 2024 DaNang for less. All rights reserved.</p>
+        <p data-i18n="footer.license" class="text-[11px] text-gray-500">International Travel Business License No: 79-1234/2024/TCDL-GP LHQT</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CORE SCRIPTS -->
+  <script src="../../assets/js/core/i18n.js"></script>
+  <script src="../../assets/js/core/auth.js"></script>
+  <script src="../../assets/js/core/navigation.js"></script>
+  <script src="../../assets/js/animations/scroll-reveal.js"></script>
+</body>
+</html>

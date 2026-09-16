@@ -14,6 +14,10 @@
     { "source": "/stays/detail.html", "destination": "/pages/stays/detail.html" },
     { "source": "/stays/(.*)", "destination": "/pages/stays/$1" },
 
+    { "source": "/guides", "destination": "/pages/guides/index.html" },
+    { "source": "/guides/index.html", "destination": "/pages/guides/index.html" },
+    { "source": "/guides/(.*)", "destination": "/pages/guides/$1" },
+
     { "source": "/booking/checkout", "destination": "/pages/booking/checkout.html" },
     { "source": "/booking/checkout.html", "destination": "/pages/booking/checkout.html" },
     { "source": "/booking/confirmation", "destination": "/pages/booking/confirmation.html" },
@@ -36,7 +40,8 @@
 
     { "source": "/pages/index.html", "destination": "/index.html" },
     { "source": "/pages/tours", "destination": "/pages/tours/index.html" },
-    { "source": "/pages/stays", "destination": "/pages/stays/index.html" }
+    { "source": "/pages/stays", "destination": "/pages/stays/index.html" },
+    { "source": "/pages/guides", "destination": "/pages/guides/index.html" }
   ],
   "headers": [
     {

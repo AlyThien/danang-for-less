@@ -152,9 +152,9 @@ function initSmartNavigationLinks() {
       return;
     }
 
-    // Guides anchor link
-    if (i18n === 'nav.guides' || hrefLower.includes('#travel-guide')) {
-      a.setAttribute('href', '/#travel-guide');
+    // Guides page link
+    if (i18n === 'nav.guides' || i18n === 'footer.travel_guide' || hrefLower.includes('guides') || hrefLower.includes('#travel-guide')) {
+      a.setAttribute('href', '/pages/guides/index.html');
       return;
     }
 
@@ -210,6 +210,7 @@ function updateActiveNavigationState() {
   const path = window.location.pathname.toLowerCase();
   const isTours = path.includes('/tours') || path.endsWith('tours');
   const isStays = path.includes('/stays') || path.endsWith('stays');
+  const isGuides = path.includes('/guides') || path.endsWith('guides');
 
   // Desktop header links
   const desktopLinks = document.querySelectorAll('header nav a');
@@ -218,6 +219,7 @@ function updateActiveNavigationState() {
     const href = (a.getAttribute('href') || '').toLowerCase();
     const isTourLink = i18n === 'nav.tours' || href.includes('tours');
     const isStayLink = i18n === 'nav.hotels' || href.includes('stays');
+    const isGuideLink = i18n === 'nav.guides' || href.includes('guides');
 
     if (isTourLink) {
       if (isTours) {
@@ -227,6 +229,12 @@ function updateActiveNavigationState() {
       }
     } else if (isStayLink) {
       if (isStays) {
+        a.className = 'text-brand-crimson font-bold border-b-2 border-brand-crimson pb-1 flex items-center gap-1.5 transition';
+      } else {
+        a.className = 'text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition font-semibold';
+      }
+    } else if (isGuideLink) {
+      if (isGuides) {
         a.className = 'text-brand-crimson font-bold border-b-2 border-brand-crimson pb-1 flex items-center gap-1.5 transition';
       } else {
         a.className = 'text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition font-semibold';
@@ -240,6 +248,7 @@ function updateActiveNavigationState() {
     const text = (a.textContent || '').toLowerCase();
     const isTourLink = text.includes('tour') || !!a.querySelector('.fa-compass');
     const isStayLink = text.includes('hotel') || text.includes('stay') || !!a.querySelector('.fa-hotel');
+    const isGuideLink = text.includes('guide') || !!a.querySelector('.fa-map-location-dot');
 
     if (isTourLink) {
       if (isTours) {
@@ -249,6 +258,12 @@ function updateActiveNavigationState() {
       }
     } else if (isStayLink) {
       if (isStays) {
+        a.className = 'flex items-center gap-3 p-2 rounded-xl bg-red-50 text-brand-crimson font-bold';
+      } else {
+        a.className = 'flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition text-gray-700 font-semibold';
+      }
+    } else if (isGuideLink) {
+      if (isGuides) {
         a.className = 'flex items-center gap-3 p-2 rounded-xl bg-red-50 text-brand-crimson font-bold';
       } else {
         a.className = 'flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition text-gray-700 font-semibold';
