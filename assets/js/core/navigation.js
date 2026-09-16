@@ -5,6 +5,9 @@
  */
 
 if (typeof document !== 'undefined') {
+  // Capture click events immediately for bulletproof navigation routing
+  initClickDelegation();
+
   document.addEventListener('DOMContentLoaded', () => {
     initStickyHeader();
     initMobileMenu();
@@ -76,7 +79,45 @@ function initLanguageSwitcher() {
 }
 
 /**
- * Normalizes all navigation, drawer, footer, and brand links to root-relative paths
+ * Intercepts clicks on detail and relative links to prevent 404s before or after DOM hydration.
+ */
+function initClickDelegation() {
+  if (typeof document === 'undefined') return;
+
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a');
+    if (!a) return;
+
+    const rawHref = a.getAttribute('href');
+    if (!rawHref) return;
+
+    const hrefLower = rawHref.trim().toLowerCase();
+    const isHttp = window.location.protocol.startsWith('http');
+    if (!isHttp) return;
+
+    const path = (window.location.pathname || '').toLowerCase();
+    const isTours = path.includes('/tours') || path.endsWith('tours');
+    const isStays = path.includes('/stays') || path.endsWith('stays');
+
+    // Detail link clicked (e.g. "detail.html" or "detail")
+    if (
+      hrefLower === 'detail.html' ||
+      hrefLower === './detail.html' ||
+      hrefLower.endsWith('/detail.html') ||
+      hrefLower === 'detail'
+    ) {
+      e.preventDefault();
+      if (isStays || hrefLower.includes('stays')) {
+        window.location.href = '/pages/stays/detail.html';
+      } else {
+        window.location.href = '/pages/tours/detail.html';
+      }
+    }
+  }, { capture: true });
+}
+
+/**
+ * Normalizes all navigation, drawer, footer, brand, and card links to root-relative paths
  * when running on HTTP/HTTPS web servers (such as Vercel or local preview server).
  * Preserves relative paths for local file:/// execution.
  */
@@ -84,13 +125,21 @@ function initSmartNavigationLinks() {
   const isHttp = window.location.protocol.startsWith('http');
   if (!isHttp) return;
 
-  const links = document.querySelectorAll('header a, #mobile-drawer a, footer a, nav a, .breadcrumb a, a[data-i18n]');
+  const currentPath = (window.location.pathname || '').toLowerCase();
+  const isToursContext = currentPath.includes('/tours') || currentPath.endsWith('tours');
+  const isStaysContext = currentPath.includes('/stays') || currentPath.endsWith('stays');
+  const isGuidesContext = currentPath.includes('/guides') || currentPath.endsWith('guides');
+  const isAuthContext = currentPath.includes('/auth') || currentPath.endsWith('auth');
+  const isBookingContext = currentPath.includes('/booking') || currentPath.endsWith('booking');
+
+  // Query ALL anchor tags with href on the page (including cards, buttons, footer, nav)
+  const links = document.querySelectorAll('a[href]');
 
   links.forEach(a => {
     const rawHref = a.getAttribute('href');
     if (!rawHref) return;
 
-    // Ignore protocols, mail, tel, js, or internal hashes
+    // Ignore protocols, mail, tel, js, or internal anchor-only hashes
     if (
       rawHref.startsWith('javascript:') ||
       rawHref.startsWith('mailto:') ||
@@ -103,11 +152,11 @@ function initSmartNavigationLinks() {
     }
 
     const i18n = a.getAttribute('data-i18n') || '';
-    const hrefLower = rawHref.toLowerCase();
+    const hrefLower = rawHref.trim().toLowerCase();
     const textLower = (a.textContent || '').trim().toLowerCase();
     const hasBeachIcon = !!a.querySelector('i.fa-umbrella-beach');
 
-    // Home / Brand logo
+    // Home / Brand logo / Breadcrumb Home
     if (
       a.closest('.logo') ||
       hasBeachIcon ||
@@ -123,7 +172,7 @@ function initSmartNavigationLinks() {
     if (
       i18n === 'nav.tours' ||
       (hrefLower.includes('tours') && !hrefLower.includes('detail')) ||
-      (hrefLower === 'index.html' && window.location.pathname.includes('/tours') && (textLower.includes('tour') || a.querySelector('.fa-compass')))
+      (hrefLower === 'index.html' && isToursContext && (textLower.includes('tour') || a.querySelector('.fa-compass')))
     ) {
       a.setAttribute('href', '/pages/tours/index.html');
       return;
@@ -134,20 +183,26 @@ function initSmartNavigationLinks() {
       i18n === 'nav.hotels' ||
       i18n === 'footer.homestays' ||
       (hrefLower.includes('stays') && !hrefLower.includes('detail')) ||
-      (hrefLower === 'index.html' && window.location.pathname.includes('/stays') && (textLower.includes('hotel') || textLower.includes('stay') || a.querySelector('.fa-hotel')))
+      (hrefLower === 'index.html' && isStaysContext && (textLower.includes('hotel') || textLower.includes('stay') || a.querySelector('.fa-hotel')))
     ) {
       a.setAttribute('href', '/pages/stays/index.html');
       return;
     }
 
-    // Tour Detail
-    if (hrefLower.includes('tours/detail') || (hrefLower.includes('detail.html') && window.location.pathname.includes('/tours'))) {
+    // Tour Detail (e.g. cards in tours index, book buttons, or explicit tours/detail links)
+    if (
+      hrefLower.includes('tours/detail') ||
+      ((hrefLower === 'detail.html' || hrefLower === './detail.html' || hrefLower.endsWith('/detail.html') || hrefLower === 'detail') && isToursContext)
+    ) {
       a.setAttribute('href', '/pages/tours/detail.html');
       return;
     }
 
-    // Stay Detail
-    if (hrefLower.includes('stays/detail') || (hrefLower.includes('detail.html') && window.location.pathname.includes('/stays'))) {
+    // Stay Detail (e.g. cards in stays index, view detail buttons, or explicit stays/detail links)
+    if (
+      hrefLower.includes('stays/detail') ||
+      ((hrefLower === 'detail.html' || hrefLower === './detail.html' || hrefLower.endsWith('/detail.html') || hrefLower === 'detail') && isStaysContext)
+    ) {
       a.setAttribute('href', '/pages/stays/detail.html');
       return;
     }
@@ -183,19 +238,19 @@ function initSmartNavigationLinks() {
     }
 
     // Booking Confirmation
-    if (hrefLower.includes('booking/confirmation')) {
+    if (hrefLower.includes('booking/confirmation') || (hrefLower === 'confirmation.html' && isBookingContext)) {
       a.setAttribute('href', '/pages/booking/confirmation.html');
       return;
     }
 
     // Auth Login
-    if (hrefLower.includes('auth/login')) {
+    if (hrefLower.includes('auth/login') || (hrefLower === 'login.html' && isAuthContext)) {
       a.setAttribute('href', '/pages/auth/login.html');
       return;
     }
 
     // Auth Register
-    if (hrefLower.includes('auth/register')) {
+    if (hrefLower.includes('auth/register') || (hrefLower === 'register.html' && isAuthContext)) {
       a.setAttribute('href', '/pages/auth/register.html');
       return;
     }
@@ -273,5 +328,5 @@ function updateActiveNavigationState() {
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { initStickyHeader, initMobileMenu, initLanguageSwitcher, initSmartNavigationLinks, updateActiveNavigationState };
+  module.exports = { initStickyHeader, initMobileMenu, initLanguageSwitcher, initSmartNavigationLinks, updateActiveNavigationState, initClickDelegation };
 }

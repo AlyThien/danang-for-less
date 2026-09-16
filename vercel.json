@@ -40,8 +40,14 @@
 
     { "source": "/pages/index.html", "destination": "/index.html" },
     { "source": "/pages/tours", "destination": "/pages/tours/index.html" },
+    { "source": "/pages/tours/detail", "destination": "/pages/tours/detail.html" },
     { "source": "/pages/stays", "destination": "/pages/stays/index.html" },
-    { "source": "/pages/guides", "destination": "/pages/guides/index.html" }
+    { "source": "/pages/stays/detail", "destination": "/pages/stays/detail.html" },
+    { "source": "/pages/guides", "destination": "/pages/guides/index.html" },
+    { "source": "/pages/detail.html", "destination": "/pages/tours/detail.html" },
+    { "source": "/pages/detail", "destination": "/pages/tours/detail.html" },
+    { "source": "/detail.html", "destination": "/pages/tours/detail.html" },
+    { "source": "/detail", "destination": "/pages/tours/detail.html" }
   ],
   "headers": [
     {
