@@ -667,10 +667,10 @@ class LanguageManager {
       if (isDark) {
         if (lang === 'en') {
           if (enEl) enEl.className = 'text-white font-black cursor-pointer bg-white/20 px-2 py-0.5 rounded-full transition';
-          if (vnEl) vnEl.className = 'text-gray-400 hover:text-white cursor-pointer px-1 transition';
+          if (vnEl) vnEl.className = 'text-white/70 hover:text-white cursor-pointer px-1 transition';
         } else {
           if (vnEl) vnEl.className = 'text-white font-black cursor-pointer bg-white/20 px-2 py-0.5 rounded-full transition';
-          if (enEl) enEl.className = 'text-gray-400 hover:text-white cursor-pointer px-1 transition';
+          if (enEl) enEl.className = 'text-white/70 hover:text-white cursor-pointer px-1 transition';
         }
       } else {
         if (lang === 'en') {

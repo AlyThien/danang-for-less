@@ -122,8 +122,8 @@ body {
 
 /* Map Background Illustration Overlay */
 .map-pattern-bg {
-  background-color: #24080F;
-  background-image: radial-gradient(rgba(245, 158, 11, 0.2) 1px, transparent 0);
+  background-color: #E51D24;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.25) 1.5px, transparent 0);
   background-size: 24px 24px;
 }
 
