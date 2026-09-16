@@ -1,7 +1,43 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
-  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/tours", "destination": "/pages/tours/index.html" },
+    { "source": "/tours/index.html", "destination": "/pages/tours/index.html" },
+    { "source": "/tours/detail", "destination": "/pages/tours/detail.html" },
+    { "source": "/tours/detail.html", "destination": "/pages/tours/detail.html" },
+    { "source": "/tours/(.*)", "destination": "/pages/tours/$1" },
+
+    { "source": "/stays", "destination": "/pages/stays/index.html" },
+    { "source": "/stays/index.html", "destination": "/pages/stays/index.html" },
+    { "source": "/stays/detail", "destination": "/pages/stays/detail.html" },
+    { "source": "/stays/detail.html", "destination": "/pages/stays/detail.html" },
+    { "source": "/stays/(.*)", "destination": "/pages/stays/$1" },
+
+    { "source": "/booking/checkout", "destination": "/pages/booking/checkout.html" },
+    { "source": "/booking/checkout.html", "destination": "/pages/booking/checkout.html" },
+    { "source": "/booking/confirmation", "destination": "/pages/booking/confirmation.html" },
+    { "source": "/booking/confirmation.html", "destination": "/pages/booking/confirmation.html" },
+    { "source": "/booking/(.*)", "destination": "/pages/booking/$1" },
+
+    { "source": "/portal/user", "destination": "/pages/portal/user.html" },
+    { "source": "/portal/user.html", "destination": "/pages/portal/user.html" },
+    { "source": "/portal/admin", "destination": "/pages/portal/admin.html" },
+    { "source": "/portal/admin.html", "destination": "/pages/portal/admin.html" },
+    { "source": "/portal/(.*)", "destination": "/pages/portal/$1" },
+
+    { "source": "/auth/login", "destination": "/pages/auth/login.html" },
+    { "source": "/auth/login.html", "destination": "/pages/auth/login.html" },
+    { "source": "/auth/register", "destination": "/pages/auth/register.html" },
+    { "source": "/auth/register.html", "destination": "/pages/auth/register.html" },
+    { "source": "/login", "destination": "/pages/auth/login.html" },
+    { "source": "/register", "destination": "/pages/auth/register.html" },
+    { "source": "/auth/(.*)", "destination": "/pages/auth/$1" },
+
+    { "source": "/pages/index.html", "destination": "/index.html" },
+    { "source": "/pages/tours", "destination": "/pages/tours/index.html" },
+    { "source": "/pages/stays", "destination": "/pages/stays/index.html" }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",

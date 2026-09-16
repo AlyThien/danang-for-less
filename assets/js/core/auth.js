@@ -56,9 +56,14 @@ class AuthManager {
     this.saveUser(null);
     // If currently in a protected portal page, redirect to home
     const path = window.location.pathname;
-    if (path.includes('/portal/')) {
-      const isNested = path.includes('/pages/portal/');
-      window.location.href = isNested ? '../../index.html' : 'index.html';
+    if (path.includes('/portal')) {
+      const isHttp = window.location.protocol.startsWith('http');
+      if (isHttp) {
+        window.location.href = '/';
+      } else {
+        const isNested = path.includes('/pages/portal/');
+        window.location.href = isNested ? '../../index.html' : 'index.html';
+      }
     }
   }
 
@@ -90,8 +95,9 @@ class AuthManager {
     const isVn = (window.dnI18n && window.dnI18n.currentLang === 'vn');
 
     authContainers.forEach(container => {
+      const isHttp = window.location.protocol.startsWith('http');
       const isNested = window.location.pathname.includes('/pages/');
-      const basePath = isNested ? '../../' : '';
+      const basePath = isHttp ? '/' : (isNested ? '../../' : '');
       const loginUrl = `${basePath}pages/auth/login.html`;
       const registerUrl = `${basePath}pages/auth/register.html`;
       const userPortalUrl = `${basePath}pages/portal/user.html`;
@@ -169,8 +175,9 @@ class AuthManager {
     if (!mobileAuthContainer) return;
 
     const isVn = (window.dnI18n && window.dnI18n.currentLang === 'vn');
+    const isHttp = window.location.protocol.startsWith('http');
     const isNested = window.location.pathname.includes('/pages/');
-    const basePath = isNested ? '../../' : '';
+    const basePath = isHttp ? '/' : (isNested ? '../../' : '');
 
     if (this.currentUser) {
       const user = this.currentUser;
