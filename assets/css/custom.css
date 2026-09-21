@@ -144,20 +144,27 @@ body {
 }
 
 /* ==========================================================================
-   Hero Sunset Overlay (Tối ưu trong suốt nhẹ nhàng, không bị mờ do màn tối)
+   Hero Section Text Shadows & Clarity Overlays
    ========================================================================== */
+.hero-title-shadow {
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.75), 0 4px 28px rgba(0, 0, 0, 0.5);
+}
+
+.hero-crimson-shadow {
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.8), 0 4px 32px rgba(0, 0, 0, 0.55), 0 0 24px rgba(255, 30, 39, 0.4);
+}
+
 .hero-sunset-overlay {
-  /* Lớp phủ gradient nhẹ nhàng bảo đảm chữ nổi bật nhưng ảnh vẫn sáng rõ, tự nhiên */
+  /* Lớp phủ gradient trong suốt nhẹ giúp chữ màu trắng và đỏ tươi nổi bật rõ nét */
   background: linear-gradient(
     180deg, 
-    rgba(0, 0, 0, 0.32) 0%, 
-    rgba(0, 0, 0, 0.08) 45%, 
-    rgba(0, 0, 0, 0.38) 100%
+    rgba(15, 23, 42, 0.45) 0%, 
+    rgba(15, 23, 42, 0.15) 42%, 
+    rgba(15, 23, 42, 0.48) 100%
   );
 }
 
 .hero-sunset-glow {
-  /* Tắt lớp glow phủ vàng/đỏ làm đục mờ ảnh */
   display: none;
 }
 
@@ -165,7 +172,7 @@ body {
   /* Gradient chuyển tiếp êm dịu ở chân card tìm kiếm */
   background: linear-gradient(
     to top, 
-    rgba(20, 5, 8, 0.45) 0%, 
+    rgba(15, 23, 42, 0.55) 0%, 
     transparent 55%
   );
 }
