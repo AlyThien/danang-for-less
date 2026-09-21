@@ -5,10 +5,10 @@
 
 :root {
   /* Brand Bright Red Palette (Đỏ tươi) */
-  --color-primary: #E51D24;
-  --color-primary-hover: #C4141A;
+  --color-primary: #FF1E27;
+  --color-primary-hover: #D90D18;
   --color-primary-tint: #FEF2F2;
-  --color-primary-border: rgba(229, 29, 36, 0.18);
+  --color-primary-border: rgba(255, 30, 39, 0.18);
 
   /* Warm Neutral Palette */
   --color-cream: #FFFDF9;
@@ -122,7 +122,7 @@ body {
 
 /* Map Background Illustration Overlay */
 .map-pattern-bg {
-  background-color: #E51D24;
+  background-color: #FF1E27;
   background-image: radial-gradient(rgba(255, 255, 255, 0.25) 1.5px, transparent 0);
   background-size: 24px 24px;
 }
@@ -144,34 +144,28 @@ body {
 }
 
 /* ==========================================================================
-   Hero Sunset Overlay (Exact Figma 54:10 Sunset Atmosphere)
+   Hero Sunset Overlay (Tối ưu trong suốt nhẹ nhàng, không bị mờ do màn tối)
    ========================================================================== */
 .hero-sunset-overlay {
-  /* Exact Figma 54:10 Linear Warm Sunset Gradient: rgba(61, 26, 14) */
+  /* Lớp phủ gradient nhẹ nhàng bảo đảm chữ nổi bật nhưng ảnh vẫn sáng rõ, tự nhiên */
   background: linear-gradient(
     180deg, 
-    rgba(61, 26, 14, 0.65) 0%, 
-    rgba(61, 26, 14, 0.42) 50%, 
-    rgba(61, 26, 14, 0.65) 100%
+    rgba(0, 0, 0, 0.32) 0%, 
+    rgba(0, 0, 0, 0.08) 45%, 
+    rgba(0, 0, 0, 0.38) 100%
   );
 }
 
 .hero-sunset-glow {
-  /* Sunset golden-hour warmth & sky glow */
-  background: radial-gradient(
-    ellipse at 50% 20%, 
-    rgba(245, 158, 11, 0.26) 0%, 
-    rgba(225, 29, 72, 0.18) 45%, 
-    transparent 78%
-  );
+  /* Tắt lớp glow phủ vàng/đỏ làm đục mờ ảnh */
+  display: none;
 }
 
 .hero-sunset-vignette {
-  /* Bottom contrast gradient for text & floating search island legibility */
+  /* Gradient chuyển tiếp êm dịu ở chân card tìm kiếm */
   background: linear-gradient(
     to top, 
-    rgba(31, 6, 10, 0.88) 0%, 
-    rgba(31, 6, 10, 0.35) 45%, 
-    transparent 85%
+    rgba(20, 5, 8, 0.45) 0%, 
+    transparent 55%
   );
 }

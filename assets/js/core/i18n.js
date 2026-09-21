@@ -21,7 +21,7 @@ const DN_I18N_DICTIONARY = {
 
     // Hero Section
     "hero.guarantee_badge": "Best Price Guarantee in Da Nang • Save 20% - 40%",
-    "hero.headline": "Experience Da Nang for Less",
+    "hero.headline": '<span class="block text-2xl sm:text-3xl md:text-4xl text-white font-semibold mb-2 drop-shadow-md">Experience</span><span class="block text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-brand-crimson tracking-tight drop-shadow-xl mt-1 sm:mt-2">Da Nang for Less</span>',
     "hero.subtitle_1": "Budget-friendly tours & stays.",
     "hero.subtitle_2": "Experience Da Nang on a budget. Hand-picked local deals with zero hidden fees.",
     "search.tab_tours": "Tours",
@@ -309,7 +309,7 @@ const DN_I18N_DICTIONARY = {
 
     // Hero Section
     "hero.guarantee_badge": "Cam kết giá tốt nhất Đà Nẵng • Tiết kiệm 20% - 40%",
-    "hero.headline": "Khám Phá Đà Nẵng Tiết Kiệm Hơn",
+    "hero.headline": '<span class="block text-2xl sm:text-3xl md:text-4xl text-white font-semibold mb-2 drop-shadow-md">Trải Nghiệm</span><span class="block text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-brand-crimson tracking-tight drop-shadow-xl mt-1 sm:mt-2">Da Nang for Less</span>',
     "hero.subtitle_1": "Chuyến đi & khách sạn giá tốt nhất.",
     "hero.subtitle_2": "Trải nghiệm Đà Nẵng như người bản địa. Ưu đãi độc quyền, minh bạch tuyệt đối, không phí ẩn.",
     "search.tab_tours": "Chuyến đi",
