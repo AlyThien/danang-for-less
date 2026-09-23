@@ -584,7 +584,7 @@ const DN_I18N_DICTIONARY = {
 
 class LanguageManager {
   constructor() {
-    this.currentLang = (typeof localStorage !== 'undefined' && localStorage.getItem('dn_lang')) || 'vi';
+    this.currentLang = (typeof localStorage !== 'undefined' && localStorage.getItem('dn_lang')) || 'vn';
     this.dict = DN_I18N_DICTIONARY;
   }
 
