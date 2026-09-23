@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <!-- Outer Circular Ring -->
+  <circle cx="100" cy="100" r="88" fill="none" stroke="#FF1E27" stroke-width="8" stroke-linecap="round" />
+  
+  <!-- Stylized Letter D: Flame Spine + Wave Base -->
+  <g fill="#FF1E27">
+    <!-- Flame Spine (Left vertical stem rising into dynamic flame licks) -->
+    <path d="M 68 142 
+             C 68 142, 66 100, 68 85 
+             C 69 75, 62 65, 74 44 
+             C 77 56, 82 62, 85 58 
+             C 90 52, 92 42, 94 36 
+             C 99 50, 102 65, 96 74 
+             C 93 78, 88 80, 86 86 
+             C 84 92, 84 142, 84 142 
+             Z" />
+             
+    <!-- Wave Belly (Right curving loop of D transforming into a rolling coastal wave) -->
+    <path d="M 84 82
+             C 105 78, 142 85, 142 112
+             C 142 135, 118 145, 95 145
+             C 80 145, 68 142, 68 142
+             C 68 142, 78 136, 88 136
+             C 112 136, 126 126, 126 112
+             C 126 98, 104 94, 84 94
+             Z" />
+             
+    <!-- Inner Wave Crest Curl (Stylized water crest inside the D) -->
+    <path d="M 84 136
+             C 100 136, 112 128, 112 118
+             C 112 108, 100 106, 92 112
+             C 86 116, 84 125, 84 136
+             Z" opacity="0.9" />
+  </g>
+</svg>
