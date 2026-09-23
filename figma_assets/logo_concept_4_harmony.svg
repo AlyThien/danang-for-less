@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <!-- Outer Circular Base -->
+  <circle cx="100" cy="100" r="90" fill="#FF1E27" />
+
+  <!-- White Wave & Flame Interlocking Yin-Yang to carve Letter D in Negative Space -->
+  <g fill="#FFFFFF">
+    <!-- Rising Flame on the inner left/top -->
+    <path d="M 68 140 
+             L 68 80 
+             C 68 62, 58 50, 72 32 
+             C 78 44, 86 48, 88 42 
+             C 94 32, 92 24, 98 18 
+             C 106 32, 104 46, 98 56 
+             C 114 48, 126 58, 134 72 
+             C 140 82, 142 96, 136 106 
+             C 128 118, 114 116, 102 108 
+             C 92 102, 84 102, 84 108 
+             L 84 140 
+             Z" />
+
+    <!-- Cresting Ocean Wave surging from bottom right into the curve of D -->
+    <path d="M 84 122 
+             C 96 116, 112 118, 124 124 
+             C 138 132, 148 126, 154 114 
+             C 158 132, 146 150, 128 156 
+             C 108 162, 88 154, 76 142 
+             C 88 144, 104 142, 116 136 
+             C 108 130, 96 130, 84 122 
+             Z" />
+
+    <!-- Central Wave-Foam Energy Drop -->
+    <circle cx="116" cy="92" r="7" />
+  </g>
+</svg>
