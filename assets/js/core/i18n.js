@@ -7,7 +7,7 @@
 const DN_I18N_DICTIONARY = {
   en: {
     // Brand & Global Header
-    "brand.title": "DaNang",
+    "brand.title": "Da Nang",
     "brand.sub": "for less",
     "brand.tagline": "Experience Da Nang on a budget",
     "nav.tours": "Tours",
@@ -295,7 +295,7 @@ const DN_I18N_DICTIONARY = {
 
   vn: {
     // Brand & Global Header
-    "brand.title": "DaNang",
+    "brand.title": "Da Nang",
     "brand.sub": "for less",
     "brand.tagline": "Trải nghiệm Đà Nẵng, chi phí tối ưu",
     "nav.tours": "Chuyến đi",
