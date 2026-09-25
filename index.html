@@ -72,7 +72,7 @@
       </a>
 
       <!-- Desktop Nav (Tours not bolded on homepage) -->
-      <nav class="hidden md:flex items-center space-x-9 text-sm font-semibold">
+      <nav class="hidden md:flex items-center space-x-7 lg:space-x-8 text-sm font-semibold">
         <a href="pages/tours/index.html" data-i18n="nav.tours" class="text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition">
           Tours
         </a>
@@ -81,6 +81,12 @@
         </a>
         <a href="pages/guides/index.html" data-i18n="nav.guides" class="text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition">
           Guides
+        </a>
+        <a href="pages/about.html" data-i18n="nav.about" class="text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition">
+          About Us
+        </a>
+        <a href="pages/contact.html" data-i18n="nav.contact" class="text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition">
+          Contact
         </a>
         <a href="#secret-deals" data-i18n="nav.offers" class="text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition">
           Special Offers
@@ -143,6 +149,12 @@
         </a>
         <a href="pages/guides/index.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
           <i class="fa-solid fa-map-location-dot w-5 text-brand-crimson"></i> <span data-i18n="nav.guides">Guides</span>
+        </a>
+        <a href="pages/about.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-solid fa-circle-info w-5 text-brand-crimson"></i> <span data-i18n="nav.about">About Us</span>
+        </a>
+        <a href="pages/contact.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-solid fa-headset w-5 text-brand-crimson"></i> <span data-i18n="nav.contact">Contact</span>
         </a>
         <a href="#secret-deals" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
           <i class="fa-solid fa-bolt text-brand-crimson"></i> <span data-i18n="nav.offers">Special Offers</span>
@@ -778,8 +790,564 @@
 
 
   <!-- ========================================================================= -->
-  <!-- 6. TRAVEL GUIDE BANNER (Exactly matching Figma Section 5)                 -->
+  <!-- 6. WHY WE STAND OUT SECTION (Inspired by Dacotours)                       -->
   <!-- ========================================================================= -->
+  <section id="why-we-stand-out" class="py-16 sm:py-24 bg-gradient-to-b from-white via-brand-sand/30 to-white relative overflow-hidden">
+    <!-- Decorative background elements -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-crimson/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
+        <span data-i18n="why_us.badge" class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-red-50 text-brand-crimson text-xs font-bold uppercase tracking-wider mb-3 border border-red-100 shadow-sm">
+          <i class="fa-solid fa-crown text-[11px]"></i> Why Travelers Choose Us
+        </span>
+        <h2 data-i18n="why_us.title" class="text-3xl sm:text-4xl md:text-5xl font-black text-espresso tracking-tight">
+          Why We Stand Out
+        </h2>
+        <p data-i18n="why_us.subtitle" class="text-gray-500 text-sm sm:text-base mt-3 leading-relaxed">
+          Explore Da Nang and Central Vietnam with unmatched local expertise, authentic value, and genuine care.
+        </p>
+      </div>
+
+      <!-- 9 Feature Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        
+        <!-- Feature 1: Fast Booking -->
+        <div class="brand-card p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1.5 transition-all duration-300 border border-gray-100/80 hover:border-brand-crimson/30 hover:shadow-xl bg-white rounded-2xl">
+          <div>
+            <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl sm:text-2xl mb-5 group-hover:scale-110 group-hover:bg-brand-crimson group-hover:text-white transition-all duration-300 shadow-sm">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <h3 data-i18n="why_us.f1_title" class="font-extrabold text-lg text-espresso group-hover:text-brand-crimson transition-colors">
+              Fast & Hassle-Free Booking
+            </h3>
+            <p data-i18n="why_us.f1_desc" class="text-xs sm:text-sm text-gray-500 mt-2 leading-relaxed">
+              Book in under 60 seconds with instant confirmation, digital tickets, and zero tedious paperwork.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-bold text-brand-crimson">
+            <span>Instant confirmation</span>
+            <i class="fa-solid fa-check text-[11px]"></i>
+          </div>
+        </div>
+
+        <!-- Feature 2: 24/7 Local Support -->
+        <div class="brand-card p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1.5 transition-all duration-300 border border-gray-100/80 hover:border-brand-crimson/30 hover:shadow-xl bg-white rounded-2xl">
+          <div>
+            <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl sm:text-2xl mb-5 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-sm">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <h3 data-i18n="why_us.f2_title" class="font-extrabold text-lg text-espresso group-hover:text-brand-crimson transition-colors">
+              24/7 Local Support
+            </h3>
+            <p data-i18n="why_us.f2_desc" class="text-xs sm:text-sm text-gray-500 mt-2 leading-relaxed">
+              Direct hotline, WhatsApp & Zalo with our local Da Nang experts. Always by your side throughout your journey.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-bold text-blue-600">
+            <span>Hotline / WhatsApp / Zalo</span>
+            <i class="fa-solid fa-phone text-[11px]"></i>
+          </div>
+        </div>
+
+        <!-- Feature 3: Expert Local Guides -->
+        <div class="brand-card p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1.5 transition-all duration-300 border border-gray-100/80 hover:border-brand-crimson/30 hover:shadow-xl bg-white rounded-2xl">
+          <div>
+            <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl sm:text-2xl mb-5 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-sm">
+              <i class="fa-solid fa-compass"></i>
+            </div>
+            <h3 data-i18n="why_us.f3_title" class="font-extrabold text-lg text-espresso group-hover:text-brand-crimson transition-colors">
+              Expert Local Guides
+            </h3>
+            <p data-i18n="why_us.f3_desc" class="text-xs sm:text-sm text-gray-500 mt-2 leading-relaxed">
+              100% licensed, passionate local guides sharing authentic history, hidden gems, and true Vietnamese warmth.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-bold text-emerald-600">
+            <span>100% Certified Guides</span>
+            <i class="fa-solid fa-id-badge text-[11px]"></i>
+          </div>
+        </div>
+
+        <!-- Feature 4: Safe, Smooth & Stress-Free -->
+        <div class="brand-card p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1.5 transition-all duration-300 border border-gray-100/80 hover:border-brand-crimson/30 hover:shadow-xl bg-white rounded-2xl">
+          <div>
+            <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl sm:text-2xl mb-5 group-hover:scale-110 group-hover:bg-amber-600 group-hover:text-white transition-all duration-300 shadow-sm">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3 data-i18n="why_us.f4_title" class="font-extrabold text-lg text-espresso group-hover:text-brand-crimson transition-colors">
+              Safe, Smooth & Stress-Free
+            </h3>
+            <p data-i18n="why_us.f4_desc" class="text-xs sm:text-sm text-gray-500 mt-2 leading-relaxed">
+              Modern air-conditioned transport fleet, vetted drivers, and full passenger travel insurance included.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-bold text-amber-600">
+            <span>Insurance & AC vehicles</span>
+            <i class="fa-solid fa-van-shuttle text-[11px]"></i>
+          </div>
+        </div>
+
+        <!-- Feature 5: Easy & Flexible Refund -->
+        <div class="brand-card p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1.5 transition-all duration-300 border border-gray-100/80 hover:border-brand-crimson/30 hover:shadow-xl bg-white rounded-2xl">
+          <div>
+            <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl sm:text-2xl mb-5 group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300 shadow-sm">
+              <i class="fa-solid fa-arrow-rotate-left"></i>
+            </div>
+            <h3 data-i18n="why_us.f5_title" class="font-extrabold text-lg text-espresso group-hover:text-brand-crimson transition-colors">
+              Easy & Flexible Refund
+            </h3>
+            <p data-i18n="why_us.f5_desc" class="text-xs sm:text-sm text-gray-500 mt-2 leading-relaxed">
+              Free cancellation up to 24 hours before departure. Flexible rescheduling if weather conditions change.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-bold text-indigo-600">
+            <span>24h Free cancellation</span>
+            <i class="fa-solid fa-calendar-check text-[11px]"></i>
+          </div>
+        </div>
+
+        <!-- Feature 6: Best Value, Zero Hidden Fees -->
+        <div class="brand-card p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1.5 transition-all duration-300 border border-gray-100/80 hover:border-brand-crimson/30 hover:shadow-xl bg-white rounded-2xl">
+          <div>
+            <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-red-50 text-brand-crimson flex items-center justify-center text-xl sm:text-2xl mb-5 group-hover:scale-110 group-hover:bg-brand-crimson group-hover:text-white transition-all duration-300 shadow-sm">
+              <i class="fa-solid fa-hand-holding-dollar"></i>
+            </div>
+            <h3 data-i18n="why_us.f6_title" class="font-extrabold text-lg text-espresso group-hover:text-brand-crimson transition-colors">
+              Best Value, Zero Hidden Fees
+            </h3>
+            <p data-i18n="why_us.f6_desc" class="text-xs sm:text-sm text-gray-500 mt-2 leading-relaxed">
+              Transparent all-inclusive rates with zero tourist traps, no forced shopping stops, guaranteed.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-bold text-brand-crimson">
+            <span>Save 20% - 40% vs standard</span>
+            <i class="fa-solid fa-tag text-[11px]"></i>
+          </div>
+        </div>
+
+        <!-- Feature 7: Authentic Local Experiences -->
+        <div class="brand-card p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1.5 transition-all duration-300 border border-gray-100/80 hover:border-brand-crimson/30 hover:shadow-xl bg-white rounded-2xl">
+          <div>
+            <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center text-xl sm:text-2xl mb-5 group-hover:scale-110 group-hover:bg-orange-600 group-hover:text-white transition-all duration-300 shadow-sm">
+              <i class="fa-solid fa-utensils"></i>
+            </div>
+            <h3 data-i18n="why_us.f7_title" class="font-extrabold text-lg text-espresso group-hover:text-brand-crimson transition-colors">
+              Authentic Local Experiences
+            </h3>
+            <p data-i18n="why_us.f7_desc" class="text-xs sm:text-sm text-gray-500 mt-2 leading-relaxed">
+              Taste genuine street food favorites and explore centuries-old craft villages away from crowded tourist routes.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-bold text-orange-600">
+            <span>Real Central Vietnam soul</span>
+            <i class="fa-solid fa-bowl-food text-[11px]"></i>
+          </div>
+        </div>
+
+        <!-- Feature 8: Tailored Custom Itineraries -->
+        <div class="brand-card p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1.5 transition-all duration-300 border border-gray-100/80 hover:border-brand-crimson/30 hover:shadow-xl bg-white rounded-2xl">
+          <div>
+            <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl sm:text-2xl mb-5 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-sm">
+              <i class="fa-solid fa-sliders"></i>
+            </div>
+            <h3 data-i18n="why_us.f8_title" class="font-extrabold text-lg text-espresso group-hover:text-brand-crimson transition-colors">
+              Tailored & Custom Itineraries
+            </h3>
+            <p data-i18n="why_us.f8_desc" class="text-xs sm:text-sm text-gray-500 mt-2 leading-relaxed">
+              Personalized schedules tailored for solo travelers, families, and private groups based on your style and budget.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-bold text-purple-600">
+            <span>Free custom trip planning</span>
+            <i class="fa-solid fa-pen-ruler text-[11px]"></i>
+          </div>
+        </div>
+
+        <!-- Feature 9: Responsible Tourism -->
+        <div class="brand-card p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1.5 transition-all duration-300 border border-gray-100/80 hover:border-brand-crimson/30 hover:shadow-xl bg-white rounded-2xl">
+          <div>
+            <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl sm:text-2xl mb-5 group-hover:scale-110 group-hover:bg-teal-600 group-hover:text-white transition-all duration-300 shadow-sm">
+              <i class="fa-solid fa-leaf"></i>
+            </div>
+            <h3 data-i18n="why_us.f9_title" class="font-extrabold text-lg text-espresso group-hover:text-brand-crimson transition-colors">
+              Responsible & Sustainable Tourism
+            </h3>
+            <p data-i18n="why_us.f9_desc" class="text-xs sm:text-sm text-gray-500 mt-2 leading-relaxed">
+              Supporting local artisan communities, respecting wildlife on Son Tra Peninsula, and keeping beaches clean.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-bold text-teal-600">
+            <span>Eco-friendly practices</span>
+            <i class="fa-solid fa-seedling text-[11px]"></i>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 7. BOOK WITHOUT ANY STRESS BANNER (Inspired by Dacotours)                 -->
+  <!-- ========================================================================= -->
+  <section class="py-16 sm:py-20 bg-espresso text-white relative overflow-hidden">
+    <!-- Background overlay image with dark gradient -->
+    <div class="absolute inset-0 z-0 opacity-20">
+      <img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=1920&auto=format&fit=crop&q=80" 
+           alt="Da Nang Bridges and River" class="w-full h-full object-cover">
+    </div>
+    
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-amber-300 text-xs font-bold uppercase tracking-wider mb-6 border border-white/20 backdrop-blur-sm">
+        <i class="fa-solid fa-sparkles text-xs"></i> 12+ Years of Local Excellence
+      </span>
+      
+      <h2 data-i18n="stressfree.title" class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight max-w-3xl mx-auto">
+        Book Your Da Nang Adventure Without Any Stress
+      </h2>
+      
+      <p data-i18n="stressfree.desc" class="text-gray-300 text-sm sm:text-base md:text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
+        With 12+ years of local expertise, our travel specialists craft your perfect itinerary from start to finish. Simply enjoy every moment; we handle the rest.
+      </p>
+
+      <!-- Trust Badges -->
+      <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10 mt-8 text-xs sm:text-sm text-gray-300 font-semibold">
+        <div class="flex items-center gap-2">
+          <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs">
+            <i class="fa-solid fa-check"></i>
+          </span>
+          <span>Free Cancellation (24h)</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs">
+            <i class="fa-solid fa-check"></i>
+          </span>
+          <span>Zero Hidden Costs</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs">
+            <i class="fa-solid fa-check"></i>
+          </span>
+          <span>Free Hotel Pick-up</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="pages/contact.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-brand-crimson hover:bg-brand-darkcrimson text-white font-bold text-sm sm:text-base px-8 py-4 rounded-xl shadow-lg shadow-brand-crimson/30 hover:scale-105 transition-all duration-300">
+          <span data-i18n="stressfree.btn">Get Free Custom Itinerary & Advice</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+        <a href="pages/about.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold text-sm sm:text-base px-7 py-4 rounded-xl border border-white/20 transition duration-300 backdrop-blur-sm">
+          <span data-i18n="nav.about">About Us</span>
+          <i class="fa-solid fa-circle-info text-xs"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 8. TRAVELERS' REVIEWS SECTION (Inspired by Dacotours)                     -->
+  <!-- ========================================================================= -->
+  <section id="travelers-reviews" class="py-16 sm:py-24 bg-brand-sand/40 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
+        <span data-i18n="reviews.badge" class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-200 shadow-sm">
+          <i class="fa-solid fa-star text-amber-500 text-[11px]"></i> Travelers' Reviews
+        </span>
+        <h2 data-i18n="reviews.title" class="text-3xl sm:text-4xl md:text-5xl font-black text-espresso tracking-tight">
+          Real Stories From Real Travelers
+        </h2>
+        <p data-i18n="reviews.subtitle" class="text-gray-500 text-sm sm:text-base mt-3 leading-relaxed">
+          Over 12,800+ 5-star reviews on TripAdvisor, Google and GetYourGuide speak for our quality.
+        </p>
+      </div>
+
+      <!-- Trust & Review Platforms Score Bar -->
+      <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-200/80 mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-center divide-y md:divide-y-0 md:divide-x divide-gray-100">
+          
+          <!-- Overall Score -->
+          <div class="flex items-center gap-4 md:pr-4">
+            <div class="w-16 h-16 rounded-2xl bg-amber-50 text-amber-600 flex flex-col items-center justify-center font-black leading-none border border-amber-200">
+              <span class="text-2xl font-black">4.9</span>
+              <span class="text-[10px] text-amber-700 uppercase mt-0.5">/ 5.0</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-1 text-amber-400 text-sm">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <h4 data-i18n="reviews.score_label" class="font-extrabold text-espresso text-sm mt-0.5">4.9/5 Excellent</h4>
+              <p class="text-xs text-gray-400">12,800+ verified ratings</p>
+            </div>
+          </div>
+
+          <!-- Google Reviews -->
+          <div class="pt-4 md:pt-0 md:px-6 flex items-center gap-3.5">
+            <div class="w-11 h-11 rounded-xl bg-gray-50 flex items-center justify-center text-xl shadow-xs border border-gray-200">
+              <i class="fa-brands fa-google text-blue-500"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-1.5">
+                <span class="font-bold text-sm text-espresso">Google</span>
+                <span class="text-xs font-extrabold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">4.9 ★</span>
+              </div>
+              <p class="text-xs text-gray-500 mt-0.5">6,500+ Local Reviews</p>
+            </div>
+          </div>
+
+          <!-- TripAdvisor -->
+          <div class="pt-4 md:pt-0 md:px-6 flex items-center gap-3.5">
+            <div class="w-11 h-11 rounded-xl bg-gray-50 flex items-center justify-center text-xl shadow-xs border border-gray-200">
+              <i class="fa-solid fa-owl text-emerald-600"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-1.5">
+                <span class="font-bold text-sm text-espresso">TripAdvisor</span>
+                <span class="text-xs font-extrabold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">5.0 ★</span>
+              </div>
+              <p class="text-xs text-gray-500 mt-0.5">Traveller's Choice 2025</p>
+            </div>
+          </div>
+
+          <!-- GetYourGuide -->
+          <div class="pt-4 md:pt-0 md:pl-6 flex items-center gap-3.5">
+            <div class="w-11 h-11 rounded-xl bg-red-50 flex items-center justify-center text-xl shadow-xs border border-red-100">
+              <i class="fa-solid fa-ticket text-brand-crimson"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-1.5">
+                <span class="font-bold text-sm text-espresso">GetYourGuide</span>
+                <span class="text-xs font-extrabold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">4.9 ★</span>
+              </div>
+              <p class="text-xs text-gray-500 mt-0.5">Top Rated Tour Partner</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Review Cards 3-Column Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        
+        <!-- Review 1: Stacey (UK) -->
+        <div class="brand-card p-6 sm:p-7 bg-white rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-1 text-amber-400 text-sm">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="text-[11px] font-bold text-gray-400 flex items-center gap-1">
+                <i class="fa-brands fa-google text-blue-500"></i> Google Review
+              </span>
+            </div>
+            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed italic">
+              "Jun was such an incredible tour guide! He was very knowledgeable about Ba Na Hills and showed us the best photo spots before the crowds arrived. Pick up and drop off from my hotel was super punctual and smooth. Highly recommend!"
+            </p>
+          </div>
+          <div class="pt-4 mt-5 border-t border-gray-100 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&auto=format&fit=crop&q=80" 
+                   alt="Stacey" class="w-10 h-10 rounded-full object-cover border border-red-100">
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-espresso">Stacey M.</h4>
+                <p class="text-[11px] text-gray-400">United Kingdom • Ba Na Hills Tour</p>
+              </div>
+            </div>
+            <span class="text-emerald-600 text-xs" title="Verified Customer"><i class="fa-solid fa-circle-check"></i></span>
+          </div>
+        </div>
+
+        <!-- Review 2: Mazlin (Singapore) -->
+        <div class="brand-card p-6 sm:p-7 bg-white rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-1 text-amber-400 text-sm">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="text-[11px] font-bold text-gray-400 flex items-center gap-1">
+                <i class="fa-brands fa-google text-blue-500"></i> Google Review
+              </span>
+            </div>
+            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed italic">
+              "The pick-up and return were all great. Pleasant day, our tour guide looked after us so well with lots of insights into local culture. The lantern boat ride in Hoi An was absolutely magical for our family. No hidden charges at all!"
+            </p>
+          </div>
+          <div class="pt-4 mt-5 border-t border-gray-100 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80" 
+                   alt="Mazlin" class="w-10 h-10 rounded-full object-cover border border-red-100">
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-espresso">Mazlin K.</h4>
+                <p class="text-[11px] text-gray-400">Singapore • Hoi An Sunset Tour</p>
+              </div>
+            </div>
+            <span class="text-emerald-600 text-xs" title="Verified Customer"><i class="fa-solid fa-circle-check"></i></span>
+          </div>
+        </div>
+
+        <!-- Review 3: Daniel & Emma (Australia) -->
+        <div class="brand-card p-6 sm:p-7 bg-white rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-1 text-amber-400 text-sm">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="text-[11px] font-bold text-gray-400 flex items-center gap-1">
+                <i class="fa-solid fa-owl text-emerald-600"></i> TripAdvisor
+              </span>
+            </div>
+            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed italic">
+              "Amazing experience! The coastal train views over Hai Van Pass are astonishing. Our tour guide Oanh provided fascinating historic details and took great care of everyone. Best value tour we've done in Vietnam!"
+            </p>
+          </div>
+          <div class="pt-4 mt-5 border-t border-gray-100 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&auto=format&fit=crop&q=80" 
+                   alt="Daniel & Emma" class="w-10 h-10 rounded-full object-cover border border-red-100">
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-espresso">Daniel & Emma</h4>
+                <p class="text-[11px] text-gray-400">Australia • Hue Heritage Train Tour</p>
+              </div>
+            </div>
+            <span class="text-emerald-600 text-xs" title="Verified Customer"><i class="fa-solid fa-circle-check"></i></span>
+          </div>
+        </div>
+
+        <!-- Review 4: Kenji Takahashi (Japan) -->
+        <div class="brand-card p-6 sm:p-7 bg-white rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-1 text-amber-400 text-sm">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="text-[11px] font-bold text-gray-400 flex items-center gap-1">
+                <i class="fa-solid fa-ticket text-brand-crimson"></i> GetYourGuide
+              </span>
+            </div>
+            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed italic">
+              "The price was very reasonable and I was extremely satisfied! The guides drove very safely and introduced delicious authentic food that typical tourists wouldn't find. 10/10 experience!"
+            </p>
+          </div>
+          <div class="pt-4 mt-5 border-t border-gray-100 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80" 
+                   alt="Kenji" class="w-10 h-10 rounded-full object-cover border border-red-100">
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-espresso">Kenji Takahashi</h4>
+                <p class="text-[11px] text-gray-400">Japan • Da Nang Food Tour</p>
+              </div>
+            </div>
+            <span class="text-emerald-600 text-xs" title="Verified Customer"><i class="fa-solid fa-circle-check"></i></span>
+          </div>
+        </div>
+
+        <!-- Review 5: Minh Trang (Vietnam) -->
+        <div class="brand-card p-6 sm:p-7 bg-white rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-1 text-amber-400 text-sm">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="text-[11px] font-bold text-gray-400 flex items-center gap-1">
+                <i class="fa-brands fa-google text-blue-500"></i> Google Review
+              </span>
+            </div>
+            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed italic">
+              "Gia đình mình đi tour Cù Lao Chàm cực kỳ hài lòng. Cano cao tốc đời mới, biển trong xanh lặn ngắm san hô thích mê, ăn trưa hải sản tươi rói không phụ thu bất kỳ khoản nào. Chắc chắn sẽ quay lại ủng hộ!"
+            </p>
+          </div>
+          <div class="pt-4 mt-5 border-t border-gray-100 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&auto=format&fit=crop&q=80" 
+                   alt="Minh Trang" class="w-10 h-10 rounded-full object-cover border border-red-100">
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-espresso">Minh Trang</h4>
+                <p class="text-[11px] text-gray-400">Hà Nội, VN • Tour Cù Lao Chàm</p>
+              </div>
+            </div>
+            <span class="text-emerald-600 text-xs" title="Verified Customer"><i class="fa-solid fa-circle-check"></i></span>
+          </div>
+        </div>
+
+        <!-- Review 6: Evelin Schmidt (Germany) -->
+        <div class="brand-card p-6 sm:p-7 bg-white rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-1 text-amber-400 text-sm">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="text-[11px] font-bold text-gray-400 flex items-center gap-1">
+                <i class="fa-solid fa-owl text-emerald-600"></i> TripAdvisor
+              </span>
+            </div>
+            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed italic">
+              "Great trip, great guide, great food, great locations! Highest recommendation to our guide. Excellent communication in English and seamless booking through the website. Truly Da Nang for Less!"
+            </p>
+          </div>
+          <div class="pt-4 mt-5 border-t border-gray-100 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=120&auto=format&fit=crop&q=80" 
+                   alt="Evelin" class="w-10 h-10 rounded-full object-cover border border-red-100">
+              <div>
+                <h4 class="font-bold text-xs sm:text-sm text-espresso">Evelin Schmidt</h4>
+                <p class="text-[11px] text-gray-400">Germany • Da Nang City Tour</p>
+              </div>
+            </div>
+            <span class="text-emerald-600 text-xs" title="Verified Customer"><i class="fa-solid fa-circle-check"></i></span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Review Call to Action -->
+      <div class="mt-12 text-center">
+        <a href="https://www.tripadvisor.com" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-brand-crimson hover:text-brand-darkcrimson transition group">
+          <span data-i18n="reviews.see_more">See All Reviews on Google & TripAdvisor</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
   <section id="travel-guide" class="relative py-20 overflow-hidden map-pattern-bg text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Về Chúng Tôi - DaNang for less | Nhà Tổ Chức Tour Bản Địa Số 1 Đà Nẵng</title>
+  <meta name="description" content="Tìm hiểu về Da Nang For Less - Đơn vị lữ hành bản địa uy tín tại Đà Nẵng. 12+ năm kinh nghiệm, 150.000+ du khách, giấy phép lữ hành quốc tế, cam kết dịch vụ chân thực và giá tốt nhất.">
+
+  <!-- Google Fonts: Inter & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN with Custom Theme -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              crimson: '#FF1E27',
+              darkcrimson: '#D90D18',
+              cream: '#FFFDF9',
+              sand: '#FAF7F2',
+              espresso: '#1F060A',
+              gold: '#E5B567',
+              ocean: '#0E7490'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Project Styles & Animations -->
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body class="bg-brand-cream text-brand-espresso font-sans antialiased overflow-x-hidden selection:bg-brand-crimson selection:text-white">
+
+  <!-- ========================================================================= -->
+  <!-- 1. GLOBAL HEADER                                                          -->
+  <!-- ========================================================================= -->
+  <header class="w-full bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200/80 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- BRAND LOGO -->
+      <a href="../index.html" class="flex items-center gap-2.5 group">
+        <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-brand-crimson shadow-md shadow-brand-crimson/20 group-hover:scale-105 transition-transform duration-300 border border-red-50">
+          <i class="fa-solid fa-umbrella-beach text-lg"></i>
+        </div>
+        <div class="flex items-center gap-2 py-0.5">
+          <span class="w-[2px] h-8 bg-brand-crimson rounded-full"></span>
+          <div class="flex flex-col justify-center leading-tight">
+            <span class="font-extrabold text-sm sm:text-base tracking-tight text-brand-crimson">
+              Da Nang
+            </span>
+            <span class="font-extrabold text-sm sm:text-base tracking-tight text-brand-crimson">
+              For Less
+            </span>
+          </div>
+          <span class="w-[2px] h-8 bg-brand-crimson rounded-full"></span>
+        </div>
+      </a>
+
+      <!-- DESKTOP NAVIGATION -->
+      <nav class="hidden md:flex items-center space-x-7 lg:space-x-8 text-sm font-semibold">
+        <a href="tours/index.html" data-i18n="nav.tours" class="text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition">
+          Tours
+        </a>
+        <a href="stays/index.html" data-i18n="nav.hotels" class="text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition">
+          Hotels & Stays
+        </a>
+        <a href="guides/index.html" data-i18n="nav.guides" class="text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition">
+          Guides
+        </a>
+        <a href="about.html" data-i18n="nav.about" class="text-brand-crimson font-bold border-b-2 border-brand-crimson pb-1 flex items-center gap-1.5 transition">
+          About Us
+        </a>
+        <a href="contact.html" data-i18n="nav.contact" class="text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition">
+          Contact
+        </a>
+        <a href="../index.html#secret-deals" data-i18n="nav.offers" class="text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition">
+          Special Offers
+        </a>
+      </nav>
+
+      <!-- RIGHT CONTROLS -->
+      <div class="flex items-center space-x-3 sm:space-x-4">
+        <!-- Language Switcher Pill -->
+        <div class="lang-pill-switch bg-gray-100/90 px-3 py-1.5 rounded-full text-xs font-semibold text-gray-700 flex items-center gap-1.5 border border-gray-200">
+          <span data-lang="en" class="text-brand-crimson font-bold cursor-pointer">EN</span>
+          <span class="text-gray-300">|</span>
+          <span data-lang="vn" class="text-gray-400 hover:text-gray-700 cursor-pointer">VN</span>
+        </div>
+
+        <!-- Dynamic Auth Container -->
+        <div class="header-auth-container flex items-center space-x-2"></div>
+
+        <!-- Mobile Menu Trigger -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-xl text-gray-700 hover:bg-gray-100 transition" aria-label="Mở menu">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-drawer-overlay" class="fixed inset-0 bg-black/50 z-50 hidden backdrop-blur-sm transition-opacity"></div>
+  <div id="mobile-drawer" class="fixed top-0 right-0 w-72 h-full bg-white z-50 transform translate-x-full transition-transform duration-300 shadow-2xl p-6 flex flex-col justify-between">
+    <div>
+      <div class="flex items-center justify-between pb-4 border-b border-gray-100">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-brand-crimson shadow-sm border border-red-50">
+            <i class="fa-solid fa-umbrella-beach text-sm"></i>
+          </div>
+          <div class="flex items-center gap-1.5 py-0.5">
+            <span class="w-[2px] h-6 bg-brand-crimson rounded-full"></span>
+            <div class="flex flex-col justify-center leading-tight">
+              <span class="font-extrabold text-xs tracking-tight text-brand-crimson">Da Nang</span>
+              <span class="font-extrabold text-xs tracking-tight text-brand-crimson">For Less</span>
+            </div>
+            <span class="w-[2px] h-6 bg-brand-crimson rounded-full"></span>
+          </div>
+        </div>
+        <button id="mobile-close-btn" class="text-gray-400 hover:text-gray-700 text-xl p-1">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Auth Container -->
+      <div id="mobile-auth-container" class="mt-4"></div>
+
+      <nav class="mt-2 flex flex-col space-y-3 text-base font-semibold text-gray-700">
+        <a href="tours/index.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-solid fa-compass w-5 text-brand-crimson"></i> <span data-i18n="nav.tours">Tours</span>
+        </a>
+        <a href="stays/index.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-solid fa-hotel w-5 text-brand-crimson"></i> <span data-i18n="nav.hotels">Hotels & Stays</span>
+        </a>
+        <a href="guides/index.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-solid fa-map-location-dot w-5 text-brand-crimson"></i> <span data-i18n="nav.guides">Guides</span>
+        </a>
+        <a href="about.html" class="flex items-center gap-3 p-2 rounded-xl bg-red-50 text-brand-crimson font-bold">
+          <i class="fa-solid fa-circle-info w-5 text-brand-crimson"></i> <span data-i18n="nav.about">About Us</span>
+        </a>
+        <a href="contact.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-solid fa-headset w-5 text-brand-crimson"></i> <span data-i18n="nav.contact">Contact</span>
+        </a>
+        <a href="../index.html#secret-deals" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-solid fa-bolt text-brand-crimson"></i> <span data-i18n="nav.offers">Special Offers</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="border-t border-gray-100 pt-4 space-y-3">
+      <div class="flex items-center justify-between text-xs text-gray-500">
+        <span class="font-medium">Ngôn ngữ:</span>
+        <div class="lang-pill-switch flex gap-2 font-bold">
+          <span data-lang="vn" class="text-brand-crimson cursor-pointer">VN</span>
+          <span class="text-gray-300">|</span>
+          <span data-lang="en" class="text-gray-400 hover:text-brand-crimson cursor-pointer">EN</span>
+        </div>
+      </div>
+      <div class="text-[11px] text-gray-400 text-center">
+        Hotline 24/7: <a href="tel:0914136151" class="text-brand-crimson font-bold">+84 914 136 151</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 2. HERO SECTION & JUMP NAVIGATION                                         -->
+  <!-- ========================================================================= -->
+  <section class="relative bg-gradient-to-b from-red-50/60 via-brand-sand to-brand-cream pt-12 pb-16 lg:pt-16 lg:pb-24 border-b border-gray-200/60 overflow-hidden">
+    <!-- Decorative background elements -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-crimson/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 -left-20 w-80 h-80 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center justify-center space-x-2 text-xs text-gray-500 mb-6 font-medium">
+        <a href="../index.html" class="hover:text-brand-crimson transition">Trang chủ</a>
+        <span>/</span>
+        <span class="text-brand-crimson font-semibold" data-i18n="nav.about">Về chúng tôi</span>
+      </nav>
+
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-brand-crimson text-xs sm:text-sm font-bold shadow-sm border border-red-100 mb-5">
+        <i class="fa-solid fa-award text-brand-crimson"></i>
+        <span data-i18n="about.hero_badge">Nhà Tổ Chức Tour & Dịch Vụ Du Lịch Bản Địa</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight max-w-4xl mx-auto leading-tight" data-i18n="about.hero_title">
+        Về Da Nang For Less
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="mt-4 sm:mt-6 text-base sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed" data-i18n="about.hero_subtitle">
+        Ra đời với sứ mệnh mang đến những chuyến du lịch Đà Nẵng & Miền Trung chất lượng vượt trội với mức chi phí tối ưu, minh bạch nhất.
+      </p>
+
+      <!-- Quick Trust Indicators Bar -->
+      <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+        <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-gray-100 text-center">
+          <div class="text-2xl sm:text-3xl font-black text-brand-crimson">12+</div>
+          <div class="text-xs sm:text-sm font-medium text-gray-600 mt-1">Năm kinh nghiệm bản địa</div>
+        </div>
+        <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-gray-100 text-center">
+          <div class="text-2xl sm:text-3xl font-black text-brand-crimson">150,000+</div>
+          <div class="text-xs sm:text-sm font-medium text-gray-600 mt-1">Du khách hài lòng</div>
+        </div>
+        <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-gray-100 text-center">
+          <div class="text-2xl sm:text-3xl font-black text-brand-gold flex items-center justify-center gap-1">
+            <span>4.9</span><i class="fa-solid fa-star text-base"></i>
+          </div>
+          <div class="text-xs sm:text-sm font-medium text-gray-600 mt-1">TripAdvisor & Google</div>
+        </div>
+        <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-gray-100 text-center">
+          <div class="text-2xl sm:text-3xl font-black text-brand-crimson">100%</div>
+          <div class="text-xs sm:text-sm font-medium text-gray-600 mt-1">Hướng dẫn viên bản xứ</div>
+        </div>
+      </div>
+
+      <!-- Quick Subnav Jump Pills -->
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm">
+        <a href="#who-we-are" class="px-4 py-2 rounded-xl bg-white hover:bg-brand-crimson hover:text-white text-gray-700 font-semibold shadow-sm border border-gray-200 transition duration-200">
+          <i class="fa-solid fa-compass text-brand-crimson mr-1.5"></i> <span data-i18n="about.nav_who_we_are">Chúng tôi là ai</span>
+        </a>
+        <a href="#vision-mission" class="px-4 py-2 rounded-xl bg-white hover:bg-brand-crimson hover:text-white text-gray-700 font-semibold shadow-sm border border-gray-200 transition duration-200">
+          <i class="fa-solid fa-eye text-brand-crimson mr-1.5"></i> <span data-i18n="about.nav_vision">Tầm nhìn & Sứ mệnh</span>
+        </a>
+        <a href="#core-values" class="px-4 py-2 rounded-xl bg-white hover:bg-brand-crimson hover:text-white text-gray-700 font-semibold shadow-sm border border-gray-200 transition duration-200">
+          <i class="fa-solid fa-heart text-brand-crimson mr-1.5"></i> <span data-i18n="about.nav_values">Giá trị cốt lõi</span>
+        </a>
+        <a href="#team" class="px-4 py-2 rounded-xl bg-white hover:bg-brand-crimson hover:text-white text-gray-700 font-semibold shadow-sm border border-gray-200 transition duration-200">
+          <i class="fa-solid fa-users text-brand-crimson mr-1.5"></i> <span data-i18n="about.nav_team">Chuyên gia bản địa</span>
+        </a>
+        <a href="#achievements" class="px-4 py-2 rounded-xl bg-white hover:bg-brand-crimson hover:text-white text-gray-700 font-semibold shadow-sm border border-gray-200 transition duration-200">
+          <i class="fa-solid fa-trophy text-brand-crimson mr-1.5"></i> <span data-i18n="about.nav_achievements">Thành tựu nổi bật</span>
+        </a>
+        <a href="#licenses" class="px-4 py-2 rounded-xl bg-white hover:bg-brand-crimson hover:text-white text-gray-700 font-semibold shadow-sm border border-gray-200 transition duration-200">
+          <i class="fa-solid fa-certificate text-brand-crimson mr-1.5"></i> <span data-i18n="about.nav_license">Pháp lý & Giấy phép</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 3. WHO WE ARE & OUR STORY                                                 -->
+  <!-- ========================================================================= -->
+  <section id="who-we-are" class="py-16 lg:py-24 bg-white border-b border-gray-100 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Story Content (Left) -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-brand-crimson text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Câu Chuyện Khởi Nghiệp</span>
+          </div>
+          
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight" data-i18n="about.story_title">
+            Câu Chuyện Của Chúng Tôi
+          </h2>
+
+          <div class="prose prose-lg text-gray-600 space-y-4 text-base sm:text-lg leading-relaxed">
+            <p data-i18n="about.story_p1">
+              Được thành lập tại thành phố biển Đà Nẵng xinh đẹp, Da Nang For Less bắt đầu từ một niềm tin giản dị: mọi du khách đều xứng đáng được tận hưởng vẻ đẹp thiên nhiên kỳ vĩ, văn hóa đậm đà và nền ẩm thực miền Trung trứ danh mà không cần lo lắng về chi phí đắt đỏ hay các bẫy giá du lịch.
+            </p>
+            <p data-i18n="about.story_p2">
+              Hơn 12 năm qua, chúng tôi tự hào đồng hành cùng hơn 150.000 lượt du khách khám phá Đà Nẵng, Hội An, Cố đô Huế và Phong Nha. Dù là chuyến du lịch tự túc một mình, kỳ nghỉ ấm áp của gia đình hay chuyến công tác kết hợp nghỉ dưỡng (MICE), đội ngũ chuyên gia của chúng tôi luôn tận tâm chăm sóc như người thân trong nhà.
+            </p>
+          </div>
+
+          <!-- Feature Bullets Inspired by Dacotours -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="flex items-start gap-3 p-3.5 rounded-xl bg-brand-sand border border-gray-100">
+              <div class="w-8 h-8 rounded-lg bg-red-100 text-brand-crimson flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fa-solid fa-check text-sm"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 text-sm">Tổ chức trực tiếp 100%</h4>
+                <p class="text-xs text-gray-500 mt-0.5">Không qua khâu trung gian, tối ưu chi phí tối đa cho bạn.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3.5 rounded-xl bg-brand-sand border border-gray-100">
+              <div class="w-8 h-8 rounded-lg bg-red-100 text-brand-crimson flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fa-solid fa-shield-halved text-sm"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 text-sm">Không chi phí ẩn</h4>
+                <p class="text-xs text-gray-500 mt-0.5">Giá trọn gói rõ ràng, không ép mua sắm ở các điểm du lịch.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3.5 rounded-xl bg-brand-sand border border-gray-100">
+              <div class="w-8 h-8 rounded-lg bg-red-100 text-brand-crimson flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fa-solid fa-sliders text-sm"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 text-sm">Lịch trình linh hoạt</h4>
+                <p class="text-xs text-gray-500 mt-0.5">Dễ dàng điều chỉnh tour riêng theo nhịp độ của bạn và gia đình.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3.5 rounded-xl bg-brand-sand border border-gray-100">
+              <div class="w-8 h-8 rounded-lg bg-red-100 text-brand-crimson flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fa-solid fa-headset text-sm"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 text-sm">Hỗ trợ bản địa 24/7</h4>
+                <p class="text-xs text-gray-500 mt-0.5">Văn phòng và điều hành xe thường trực ngay tại Sơn Trà, Đà Nẵng.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual / Image Showcase (Right) -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            <!-- Main Hero Photo -->
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3]">
+              <img src="../assets/images/hero-danang-golden-bridge.jpg" alt="Đà Nẵng Cầu Vàng Bà Nà Hills" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 text-white">
+                <p class="text-xs font-semibold text-brand-gold uppercase tracking-wider">Bà Nà Hills - Cầu Vàng</p>
+                <p class="text-base font-bold">Hơn 45.000 lượt khách trải nghiệm tour cùng chúng tôi</p>
+              </div>
+            </div>
+
+            <!-- Floating Badge Card 1 -->
+            <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl border border-gray-100 flex items-center gap-3.5 max-w-[240px]">
+              <div class="w-12 h-12 rounded-xl bg-green-50 text-green-600 flex items-center justify-center text-xl shrink-0 font-black">
+                <i class="fa-solid fa-circle-check"></i>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-gray-900">Giấy phép Quốc Tế</div>
+                <div class="text-[11px] text-gray-500">Bộ VH-TT & Du Lịch cấp phép</div>
+              </div>
+            </div>
+
+            <!-- Floating Badge Card 2 -->
+            <div class="absolute -top-6 -right-4 bg-white rounded-2xl p-4 shadow-xl border border-gray-100 flex items-center gap-3 max-w-[220px]">
+              <div class="w-10 h-10 rounded-xl bg-red-50 text-brand-crimson flex items-center justify-center text-lg shrink-0">
+                <i class="fa-solid fa-heart"></i>
+              </div>
+              <div>
+                <div class="text-sm font-black text-gray-900">99.4%</div>
+                <div class="text-[11px] text-gray-500">Tỷ lệ hài lòng tuyệt đối</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 4. VISION & MISSION                                                       -->
+  <!-- ========================================================================= -->
+  <section id="vision-mission" class="py-16 lg:py-24 bg-brand-sand border-b border-gray-200/70 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-brand-crimson text-xs font-bold uppercase tracking-wider mb-3">
+          <i class="fa-solid fa-mountain-sun"></i>
+          <span>Kim Chỉ Nam Hoạt Động</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+          Tầm Nhìn & Sứ Mệnh
+        </h2>
+        <p class="text-gray-600 mt-3 text-base sm:text-lg">
+          Định hướng tương lai bền vững và cam kết trách nhiệm với từng du khách và cộng đồng địa phương.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        
+        <!-- Card 1: Vision -->
+        <div class="bg-white rounded-3xl p-8 sm:p-10 shadow-sm border border-gray-200 hover:shadow-xl transition-all duration-300 relative group overflow-hidden">
+          <div class="w-14 h-14 rounded-2xl bg-red-50 text-brand-crimson flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-crimson group-hover:text-white transition-all duration-300">
+            <i class="fa-solid fa-eye"></i>
+          </div>
+
+          <h3 class="text-2xl font-black text-gray-900 mb-4" data-i18n="about.vision_title">
+            Tầm Nhìn Của Chúng Tôi
+          </h3>
+
+          <div class="space-y-3.5 text-gray-600 text-base sm:text-lg leading-relaxed">
+            <p data-i18n="about.vision_p1">
+              Trở thành lựa chọn số 1 đáng tin cậy nhất cho mọi du khách khi đặt chân đến Đà Nẵng và miền Trung Việt Nam.
+            </p>
+            <p data-i18n="about.vision_p2">
+              Chúng tôi hướng đến việc xây dựng tiêu chuẩn mới cho du lịch bản địa: Dịch vụ chuẩn mực, minh bạch giá cả tuyệt đối và luôn gắn kết bền vững với cộng đồng địa phương.
+            </p>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-gray-100 flex items-center gap-3 text-xs font-bold text-brand-crimson">
+            <span>#1 Uy Tín Tại Miền Trung</span>
+            <span>•</span>
+            <span>Phát Triển Bền Vững</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Mission -->
+        <div class="bg-white rounded-3xl p-8 sm:p-10 shadow-sm border border-gray-200 hover:shadow-xl transition-all duration-300 relative group overflow-hidden">
+          <div class="w-14 h-14 rounded-2xl bg-red-50 text-brand-crimson flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-crimson group-hover:text-white transition-all duration-300">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+
+          <h3 class="text-2xl font-black text-gray-900 mb-4" data-i18n="about.mission_title">
+            Sứ Mệnh Của Chúng Tôi
+          </h3>
+
+          <div class="space-y-3.5 text-gray-600 text-base sm:text-lg leading-relaxed">
+            <p data-i18n="about.mission_p1">
+              Biến mọi chuyến đi thành trải nghiệm thảnh thơi, ngập tràn cảm hứng và niềm vui. Chúng tôi xóa bỏ áp lực lên kế hoạch để bạn trọn vẹn từng khoảnh khắc.
+            </p>
+            <p data-i18n="about.mission_p2">
+              Kết nối du khách với văn hóa bản địa chân thực, các quán ăn gia đình truyền thống và làng nghề ngàn năm, góp phần bảo tồn di sản quý báu của quê hương.
+            </p>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-gray-100 flex items-center gap-3 text-xs font-bold text-brand-crimson">
+            <span>Du Lịch Thảnh Thơi</span>
+            <span>•</span>
+            <span>Gắn Kết Bản Địa Chân Thực</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 5. 5 CORE VALUES (Inspired by Dacotours Core Values)                       -->
+  <!-- ========================================================================= -->
+  <section id="core-values" class="py-16 lg:py-24 bg-white border-b border-gray-100 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-brand-crimson text-xs font-bold uppercase tracking-wider mb-3">
+          <i class="fa-solid fa-gem"></i>
+          <span>Nền Tảng Đạo Đức & Phục Vụ</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight" data-i18n="about.values_title">
+          5 Giá Trị Cốt Lõi
+        </h2>
+        <p class="text-gray-600 mt-3 text-base sm:text-lg">
+          Năm nguyên tắc vàng chỉ đường cho từng thành viên trong mọi hành vi ứng xử và quyết định phục vụ du khách.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        
+        <!-- Value 1 -->
+        <div class="bg-brand-sand/60 hover:bg-white rounded-3xl p-7 border border-gray-200/80 hover:border-brand-crimson/30 hover:shadow-xl transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-white text-brand-crimson shadow-sm flex items-center justify-center text-xl mb-5">
+            <i class="fa-solid fa-heart"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2.5" data-i18n="about.val1_title">
+            1. Khách Hàng Là Người Thân
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed" data-i18n="about.val1_desc">
+            Chúng tôi lắng nghe bằng cả tấm lòng, phục vụ bằng sự chân thành từ tin nhắn đầu tiên đến khi chuyến bay cất cánh an toàn.
+          </p>
+        </div>
+
+        <!-- Value 2 -->
+        <div class="bg-brand-sand/60 hover:bg-white rounded-3xl p-7 border border-gray-200/80 hover:border-brand-crimson/30 hover:shadow-xl transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-white text-brand-crimson shadow-sm flex items-center justify-center text-xl mb-5">
+            <i class="fa-solid fa-compass"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2.5" data-i18n="about.val2_title">
+            2. Trải Nghiệm Chân Thực
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed" data-i18n="about.val2_desc">
+            Những câu chuyện thật, hương vị thật và cảm xúc thật. Chúng tôi không dẫn khách vào các điểm du lịch xô bồ, thương mại hóa quá mức.
+          </p>
+        </div>
+
+        <!-- Value 3 -->
+        <div class="bg-brand-sand/60 hover:bg-white rounded-3xl p-7 border border-gray-200/80 hover:border-brand-crimson/30 hover:shadow-xl transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-white text-brand-crimson shadow-sm flex items-center justify-center text-xl mb-5">
+            <i class="fa-solid fa-shield-check"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2.5" data-i18n="about.val3_title">
+            3. Minh Bạch & Trung Thực
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed" data-i18n="about.val3_desc">
+            Không phụ phí ẩn, không hoa hồng mua sắm, không nói quá. Những gì bạn thấy là chính xác những gì bạn nhận được.
+          </p>
+        </div>
+
+        <!-- Value 4 -->
+        <div class="bg-brand-sand/60 hover:bg-white rounded-3xl p-7 border border-gray-200/80 hover:border-brand-crimson/30 hover:shadow-xl transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-white text-brand-crimson shadow-sm flex items-center justify-center text-xl mb-5">
+            <i class="fa-solid fa-fire"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2.5" data-i18n="about.val4_title">
+            4. Đam Mê & Tận Tâm
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed" data-i18n="about.val4_desc">
+            Chúng tôi tự hào là những người con của mảnh đất Đà Nẵng. Niềm tự hào ấy được gửi gắm trọn vẹn trong từng chuyến xe và điểm dừng chân.
+          </p>
+        </div>
+
+        <!-- Value 5 -->
+        <div class="bg-brand-sand/60 hover:bg-white rounded-3xl p-7 border border-gray-200/80 hover:border-brand-crimson/30 hover:shadow-xl transition-all duration-300 md:col-span-2 lg:col-span-1">
+          <div class="w-12 h-12 rounded-2xl bg-white text-green-600 shadow-sm flex items-center justify-center text-xl mb-5">
+            <i class="fa-solid fa-leaf"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2.5" data-i18n="about.val5_title">
+            5. Du Lịch Có Trách Nhiệm
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed" data-i18n="about.val5_desc">
+            Bảo vệ lá phổi xanh Sơn Trà, giữ sạch bờ biển Mỹ Khê và hỗ trợ tạo sinh kế cho người dân địa phương thông qua hoạt động du lịch.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 6. MEET OUR LOCAL EXPERTS                                                 -->
+  <!-- ========================================================================= -->
+  <section id="team" class="py-16 lg:py-24 bg-brand-sand/50 border-b border-gray-200/60 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-brand-crimson text-xs font-bold uppercase tracking-wider mb-3">
+          <i class="fa-solid fa-users"></i>
+          <span>Những Người Đồng Hành Cùng Bạn</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight" data-i18n="about.team_title">
+          Đội Ngũ Chuyên Gia Bản Địa
+        </h2>
+        <p class="text-gray-600 mt-3 text-base sm:text-lg" data-i18n="about.team_subtitle">
+          Những người bạn đồng hành nhiệt thành, am hiểu và giàu kinh nghiệm sẵn sàng hỗ trợ bạn bất kỳ lúc nào.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        
+        <!-- Member 1 -->
+        <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-200 hover:shadow-xl transition-all duration-300 text-center flex flex-col justify-between">
+          <div>
+            <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-brand-crimson to-red-400 p-1 mb-4">
+              <div class="w-full h-full rounded-full bg-gray-100 flex items-center justify-center text-gray-500 overflow-hidden font-bold text-2xl">
+                <i class="fa-solid fa-user-tie text-brand-crimson"></i>
+              </div>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900">Nguyễn Văn Minh</h3>
+            <p class="text-xs font-bold text-brand-crimson uppercase tracking-wider mt-0.5">Sáng Lập & Giám Đốc Điều Hành</p>
+            <p class="text-xs text-gray-500 mt-3 leading-relaxed">
+              15+ năm quản lý tour tại Đà Nẵng - Hội An. Am hiểu sâu sắc về văn hóa Chăm Pa và di sản Cố đô Huế.
+            </p>
+          </div>
+          <div class="mt-4 pt-4 border-t border-gray-100 flex items-center justify-center gap-2 text-xs text-gray-500">
+            <i class="fa-solid fa-language text-brand-crimson"></i>
+            <span>Tiếng Việt • English</span>
+          </div>
+        </div>
+
+        <!-- Member 2 -->
+        <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-200 hover:shadow-xl transition-all duration-300 text-center flex flex-col justify-between">
+          <div>
+            <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-brand-crimson to-red-400 p-1 mb-4">
+              <div class="w-full h-full rounded-full bg-gray-100 flex items-center justify-center text-gray-500 overflow-hidden font-bold text-2xl">
+                <i class="fa-solid fa-headset text-brand-crimson"></i>
+              </div>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900">Lê Thị Thu Hương</h3>
+            <p class="text-xs font-bold text-brand-crimson uppercase tracking-wider mt-0.5">Trưởng Phòng Chăm Sóc Khách Hàng</p>
+            <p class="text-xs text-gray-500 mt-3 leading-relaxed">
+              Chuyên gia tư vấn lịch trình tự túc cho gia đình và nhóm bạn trẻ. Hỗ trợ khách du lịch chu đáo 24/7.
+            </p>
+          </div>
+          <div class="mt-4 pt-4 border-t border-gray-100 flex items-center justify-center gap-2 text-xs text-gray-500">
+            <i class="fa-solid fa-star text-brand-gold"></i>
+            <span>99.8% Khách Khen Ngợi</span>
+          </div>
+        </div>
+
+        <!-- Member 3 -->
+        <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-200 hover:shadow-xl transition-all duration-300 text-center flex flex-col justify-between">
+          <div>
+            <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-brand-crimson to-red-400 p-1 mb-4">
+              <div class="w-full h-full rounded-full bg-gray-100 flex items-center justify-center text-gray-500 overflow-hidden font-bold text-2xl">
+                <i class="fa-solid fa-microphone-lines text-brand-crimson"></i>
+              </div>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900">Trần Đình Nam</h3>
+            <p class="text-xs font-bold text-brand-crimson uppercase tracking-wider mt-0.5">Hướng Dẫn Viên Trưởng</p>
+            <p class="text-xs text-gray-500 mt-3 leading-relaxed">
+              Chứng chỉ hướng dẫn viên quốc tế, câu chuyện kể hóm hỉnh, am hiểu sâu tường tận từng góc phố cổ và món ngon vỉa hè.
+            </p>
+          </div>
+          <div class="mt-4 pt-4 border-t border-gray-100 flex items-center justify-center gap-2 text-xs text-gray-500">
+            <i class="fa-solid fa-id-card text-brand-crimson"></i>
+            <span>Thẻ HDV Quốc Tế Số 48-0245</span>
+          </div>
+        </div>
+
+        <!-- Member 4 -->
+        <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-200 hover:shadow-xl transition-all duration-300 text-center flex flex-col justify-between">
+          <div>
+            <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-brand-crimson to-red-400 p-1 mb-4">
+              <div class="w-full h-full rounded-full bg-gray-100 flex items-center justify-center text-gray-500 overflow-hidden font-bold text-2xl">
+                <i class="fa-solid fa-mountain text-brand-crimson"></i>
+              </div>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900">Phạm Quốc Bảo</h3>
+            <p class="text-xs font-bold text-brand-crimson uppercase tracking-wider mt-0.5">Chuyên Gia Trekking & Sinh Thái</p>
+            <p class="text-xs text-gray-500 mt-3 leading-relaxed">
+              Đam mê thiên nhiên Bán đảo Sơn Trà và Đèo Hải Vân. Chuyên trách an toàn và các tour trải nghiệm sinh thái bảo vệ môi trường.
+            </p>
+          </div>
+          <div class="mt-4 pt-4 border-t border-gray-100 flex items-center justify-center gap-2 text-xs text-gray-500">
+            <i class="fa-solid fa-kit-medical text-red-500"></i>
+            <span>Chứng chỉ Sơ cứu WFA</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 7. HIGHLIGHT ACHIEVEMENTS & CERTIFICATES                                   -->
+  <!-- ========================================================================= -->
+  <section id="achievements" class="py-16 lg:py-24 bg-white border-b border-gray-100 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-brand-crimson text-xs font-bold uppercase tracking-wider mb-3">
+          <i class="fa-solid fa-trophy"></i>
+          <span>Thành Tựu & Uy Tín</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight" data-i18n="about.achieve_title">
+          Thành Tựu & Sự Công Nhận
+        </h2>
+        <p class="text-gray-600 mt-3 text-base sm:text-lg" data-i18n="about.achieve_subtitle">
+          Được bảo chứng bởi các nền tảng du lịch uy tín hàng đầu thế giới và hàng vạn khách hàng hài lòng.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Accolade 1 -->
+        <div class="p-6 rounded-3xl bg-brand-sand border border-gray-200/80 text-center hover:bg-white hover:shadow-lg transition">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-amber-50 text-amber-500 flex items-center justify-center text-3xl mb-4">
+            <i class="fa-solid fa-award"></i>
+          </div>
+          <h3 class="font-bold text-gray-900 text-lg">TripAdvisor Travelers' Choice</h3>
+          <p class="text-xs text-brand-crimson font-semibold mt-1">Năm 2022 • 2023 • 2024</p>
+          <p class="text-xs text-gray-500 mt-2">Nằm trong top 10% đơn vị du lịch xuất sắc nhất toàn cầu dựa trên đánh giá thực tế của du khách.</p>
+        </div>
+
+        <!-- Accolade 2 -->
+        <div class="p-6 rounded-3xl bg-brand-sand border border-gray-200/80 text-center hover:bg-white hover:shadow-lg transition">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-3xl mb-4">
+            <i class="fa-brands fa-google"></i>
+          </div>
+          <h3 class="font-bold text-gray-900 text-lg">Google Top Rated 4.9★</h3>
+          <p class="text-xs text-blue-600 font-semibold mt-1">4,500+ Nhận xét 5 Sao</p>
+          <p class="text-xs text-gray-500 mt-2">Đơn vị tour bản địa được đánh giá cao nhất về sự nhiệt tình của hướng dẫn viên và xe đưa đón.</p>
+        </div>
+
+        <!-- Accolade 3 -->
+        <div class="p-6 rounded-3xl bg-brand-sand border border-gray-200/80 text-center hover:bg-white hover:shadow-lg transition">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-orange-50 text-orange-500 flex items-center justify-center text-3xl mb-4">
+            <i class="fa-solid fa-ticket"></i>
+          </div>
+          <h3 class="font-bold text-gray-900 text-lg">GetYourGuide Top Partner</h3>
+          <p class="text-xs text-orange-600 font-semibold mt-1">Đối Tác Bạch Kim Tại VN</p>
+          <p class="text-xs text-gray-500 mt-2">Đạt tỷ lệ đúng giờ 99.7% và giải quyết khiếu nại khách hàng xuất sắc theo tiêu chuẩn châu Âu.</p>
+        </div>
+
+        <!-- Accolade 4 -->
+        <div class="p-6 rounded-3xl bg-brand-sand border border-gray-200/80 text-center hover:bg-white hover:shadow-lg transition">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-red-50 text-brand-crimson flex items-center justify-center text-3xl mb-4">
+            <i class="fa-solid fa-building-columns"></i>
+          </div>
+          <h3 class="font-bold text-gray-900 text-lg">Hiệp Hội Du Lịch Đà Nẵng</h3>
+          <p class="text-xs text-brand-crimson font-semibold mt-1">Hội Viên Chính Thức (DTA)</p>
+          <p class="text-xs text-gray-500 mt-2">Tích cực tham gia các phong trào kích cầu du lịch Đà Nẵng an toàn, văn minh và mến khách.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 8. LEGAL & GOVERNMENT LICENSES                                            -->
+  <!-- ========================================================================= -->
+  <section id="licenses" class="py-16 lg:py-24 bg-brand-sand/60 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-gray-200">
+        
+        <div class="text-center mb-10">
+          <div class="w-16 h-16 rounded-2xl bg-red-50 text-brand-crimson flex items-center justify-center text-3xl mx-auto mb-4">
+            <i class="fa-solid fa-file-contract"></i>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900" data-i18n="about.license_title">
+            Pháp Lý Rõ Ràng & Minh Bạch
+          </h2>
+          <p class="text-gray-500 text-sm mt-2" data-i18n="about.license_subtitle">
+            Doanh nghiệp được cấp phép kinh doanh dịch vụ lữ hành đầy đủ theo quy định của Tổng cục Du lịch Việt Nam.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+          <div class="p-5 rounded-2xl bg-brand-sand border border-gray-100 space-y-2">
+            <div class="text-xs font-bold text-brand-crimson uppercase tracking-wider">Giấy Phép Lữ Hành Quốc Tế</div>
+            <div class="text-base font-bold text-gray-900">Số 48-130/2017/TCDL-GPLHQT</div>
+            <p class="text-xs text-gray-500">Cấp bởi: Cục Du Lịch Quốc Gia Việt Nam (Bộ Văn Hóa - Thể Thao & Du Lịch).</p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-brand-sand border border-gray-100 space-y-2">
+            <div class="text-xs font-bold text-brand-crimson uppercase tracking-wider">Mã Số Doanh Nghiệp (MST)</div>
+            <div class="text-base font-bold text-gray-900">0401497124</div>
+            <p class="text-xs text-gray-500">Cấp bởi: Sở Kế hoạch và Đầu tư Thành phố Đà Nẵng.</p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-brand-sand border border-gray-100 space-y-2">
+            <div class="text-xs font-bold text-brand-crimson uppercase tracking-wider">Tiền Ký Quỹ Hoạt Động Lữ Hành</div>
+            <div class="text-base font-bold text-gray-900">250.000.000 VNĐ</div>
+            <p class="text-xs text-gray-500">Ký quỹ bảo chứng bồi hoàn theo luật du lịch tại Ngân hàng TMCP Ngoại Thương Việt Nam (Vietcombank).</p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-brand-sand border border-gray-100 space-y-2">
+            <div class="text-xs font-bold text-brand-crimson uppercase tracking-wider">Bảo Hiểm Du Lịch Hành Khách</div>
+            <div class="text-base font-bold text-gray-900">Mức bồi thường tới 100 Triệu VNĐ / Vụ</div>
+            <p class="text-xs text-gray-500">Áp dụng cho toàn bộ hành khách tham gia tour do Da Nang For Less tổ chức.</p>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500 text-center sm:text-left">
+          <div>
+            <span class="font-bold text-gray-700">Trụ sở điều hành:</span> 195 Đặng Vũ Hỷ, P. An Hải Đông, Q. Sơn Trà, TP. Đà Nẵng
+          </div>
+          <div>
+            <a href="contact.html" class="inline-flex items-center gap-1.5 font-bold text-brand-crimson hover:underline">
+              <span>Xem địa chỉ văn phòng & bản đồ</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 9. CALL TO ACTION BANNER (Inspired by Dacotours Book Without Stress)       -->
+  <!-- ========================================================================= -->
+  <section class="py-16 bg-gradient-to-r from-brand-crimson via-red-600 to-brand-darkcrimson text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <div class="lg:col-span-8 space-y-4 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-heart text-white"></i>
+            <span>Đồng Hành Tin Cậy Tại Đà Nẵng</span>
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight" data-i18n="stressfree.title">
+            Du Lịch Đà Nẵng Thảnh Thơi & Tiết Kiệm Tối Đa
+          </h2>
+          <p class="text-white/90 text-sm sm:text-base leading-relaxed max-w-2xl" data-i18n="stressfree.desc">
+            Với hơn 12 năm kinh nghiệm bản địa, đội ngũ chuyên gia của chúng tôi lo chu toàn mọi thứ để bạn tận hưởng trọn vẹn từng khoảnh khắc.
+          </p>
+        </div>
+
+        <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-center">
+          <a href="contact.html" class="px-6 py-3.5 rounded-xl bg-white text-brand-crimson font-bold text-sm shadow-xl hover:bg-yellow-400 hover:text-gray-900 transition text-center flex items-center justify-center gap-2">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span data-i18n="stressfree.btn">Nhận Lịch Trình Tùy Chỉnh Miễn Phí</span>
+          </a>
+          <a href="tours/index.html" class="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold text-sm transition text-center flex items-center justify-center gap-2">
+            <i class="fa-solid fa-compass"></i>
+            <span data-i18n="tours.see_all">Xem tất cả chuyến đi</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 10. GLOBAL FOOTER                                                         -->
+  <!-- ========================================================================= -->
+  <footer class="bg-brand-espresso text-white pt-16 pb-12 border-t border-brand-crimson/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <!-- Top Row: 4 Columns -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        
+        <!-- Cột 1: Brand Info -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-brand-crimson shadow-md">
+              <i class="fa-solid fa-umbrella-beach text-lg"></i>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-extrabold text-xl tracking-tight text-white leading-tight">Da Nang</span>
+              <span class="font-serif italic font-normal text-sm text-white/90 leading-none -mt-0.5">for less</span>
+            </div>
+          </div>
+
+          <p data-i18n="footer.intro" class="text-xs sm:text-sm text-white/90 leading-relaxed max-w-sm pt-2">
+            Your trusted local partner for high-quality travel experiences at affordable prices in Da Nang and Central Vietnam.
+          </p>
+
+          <div class="flex items-center space-x-3 pt-2">
+            <a href="#" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white hover:text-brand-crimson flex items-center justify-center text-white transition duration-200" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f text-xs"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white hover:text-brand-crimson flex items-center justify-center text-white transition duration-200" aria-label="Instagram">
+              <i class="fa-brands fa-instagram text-xs"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white hover:text-brand-crimson flex items-center justify-center text-white transition duration-200" aria-label="TikTok">
+              <i class="fa-brands fa-tiktok text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Cột 2: Explore -->
+        <div class="space-y-3">
+          <h4 data-i18n="footer.explore" class="text-sm font-bold text-white uppercase tracking-wider">Explore</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-white/85">
+            <li><a href="tours/index.html" data-i18n="nav.tours" class="hover:text-white transition">Tours</a></li>
+            <li><a href="stays/index.html" data-i18n="nav.hotels" class="hover:text-white transition">Hotels</a></li>
+            <li><a href="guides/index.html" data-i18n="footer.travel_guide" class="hover:text-white transition">Travel Guide</a></li>
+            <li><a href="about.html" data-i18n="nav.about" class="text-brand-gold font-bold transition">About Us</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact" class="hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 3: For Partners -->
+        <div class="space-y-3">
+          <h4 data-i18n="footer.partners" class="text-sm font-bold text-white uppercase tracking-wider">For Partners</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-white/85">
+            <li><a href="portal/admin.html" data-i18n="footer.list_property" class="hover:text-white transition">List Your Property</a></li>
+            <li><a href="portal/admin.html" data-i18n="footer.tour_operator" class="hover:text-white transition">Tour Operator</a></li>
+            <li><a href="#" data-i18n="footer.affiliate" class="hover:text-white transition">Affiliate Program</a></li>
+            <li><a href="contact.html" data-i18n="footer.partnership" class="hover:text-white transition">Business Partnership</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 4: Support & Legal -->
+        <div class="space-y-3">
+          <h4 data-i18n="footer.support" class="text-sm font-bold text-white uppercase tracking-wider">Support & Legal</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-white/85">
+            <li><a href="contact.html" data-i18n="footer.help_center" class="hover:text-white transition">Help Center</a></li>
+            <li><a href="contact.html#faq" data-i18n="footer.cancel_policy" class="hover:text-white transition">Cancellation Policy</a></li>
+            <li><a href="#" data-i18n="footer.terms" class="hover:text-white transition">Terms of Use</a></li>
+            <li><a href="#" data-i18n="footer.privacy" class="hover:text-white transition">Privacy Policy</a></li>
+          </ul>
+
+          <div class="pt-2">
+            <div class="lang-pill-switch inline-flex bg-white/10 px-3 py-1.5 rounded-full text-xs font-semibold text-gray-300 items-center gap-1.5 border border-white/10">
+              <span data-lang="vn" class="text-white font-bold cursor-pointer">VN</span>
+              <span class="text-white/40">|</span>
+              <span data-lang="en" class="text-gray-400 hover:text-white cursor-pointer">EN</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/80 border-t border-white/10">
+        <div class="space-y-1 text-center md:text-left">
+          <p data-i18n="footer.copyright">© 2024 DaNang for less. All rights reserved.</p>
+          <p data-i18n="footer.license" class="text-[11px] text-white/70">International Travel Business License No: 48-130/2017/TCDL-GPLHQT</p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-gray-300">
+          <a href="tel:+84914136151" class="hover:text-white flex items-center gap-2 transition">
+            <i class="fa-solid fa-phone text-red-400"></i>
+            <span>+84 (0) 914 136 151</span>
+          </a>
+          <a href="mailto:hello@danangforless.com" class="hover:text-white flex items-center gap-2 transition">
+            <i class="fa-solid fa-envelope text-red-400"></i>
+            <span>hello@danangforless.com</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT MODULES & CORE SCRIPTS                                         -->
+  <!-- ========================================================================= -->
+  <script src="../assets/js/core/mock-data.js"></script>
+  <script src="../assets/js/core/i18n.js"></script>
+  <script src="../assets/js/core/auth.js"></script>
+  <script src="../assets/js/core/navigation.js"></script>
+  <script src="../assets/js/animations/scroll-reveal.js"></script>
+</body>
+</html>

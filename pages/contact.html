@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liên Hệ & Tư Vấn Lộ Trình - DaNang for less</title>
+  <meta name="description" content="Liên hệ Da Nang For Less - Nhận tư vấn lịch trình du lịch Đà Nẵng, Bà Nà Hills, Hội An, Huế miễn phí 24/7. Hỗ trợ qua Hotline, Zalo, WhatsApp: +84 914 136 151.">
+
+  <!-- Google Fonts: Inter & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN with Custom Theme -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              crimson: '#FF1E27',
+              darkcrimson: '#D90D18',
+              cream: '#FFFDF9',
+              sand: '#FAF7F2',
+              espresso: '#1F060A',
+              gold: '#E5B567',
+              ocean: '#0E7490'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Project Styles & Animations -->
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body class="bg-brand-cream text-brand-espresso font-sans antialiased overflow-x-hidden selection:bg-brand-crimson selection:text-white">
+
+  <!-- ========================================================================= -->
+  <!-- 1. GLOBAL HEADER                                                          -->
+  <!-- ========================================================================= -->
+  <header class="w-full bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200/80 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- BRAND LOGO -->
+      <a href="../index.html" class="flex items-center gap-2.5 group">
+        <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-brand-crimson shadow-md shadow-brand-crimson/20 group-hover:scale-105 transition-transform duration-300 border border-red-50">
+          <i class="fa-solid fa-umbrella-beach text-lg"></i>
+        </div>
+        <div class="flex items-center gap-2 py-0.5">
+          <span class="w-[2px] h-8 bg-brand-crimson rounded-full"></span>
+          <div class="flex flex-col justify-center leading-tight">
+            <span class="font-extrabold text-sm sm:text-base tracking-tight text-brand-crimson">
+              Da Nang
+            </span>
+            <span class="font-extrabold text-sm sm:text-base tracking-tight text-brand-crimson">
+              For Less
+            </span>
+          </div>
+          <span class="w-[2px] h-8 bg-brand-crimson rounded-full"></span>
+        </div>
+      </a>
+
+      <!-- DESKTOP NAVIGATION -->
+      <nav class="hidden md:flex items-center space-x-7 lg:space-x-8 text-sm font-semibold">
+        <a href="tours/index.html" data-i18n="nav.tours" class="text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition">
+          Tours
+        </a>
+        <a href="stays/index.html" data-i18n="nav.hotels" class="text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition">
+          Hotels & Stays
+        </a>
+        <a href="guides/index.html" data-i18n="nav.guides" class="text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition">
+          Guides
+        </a>
+        <a href="about.html" data-i18n="nav.about" class="text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition">
+          About Us
+        </a>
+        <a href="contact.html" data-i18n="nav.contact" class="text-brand-crimson font-bold border-b-2 border-brand-crimson pb-1 flex items-center gap-1.5 transition">
+          Contact
+        </a>
+        <a href="../index.html#secret-deals" data-i18n="nav.offers" class="text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition">
+          Special Offers
+        </a>
+      </nav>
+
+      <!-- RIGHT CONTROLS -->
+      <div class="flex items-center space-x-3 sm:space-x-4">
+        <!-- Language Switcher Pill -->
+        <div class="lang-pill-switch bg-gray-100/90 px-3 py-1.5 rounded-full text-xs font-semibold text-gray-700 flex items-center gap-1.5 border border-gray-200">
+          <span data-lang="en" class="text-brand-crimson font-bold cursor-pointer">EN</span>
+          <span class="text-gray-300">|</span>
+          <span data-lang="vn" class="text-gray-400 hover:text-gray-700 cursor-pointer">VN</span>
+        </div>
+
+        <!-- Dynamic Auth Container -->
+        <div class="header-auth-container flex items-center space-x-2"></div>
+
+        <!-- Mobile Menu Trigger -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-xl text-gray-700 hover:bg-gray-100 transition" aria-label="Mở menu">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-drawer-overlay" class="fixed inset-0 bg-black/50 z-50 hidden backdrop-blur-sm transition-opacity"></div>
+  <div id="mobile-drawer" class="fixed top-0 right-0 w-72 h-full bg-white z-50 transform translate-x-full transition-transform duration-300 shadow-2xl p-6 flex flex-col justify-between">
+    <div>
+      <div class="flex items-center justify-between pb-4 border-b border-gray-100">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-brand-crimson shadow-sm border border-red-50">
+            <i class="fa-solid fa-umbrella-beach text-sm"></i>
+          </div>
+          <div class="flex items-center gap-1.5 py-0.5">
+            <span class="w-[2px] h-6 bg-brand-crimson rounded-full"></span>
+            <div class="flex flex-col justify-center leading-tight">
+              <span class="font-extrabold text-xs tracking-tight text-brand-crimson">Da Nang</span>
+              <span class="font-extrabold text-xs tracking-tight text-brand-crimson">For Less</span>
+            </div>
+            <span class="w-[2px] h-6 bg-brand-crimson rounded-full"></span>
+          </div>
+        </div>
+        <button id="mobile-close-btn" class="text-gray-400 hover:text-gray-700 text-xl p-1">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Auth Container -->
+      <div id="mobile-auth-container" class="mt-4"></div>
+
+      <nav class="mt-2 flex flex-col space-y-3 text-base font-semibold text-gray-700">
+        <a href="tours/index.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-solid fa-compass w-5 text-brand-crimson"></i> <span data-i18n="nav.tours">Tours</span>
+        </a>
+        <a href="stays/index.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-solid fa-hotel w-5 text-brand-crimson"></i> <span data-i18n="nav.hotels">Hotels & Stays</span>
+        </a>
+        <a href="guides/index.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-solid fa-map-location-dot w-5 text-brand-crimson"></i> <span data-i18n="nav.guides">Guides</span>
+        </a>
+        <a href="about.html" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-solid fa-circle-info w-5 text-brand-crimson"></i> <span data-i18n="nav.about">About Us</span>
+        </a>
+        <a href="contact.html" class="flex items-center gap-3 p-2 rounded-xl bg-red-50 text-brand-crimson font-bold">
+          <i class="fa-solid fa-headset w-5 text-brand-crimson"></i> <span data-i18n="nav.contact">Contact</span>
+        </a>
+        <a href="../index.html#secret-deals" class="flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition">
+          <i class="fa-solid fa-bolt text-brand-crimson"></i> <span data-i18n="nav.offers">Special Offers</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="border-t border-gray-100 pt-4 space-y-3">
+      <div class="flex items-center justify-between text-xs text-gray-500">
+        <span class="font-medium">Ngôn ngữ:</span>
+        <div class="lang-pill-switch flex gap-2 font-bold">
+          <span data-lang="vn" class="text-brand-crimson cursor-pointer">VN</span>
+          <span class="text-gray-300">|</span>
+          <span data-lang="en" class="text-gray-400 hover:text-brand-crimson cursor-pointer">EN</span>
+        </div>
+      </div>
+      <div class="text-[11px] text-gray-400 text-center">
+        Hotline 24/7: <a href="tel:0914136151" class="text-brand-crimson font-bold">+84 914 136 151</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 2. HERO SECTION & DIRECT CONTACT BAR                                      -->
+  <!-- ========================================================================= -->
+  <section class="relative bg-gradient-to-b from-red-50/60 via-brand-sand to-brand-cream pt-12 pb-14 lg:pt-16 lg:pb-20 border-b border-gray-200/60 overflow-hidden">
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-crimson/5 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center justify-center space-x-2 text-xs text-gray-500 mb-6 font-medium">
+        <a href="../index.html" class="hover:text-brand-crimson transition">Trang chủ</a>
+        <span>/</span>
+        <span class="text-brand-crimson font-semibold" data-i18n="nav.contact">Liên hệ</span>
+      </nav>
+
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-brand-crimson text-xs sm:text-sm font-bold shadow-sm border border-red-100 mb-5">
+        <i class="fa-solid fa-headset text-brand-crimson"></i>
+        <span data-i18n="contact.hero_badge">Hỗ Trợ & Đồng Hành 24/7</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight max-w-4xl mx-auto leading-tight" data-i18n="contact.hero_title">
+        Liên Hệ Với Chúng Tôi
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="mt-4 sm:mt-6 text-base sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed" data-i18n="contact.hero_subtitle">
+        Bạn cần tư vấn tour, đặt phòng khách sạn hay muốn lên lịch trình riêng cho gia đình? Đội ngũ bản địa luôn sẵn sàng phục vụ.
+      </p>
+
+      <!-- Direct Contact Quick Action Pills -->
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+        <a href="tel:0914136151" class="px-5 py-2.5 rounded-xl bg-brand-crimson text-white font-bold text-sm shadow-md hover:bg-brand-darkcrimson transition flex items-center gap-2">
+          <i class="fa-solid fa-phone"></i>
+          <span>Gọi Hotline: +84 914 136 151</span>
+        </a>
+        <a href="https://wa.me/84914136151" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-sm shadow-md hover:bg-emerald-700 transition flex items-center gap-2">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span>Chat WhatsApp 24/7</span>
+        </a>
+        <a href="mailto:hello@danangforless.com" class="px-5 py-2.5 rounded-xl bg-white text-gray-700 font-bold text-sm shadow-sm border border-gray-200 hover:border-brand-crimson hover:text-brand-crimson transition flex items-center gap-2">
+          <i class="fa-solid fa-envelope text-brand-crimson"></i>
+          <span>hello@danangforless.com</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 3. MAIN CONTACT GRID: FORM & DIRECT INFO (Two Columns)                    -->
+  <!-- ========================================================================= -->
+  <section class="py-16 lg:py-24 bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        
+        <!-- Form Column (Left - 7 cols) -->
+        <div class="lg:col-span-7 bg-brand-sand/40 p-6 sm:p-10 rounded-3xl border border-gray-200/80 shadow-sm relative">
+          
+          <div class="mb-8">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight" data-i18n="contact.form_title">
+              Gửi Yêu Cầu Cho Chúng Tôi
+            </h2>
+            <p class="text-gray-600 text-sm sm:text-base mt-2" data-i18n="contact.form_subtitle">
+              Điền thông tin vào form dưới đây, chúng tôi sẽ liên hệ lại trong vòng 30 phút.
+            </p>
+          </div>
+
+          <!-- Interactive Request Form -->
+          <form id="contact-inquiry-form" class="space-y-5">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <!-- Full Name -->
+              <div>
+                <label for="contact-name" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5" data-i18n="contact.name_label">
+                  Họ và tên của bạn <span class="text-brand-crimson">*</span>
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+                    <i class="fa-solid fa-user text-sm"></i>
+                  </span>
+                  <input type="text" id="contact-name" required placeholder="Ví dụ: Nguyễn Văn An" data-i18n-placeholder="contact.name_placeholder"
+                    class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-crimson/20 focus:border-brand-crimson transition">
+                </div>
+              </div>
+
+              <!-- Phone / WhatsApp / Zalo -->
+              <div>
+                <label for="contact-phone" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5" data-i18n="contact.phone_label">
+                  Số điện thoại / Zalo / WhatsApp <span class="text-brand-crimson">*</span>
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+                    <i class="fa-solid fa-phone text-sm"></i>
+                  </span>
+                  <input type="tel" id="contact-phone" required placeholder="0914 136 151" data-i18n-placeholder="contact.phone_placeholder"
+                    class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-crimson/20 focus:border-brand-crimson transition">
+                </div>
+              </div>
+            </div>
+
+            <!-- Email Address -->
+            <div>
+              <label for="contact-email" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5" data-i18n="contact.email_label">
+                Địa chỉ Email <span class="text-brand-crimson">*</span>
+              </label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+                  <i class="fa-solid fa-envelope text-sm"></i>
+                </span>
+                <input type="email" id="contact-email" required placeholder="email@example.com" data-i18n-placeholder="contact.email_placeholder"
+                  class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-crimson/20 focus:border-brand-crimson transition">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <!-- Expected Travel Date -->
+              <div>
+                <label for="contact-date" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5" data-i18n="contact.travel_date_label">
+                  Ngày dự kiến đi
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+                    <i class="fa-solid fa-calendar text-sm"></i>
+                  </span>
+                  <input type="date" id="contact-date"
+                    class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-crimson/20 focus:border-brand-crimson transition">
+                </div>
+              </div>
+
+              <!-- Number of Guests -->
+              <div>
+                <label for="contact-guests" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5" data-i18n="contact.guests_count_label">
+                  Số lượng người tham gia
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+                    <i class="fa-solid fa-users text-sm"></i>
+                  </span>
+                  <select id="contact-guests"
+                    class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-crimson/20 focus:border-brand-crimson transition">
+                    <option value="1">1 người (Đi một mình)</option>
+                    <option value="2" selected>2 người (Cặp đôi / Bạn bè)</option>
+                    <option value="3-5">3 - 5 người (Gia đình nhỏ)</option>
+                    <option value="6-10">6 - 10 người (Nhóm vừa)</option>
+                    <option value="10+">Trên 10 người (Đoàn thể / Công ty)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service of Interest -->
+            <div>
+              <label for="contact-service" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5" data-i18n="contact.service_label">
+                Dịch vụ bạn quan tâm
+              </label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+                  <i class="fa-solid fa-list-check text-sm"></i>
+                </span>
+                <select id="contact-service"
+                  class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-crimson/20 focus:border-brand-crimson transition">
+                  <option value="tours" data-i18n="contact.service_tours">Tour trong ngày (Bà Nà, Hội An, Huế...)</option>
+                  <option value="private" data-i18n="contact.service_private">Tour riêng theo yêu cầu (Gia đình / Đoàn thể)</option>
+                  <option value="hotels" data-i18n="contact.service_hotels">Đặt phòng khách sạn & Resort</option>
+                  <option value="combo" data-i18n="contact.service_combo">Combo Tour + Khách sạn tiết kiệm</option>
+                  <option value="other" data-i18n="contact.service_other">Tư vấn lịch trình miễn phí</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Message Details -->
+            <div>
+              <label for="contact-message" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5" data-i18n="contact.message_label">
+                Chi tiết yêu cầu & Ghi chú thêm
+              </label>
+              <textarea id="contact-message" rows="4" placeholder="Hãy chia sẻ ngày đến, số người, sở thích hoặc bất kỳ mong muốn đặc biệt nào..." data-i18n-placeholder="contact.message_placeholder"
+                class="w-full p-4 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-crimson/20 focus:border-brand-crimson transition resize-none"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div>
+              <button type="submit" id="contact-submit-btn"
+                class="w-full py-4 px-6 rounded-xl bg-brand-crimson hover:bg-brand-darkcrimson text-white font-bold text-sm sm:text-base shadow-lg shadow-brand-crimson/25 hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span data-i18n="contact.submit_btn">Gửi Yêu Cầu Tư Vấn Miễn Phí</span>
+              </button>
+            </div>
+
+            <!-- Form Success / Notice Alert -->
+            <div id="contact-success-alert" class="hidden p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-emerald-600 text-lg shrink-0 mt-0.5"></i>
+              <div>
+                <div class="font-bold">Gửi yêu cầu thành công!</div>
+                <div class="text-xs text-emerald-700 mt-1">Cảm ơn bạn. Chuyên viên bản địa của Da Nang For Less sẽ liên hệ lại qua số điện thoại/WhatsApp trong vòng 30 phút.</div>
+              </div>
+            </div>
+
+            <div class="text-[11px] text-gray-400 text-center pt-2">
+              <i class="fa-solid fa-lock text-[10px] mr-1"></i>
+              Thông tin của bạn được bảo mật tuyệt đối 100%. Không spam, không chia sẻ cho bên thứ ba.
+            </div>
+
+          </form>
+
+        </div>
+
+        <!-- Info Column (Right - 5 cols) -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <div class="space-y-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-brand-crimson text-xs font-bold uppercase tracking-wider">
+              <i class="fa-solid fa-building"></i>
+              <span>Văn Phòng Điều Hành</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight" data-i18n="contact.info_title">
+              Thông Tin Liên Hệ Trực Tiếp
+            </h2>
+            <p class="text-gray-500 text-sm">
+              Chúng tôi luôn chào đón quý khách ghé thăm trực tiếp tại văn phòng hoặc liên hệ qua các kênh trực tuyến 24/7.
+            </p>
+          </div>
+
+          <!-- Info Cards -->
+          <div class="space-y-4">
+            
+            <!-- Address Card -->
+            <div class="p-5 rounded-2xl bg-brand-sand/70 border border-gray-200/80 flex items-start gap-4 hover:bg-white hover:shadow-md transition">
+              <div class="w-12 h-12 rounded-xl bg-white text-brand-crimson shadow-sm flex items-center justify-center text-xl shrink-0">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="space-y-1">
+                <div class="text-xs font-bold text-brand-crimson uppercase tracking-wider" data-i18n="contact.address_label">
+                  Văn phòng đón khách tại Đà Nẵng:
+                </div>
+                <div class="text-sm font-bold text-gray-900 leading-snug" data-i18n="contact.address_val">
+                  195 Đặng Vũ Hỷ, P. An Hải Đông, Q. Sơn Trà, TP. Đà Nẵng
+                </div>
+                <p class="text-xs text-gray-500">Cách Bãi biển Mỹ Khê chỉ 400m, thuận tiện đón trả khách.</p>
+              </div>
+            </div>
+
+            <!-- Hotline Card -->
+            <div class="p-5 rounded-2xl bg-brand-sand/70 border border-gray-200/80 flex items-start gap-4 hover:bg-white hover:shadow-md transition">
+              <div class="w-12 h-12 rounded-xl bg-white text-emerald-600 shadow-sm flex items-center justify-center text-xl shrink-0">
+                <i class="fa-solid fa-phone-volume"></i>
+              </div>
+              <div class="space-y-1">
+                <div class="text-xs font-bold text-emerald-700 uppercase tracking-wider" data-i18n="contact.hotline_label">
+                  Hotline / Zalo / WhatsApp 24/7:
+                </div>
+                <div class="text-base font-black text-gray-900">
+                  <a href="tel:0914136151" class="hover:text-brand-crimson transition">+84 914 136 151</a>
+                </div>
+                <div class="text-xs text-gray-500">
+                  Điện thoại bàn: <a href="tel:02363123456" class="font-semibold text-gray-700">+84 (0) 236 312 3456</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Email Card -->
+            <div class="p-5 rounded-2xl bg-brand-sand/70 border border-gray-200/80 flex items-start gap-4 hover:bg-white hover:shadow-md transition">
+              <div class="w-12 h-12 rounded-xl bg-white text-blue-600 shadow-sm flex items-center justify-center text-xl shrink-0">
+                <i class="fa-solid fa-envelope-open-text"></i>
+              </div>
+              <div class="space-y-1">
+                <div class="text-xs font-bold text-blue-700 uppercase tracking-wider">
+                  Hòm thư điện tử (Email):
+                </div>
+                <div class="text-sm font-bold text-gray-900 break-all" data-i18n="contact.email_val">
+                  hello@danangforless.com / info@danangforless.com
+                </div>
+                <p class="text-xs text-gray-500">Tiếp nhận báo giá đối tác & đặt chỗ đoàn thể.</p>
+              </div>
+            </div>
+
+            <!-- Office Hours Card -->
+            <div class="p-5 rounded-2xl bg-brand-sand/70 border border-gray-200/80 flex items-start gap-4 hover:bg-white hover:shadow-md transition">
+              <div class="w-12 h-12 rounded-xl bg-white text-amber-600 shadow-sm flex items-center justify-center text-xl shrink-0">
+                <i class="fa-solid fa-clock"></i>
+              </div>
+              <div class="space-y-1">
+                <div class="text-xs font-bold text-amber-700 uppercase tracking-wider" data-i18n="contact.hours_label">
+                  Giờ mở cửa văn phòng:
+                </div>
+                <div class="text-sm font-bold text-gray-900" data-i18n="contact.hours_val">
+                  7:00 Sáng - 10:00 Tối (Thứ 2 - Chủ Nhật)
+                </div>
+                <p class="text-xs text-emerald-600 font-semibold">Hotline & WhatsApp hỗ trợ khẩn cấp hoạt động 24/7/365.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Emergency Banner -->
+          <div class="p-5 rounded-2xl bg-gradient-to-r from-red-600 to-brand-crimson text-white shadow-lg space-y-2">
+            <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-yellow-300">
+              <i class="fa-solid fa-bell"></i>
+              <span>Hỗ Trợ Khẩn Cấp Trong Chuyến Đi</span>
+            </div>
+            <p class="text-xs text-white/95 leading-relaxed">
+              Bạn đang ở Đà Nẵng cần xe đưa đón gấp hoặc gặp bất kỳ vấn đề phát sinh nào trong lịch trình? Hãy gọi ngay Hotline để được hỗ trợ tức thì trong 5 phút.
+            </p>
+            <div class="pt-1">
+              <a href="tel:0914136151" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white text-brand-crimson font-bold text-xs hover:bg-yellow-300 transition">
+                <i class="fa-solid fa-phone"></i>
+                <span>Gọi 0914 136 151 Ngay</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 4. FREQUENTLY ASKED QUESTIONS (FAQ ACCORDION)                             -->
+  <!-- ========================================================================= -->
+  <section id="faq" class="py-16 lg:py-24 bg-brand-sand/60 border-b border-gray-200/70 scroll-mt-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-brand-crimson text-xs font-bold uppercase tracking-wider mb-3">
+          <i class="fa-solid fa-circle-question"></i>
+          <span>Giải Đáp Thắc Mắc</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight" data-i18n="contact.faq_title">
+          Câu Hỏi Thường Gặp
+        </h2>
+        <p class="text-gray-600 mt-2 text-sm sm:text-base">
+          Những điều du khách quan tâm nhất trước khi đặt tour và phòng nghỉ tại Đà Nẵng.
+        </p>
+      </div>
+
+      <div class="space-y-4" id="faq-accordion-group">
+        
+        <!-- FAQ 1 -->
+        <div class="faq-item bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm transition">
+          <button type="button" class="faq-toggle w-full px-6 py-4.5 text-left font-bold text-gray-900 flex items-center justify-between gap-4 hover:text-brand-crimson transition">
+            <span class="text-base sm:text-lg" data-i18n="contact.faq_q1">Tôi nên đặt tour trước bao lâu?</span>
+            <i class="fa-solid fa-chevron-down text-sm text-gray-400 transform transition-transform duration-200"></i>
+          </button>
+          <div class="faq-answer px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-3">
+            <p data-i18n="contact.faq_a1">
+              Đối với các tour ghép hàng ngày (Bà Nà, Hội An, Huế), bạn có thể đặt trước 18h00 ngày hôm trước. Vào các dịp lễ Tết hoặc đặt tour riêng, chúng tôi khuyên bạn nên đặt trước từ 3 - 7 ngày để được phục vụ tốt nhất.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm transition">
+          <button type="button" class="faq-toggle w-full px-6 py-4.5 text-left font-bold text-gray-900 flex items-center justify-between gap-4 hover:text-brand-crimson transition">
+            <span class="text-base sm:text-lg" data-i18n="contact.faq_q2">Chính sách hủy và hoàn tiền như thế nào?</span>
+            <i class="fa-solid fa-chevron-down text-sm text-gray-400 transform transition-transform duration-200"></i>
+          </button>
+          <div class="faq-answer px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-3 hidden">
+            <p data-i18n="contact.faq_a2">
+              Chúng tôi cam kết hoàn tiền 100% nếu bạn hủy trước giờ khởi hành 24 giờ. Trong trường hợp thời tiết xấu bất khả kháng, chúng tôi hỗ trợ đổi ngày miễn phí hoặc hoàn tiền tức thì.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm transition">
+          <button type="button" class="faq-toggle w-full px-6 py-4.5 text-left font-bold text-gray-900 flex items-center justify-between gap-4 hover:text-brand-crimson transition">
+            <span class="text-base sm:text-lg" data-i18n="contact.faq_q3">Tour có đưa đón tận nơi tại khách sạn không?</span>
+            <i class="fa-solid fa-chevron-down text-sm text-gray-400 transform transition-transform duration-200"></i>
+          </button>
+          <div class="faq-answer px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-3 hidden">
+            <p data-i18n="contact.faq_a3">
+              Có! Tất cả các tour ghép và tour riêng của chúng tôi đều miễn phí đưa đón tận sảnh khách sạn trong trung tâm thành phố Đà Nẵng và dọc bãi biển Mỹ Khê.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm transition">
+          <button type="button" class="faq-toggle w-full px-6 py-4.5 text-left font-bold text-gray-900 flex items-center justify-between gap-4 hover:text-brand-crimson transition">
+            <span class="text-base sm:text-lg" data-i18n="contact.faq_q4">Trong tour có phát sinh chi phí ẩn nào không?</span>
+            <i class="fa-solid fa-chevron-down text-sm text-gray-400 transform transition-transform duration-200"></i>
+          </button>
+          <div class="faq-answer px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-3 hidden">
+            <p data-i18n="contact.faq_a4">
+              Tuyệt đối không. Giá công bố đã bao gồm toàn bộ vé tham quan, cáp treo, ăn trưa buffet (theo chương trình), xe đưa đón máy lạnh, hướng dẫn viên và bảo hiểm du lịch.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm transition">
+          <button type="button" class="faq-toggle w-full px-6 py-4.5 text-left font-bold text-gray-900 flex items-center justify-between gap-4 hover:text-brand-crimson transition">
+            <span class="text-base sm:text-lg">Tôi có thể thanh toán bằng phương thức nào?</span>
+            <i class="fa-solid fa-chevron-down text-sm text-gray-400 transform transition-transform duration-200"></i>
+          </button>
+          <div class="faq-answer px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-3 hidden">
+            <p>
+              Chúng tôi hỗ trợ chuyển khoản ngân hàng (Vietcombank QR), thẻ tín dụng quốc tế (Visa/MasterCard), ví điện tử MoMo, hoặc thanh toán tiền mặt trực tiếp cho hướng dẫn viên khi bắt đầu khởi hành tại khách sạn.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 5. INTERACTIVE MAP SECTION                                                -->
+  <!-- ========================================================================= -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-8">
+        <h3 class="text-2xl font-bold text-gray-900">Bản Đồ Chỉ Đường Đến Văn Phòng Đà Nẵng</h3>
+        <p class="text-gray-500 text-sm mt-1">195 Đặng Vũ Hỷ, An Hải Đông, Sơn Trà, Đà Nẵng</p>
+      </div>
+
+      <div class="rounded-3xl overflow-hidden shadow-lg border border-gray-200 aspect-[21/9] min-h-[350px] relative">
+        <iframe 
+          title="Da Nang For Less Office Location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.025345678453!2d108.2392760759323!3d16.06416623957297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142177f1ef55555%3A0x89abcdef12345678!2zMTk1IMSQ4bq3bmcgVsWpIEjhu7csIEFuIEjhuqNpIMSQw7RuZywgU8ahbiBUcsOgLCDEkMOgIE7hurVuZw!5e0!3m2!1svi!2svn!4v1700000000000!5m2!1svi!2svn" 
+          width="100%" 
+          height="100%" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade"
+          class="w-full h-full">
+        </iframe>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 6. GLOBAL FOOTER                                                          -->
+  <!-- ========================================================================= -->
+  <footer class="bg-brand-espresso text-white pt-16 pb-12 border-t border-brand-crimson/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <!-- Top Row: 4 Columns -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        
+        <!-- Cột 1: Brand Info -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-brand-crimson shadow-md">
+              <i class="fa-solid fa-umbrella-beach text-lg"></i>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-extrabold text-xl tracking-tight text-white leading-tight">Da Nang</span>
+              <span class="font-serif italic font-normal text-sm text-white/90 leading-none -mt-0.5">for less</span>
+            </div>
+          </div>
+
+          <p data-i18n="footer.intro" class="text-xs sm:text-sm text-white/90 leading-relaxed max-w-sm pt-2">
+            Your trusted local partner for high-quality travel experiences at affordable prices in Da Nang and Central Vietnam.
+          </p>
+
+          <div class="flex items-center space-x-3 pt-2">
+            <a href="#" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white hover:text-brand-crimson flex items-center justify-center text-white transition duration-200" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f text-xs"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white hover:text-brand-crimson flex items-center justify-center text-white transition duration-200" aria-label="Instagram">
+              <i class="fa-brands fa-instagram text-xs"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white hover:text-brand-crimson flex items-center justify-center text-white transition duration-200" aria-label="TikTok">
+              <i class="fa-brands fa-tiktok text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Cột 2: Explore -->
+        <div class="space-y-3">
+          <h4 data-i18n="footer.explore" class="text-sm font-bold text-white uppercase tracking-wider">Explore</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-white/85">
+            <li><a href="tours/index.html" data-i18n="nav.tours" class="hover:text-white transition">Tours</a></li>
+            <li><a href="stays/index.html" data-i18n="nav.hotels" class="hover:text-white transition">Hotels</a></li>
+            <li><a href="guides/index.html" data-i18n="footer.travel_guide" class="hover:text-white transition">Travel Guide</a></li>
+            <li><a href="about.html" data-i18n="nav.about" class="hover:text-white transition">About Us</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact" class="text-brand-gold font-bold transition">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 3: For Partners -->
+        <div class="space-y-3">
+          <h4 data-i18n="footer.partners" class="text-sm font-bold text-white uppercase tracking-wider">For Partners</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-white/85">
+            <li><a href="portal/admin.html" data-i18n="footer.list_property" class="hover:text-white transition">List Your Property</a></li>
+            <li><a href="portal/admin.html" data-i18n="footer.tour_operator" class="hover:text-white transition">Tour Operator</a></li>
+            <li><a href="#" data-i18n="footer.affiliate" class="hover:text-white transition">Affiliate Program</a></li>
+            <li><a href="contact.html" data-i18n="footer.partnership" class="hover:text-white transition">Business Partnership</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 4: Support & Legal -->
+        <div class="space-y-3">
+          <h4 data-i18n="footer.support" class="text-sm font-bold text-white uppercase tracking-wider">Support & Legal</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-white/85">
+            <li><a href="contact.html" data-i18n="footer.help_center" class="hover:text-white transition">Help Center</a></li>
+            <li><a href="#faq" data-i18n="footer.cancel_policy" class="hover:text-white transition">Cancellation Policy</a></li>
+            <li><a href="#" data-i18n="footer.terms" class="hover:text-white transition">Terms of Use</a></li>
+            <li><a href="#" data-i18n="footer.privacy" class="hover:text-white transition">Privacy Policy</a></li>
+          </ul>
+
+          <div class="pt-2">
+            <div class="lang-pill-switch inline-flex bg-white/10 px-3 py-1.5 rounded-full text-xs font-semibold text-gray-300 items-center gap-1.5 border border-white/10">
+              <span data-lang="vn" class="text-white font-bold cursor-pointer">VN</span>
+              <span class="text-white/40">|</span>
+              <span data-lang="en" class="text-gray-400 hover:text-white cursor-pointer">EN</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/80 border-t border-white/10">
+        <div class="space-y-1 text-center md:text-left">
+          <p data-i18n="footer.copyright">© 2024 DaNang for less. All rights reserved.</p>
+          <p data-i18n="footer.license" class="text-[11px] text-white/70">International Travel Business License No: 48-130/2017/TCDL-GPLHQT</p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-gray-300">
+          <a href="tel:+84914136151" class="hover:text-white flex items-center gap-2 transition">
+            <i class="fa-solid fa-phone text-red-400"></i>
+            <span>+84 (0) 914 136 151</span>
+          </a>
+          <a href="mailto:hello@danangforless.com" class="hover:text-white flex items-center gap-2 transition">
+            <i class="fa-solid fa-envelope text-red-400"></i>
+            <span>hello@danangforless.com</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT MODULES & CORE SCRIPTS                                         -->
+  <!-- ========================================================================= -->
+  <script src="../assets/js/core/mock-data.js"></script>
+  <script src="../assets/js/core/i18n.js"></script>
+  <script src="../assets/js/core/auth.js"></script>
+  <script src="../assets/js/core/navigation.js"></script>
+  <script src="../assets/js/animations/scroll-reveal.js"></script>
+
+  <!-- Page Interactive Script for Form & FAQ Accordion -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // FAQ Accordion Toggle
+      const faqToggles = document.querySelectorAll('.faq-toggle');
+      faqToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+          const item = toggle.closest('.faq-item');
+          const answer = item.querySelector('.faq-answer');
+          const icon = toggle.querySelector('i');
+          const isHidden = answer.classList.contains('hidden');
+
+          // Close all other accordions for a clean accordion UX
+          document.querySelectorAll('.faq-answer').forEach(ans => ans.classList.add('hidden'));
+          document.querySelectorAll('.faq-toggle i').forEach(ic => ic.classList.remove('rotate-180'));
+
+          if (isHidden) {
+            answer.classList.remove('hidden');
+            if (icon) icon.classList.add('rotate-180');
+          }
+        });
+      });
+
+      // Contact Form Submission Handler
+      const form = document.getElementById('contact-inquiry-form');
+      const alertBox = document.getElementById('contact-success-alert');
+      const submitBtn = document.getElementById('contact-submit-btn');
+
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          
+          // Disable button briefly for realistic submission effect
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> <span>Đang gửi yêu cầu...</span>';
+          }
+
+          setTimeout(() => {
+            if (alertBox) {
+              alertBox.classList.remove('hidden');
+              alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> <span>Đã gửi thành công!</span>';
+              submitBtn.classList.remove('bg-brand-crimson', 'hover:bg-brand-darkcrimson');
+              submitBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+            }
+            form.reset();
+          }, 600);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -219,6 +219,18 @@ function initSmartNavigationLinks() {
       return;
     }
 
+    // About Us page link
+    if (i18n === 'nav.about' || hrefLower.includes('about')) {
+      a.setAttribute('href', '/pages/about.html');
+      return;
+    }
+
+    // Contact page link
+    if (i18n === 'nav.contact' || hrefLower.includes('contact')) {
+      a.setAttribute('href', '/pages/contact.html');
+      return;
+    }
+
     // User Portal / Bookings
     if (i18n === 'nav.my_bookings' || hrefLower.includes('portal/user')) {
       a.setAttribute('href', '/pages/portal/user.html');
@@ -266,6 +278,8 @@ function updateActiveNavigationState() {
   const isTours = path.includes('/tours') || path.endsWith('tours');
   const isStays = path.includes('/stays') || path.endsWith('stays');
   const isGuides = path.includes('/guides') || path.endsWith('guides');
+  const isAbout = path.includes('/about');
+  const isContact = path.includes('/contact');
 
   // Desktop header links
   const desktopLinks = document.querySelectorAll('header nav a');
@@ -275,6 +289,8 @@ function updateActiveNavigationState() {
     const isTourLink = i18n === 'nav.tours' || href.includes('tours');
     const isStayLink = i18n === 'nav.hotels' || href.includes('stays');
     const isGuideLink = i18n === 'nav.guides' || href.includes('guides');
+    const isAboutLink = i18n === 'nav.about' || href.includes('about');
+    const isContactLink = i18n === 'nav.contact' || href.includes('contact');
 
     if (isTourLink) {
       if (isTours) {
@@ -290,6 +306,18 @@ function updateActiveNavigationState() {
       }
     } else if (isGuideLink) {
       if (isGuides) {
+        a.className = 'text-brand-crimson font-bold border-b-2 border-brand-crimson pb-1 flex items-center gap-1.5 transition';
+      } else {
+        a.className = 'text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition font-semibold';
+      }
+    } else if (isAboutLink) {
+      if (isAbout) {
+        a.className = 'text-brand-crimson font-bold border-b-2 border-brand-crimson pb-1 flex items-center gap-1.5 transition';
+      } else {
+        a.className = 'text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition font-semibold';
+      }
+    } else if (isContactLink) {
+      if (isContact) {
         a.className = 'text-brand-crimson font-bold border-b-2 border-brand-crimson pb-1 flex items-center gap-1.5 transition';
       } else {
         a.className = 'text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition font-semibold';
@@ -301,9 +329,13 @@ function updateActiveNavigationState() {
   const mobileLinks = document.querySelectorAll('#mobile-drawer nav a');
   mobileLinks.forEach(a => {
     const text = (a.textContent || '').toLowerCase();
+    const i18n = a.getAttribute('data-i18n') || '';
+    const href = (a.getAttribute('href') || '').toLowerCase();
     const isTourLink = text.includes('tour') || !!a.querySelector('.fa-compass');
     const isStayLink = text.includes('hotel') || text.includes('stay') || !!a.querySelector('.fa-hotel');
     const isGuideLink = text.includes('guide') || !!a.querySelector('.fa-map-location-dot');
+    const isAboutLink = i18n === 'nav.about' || text.includes('about') || text.includes('về chúng tôi') || href.includes('about') || !!a.querySelector('.fa-circle-info');
+    const isContactLink = i18n === 'nav.contact' || text.includes('contact') || text.includes('liên hệ') || href.includes('contact') || !!a.querySelector('.fa-headset');
 
     if (isTourLink) {
       if (isTours) {
@@ -319,6 +351,18 @@ function updateActiveNavigationState() {
       }
     } else if (isGuideLink) {
       if (isGuides) {
+        a.className = 'flex items-center gap-3 p-2 rounded-xl bg-red-50 text-brand-crimson font-bold';
+      } else {
+        a.className = 'flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition text-gray-700 font-semibold';
+      }
+    } else if (isAboutLink) {
+      if (isAbout) {
+        a.className = 'flex items-center gap-3 p-2 rounded-xl bg-red-50 text-brand-crimson font-bold';
+      } else {
+        a.className = 'flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition text-gray-700 font-semibold';
+      }
+    } else if (isContactLink) {
+      if (isContact) {
         a.className = 'flex items-center gap-3 p-2 rounded-xl bg-red-50 text-brand-crimson font-bold';
       } else {
         a.className = 'flex items-center gap-3 p-2 rounded-xl hover:bg-red-50 hover:text-brand-crimson transition text-gray-700 font-semibold';

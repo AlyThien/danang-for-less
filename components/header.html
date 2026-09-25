@@ -4,37 +4,41 @@
     
     <!-- BRAND LOGO -->
     <a href="/" class="flex items-center gap-2.5 group">
-      <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-primary-crimson shadow-md shadow-brand-crimson/20 group-hover:scale-105 transition-transform duration-300 border border-red-50">
-        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-          <path d="M4 19h16v2H4zm3-4h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zm-6-4h2v2H9zm4 0h2v2h-2zM12 3L2 12h3v5h14v-5h3z"/>
-        </svg>
+      <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-brand-crimson shadow-md shadow-brand-crimson/20 group-hover:scale-105 transition-transform duration-300 border border-red-50">
+        <i class="fa-solid fa-umbrella-beach text-lg"></i>
       </div>
       <div class="flex items-center gap-2 py-0.5">
-        <span class="w-[2px] h-8 bg-primary-crimson rounded-full"></span>
+        <span class="w-[2px] h-8 bg-brand-crimson rounded-full"></span>
         <div class="flex flex-col justify-center leading-tight">
-          <span class="font-extrabold text-sm sm:text-base tracking-tight text-primary-crimson">
+          <span class="font-extrabold text-sm sm:text-base tracking-tight text-brand-crimson">
             Da Nang
           </span>
-          <span class="font-extrabold text-sm sm:text-base tracking-tight text-primary-crimson">
+          <span class="font-extrabold text-sm sm:text-base tracking-tight text-brand-crimson">
             For Less
           </span>
         </div>
-        <span class="w-[2px] h-8 bg-primary-crimson rounded-full"></span>
+        <span class="w-[2px] h-8 bg-brand-crimson rounded-full"></span>
       </div>
     </a>
 
     <!-- DESKTOP NAVIGATION -->
-    <nav class="hidden md:flex items-center space-x-9 text-sm font-medium">
-      <a href="pages/tours/index.html" class="nav-link text-gray-600 hover:text-primary-crimson flex items-center gap-1.5 transition-colors">
+    <nav class="hidden md:flex items-center space-x-7 lg:space-x-8 text-sm font-semibold">
+      <a href="pages/tours/index.html" data-i18n="nav.tours" class="nav-link text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition-colors">
         Tours
       </a>
-      <a href="pages/stays/index.html" class="nav-link text-gray-600 hover:text-primary-crimson flex items-center gap-1.5 transition-colors">
+      <a href="pages/stays/index.html" data-i18n="nav.hotels" class="nav-link text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition-colors">
         Hotels & Stays
       </a>
-      <a href="pages/guides/index.html" class="nav-link text-gray-600 hover:text-primary-crimson flex items-center gap-1.5 transition-colors">
+      <a href="pages/guides/index.html" data-i18n="nav.guides" class="nav-link text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition-colors">
         Guides
       </a>
-      <a href="#secret-deals" class="nav-link text-gray-600 hover:text-primary-crimson flex items-center gap-1.5 transition-colors">
+      <a href="pages/about.html" data-i18n="nav.about" class="nav-link text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition-colors">
+        About Us
+      </a>
+      <a href="pages/contact.html" data-i18n="nav.contact" class="nav-link text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition-colors">
+        Contact
+      </a>
+      <a href="#secret-deals" data-i18n="nav.offers" class="nav-link text-gray-600 hover:text-brand-crimson flex items-center gap-1.5 transition-colors">
         Special Offers
       </a>
     </nav>
