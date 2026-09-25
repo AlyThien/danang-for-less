@@ -52,18 +52,14 @@
   <header class="w-full bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200/80 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
-      <!-- Logo -->
-      <a href="index.html" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-brand-crimson shadow-md shadow-brand-crimson/20 group-hover:scale-105 transition-transform duration-300">
-          <i class="fa-solid fa-umbrella-beach text-lg"></i>
-        </div>
-        <div class="flex flex-col justify-center">
-          <span class="font-extrabold text-xl sm:text-2xl tracking-tight text-brand-crimson leading-tight">
-            Da Nang
+      <!-- Logo: Framed brandmark with same font, same size and 2 horizontal lines -->
+      <a href="index.html" class="inline-flex items-center group">
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-lg border-2 border-brand-crimson bg-white shadow-sm group-hover:bg-brand-crimson/5 group-hover:shadow transition-all duration-300">
+          <span class="w-3.5 sm:w-4 h-[2px] bg-brand-crimson rounded-full"></span>
+          <span class="font-black text-base sm:text-lg tracking-tight text-brand-crimson whitespace-nowrap">
+            Da Nang for less
           </span>
-          <span class="font-serif italic font-normal text-sm sm:text-base text-brand-crimson leading-none -mt-0.5">
-            for less
-          </span>
+          <span class="w-3.5 sm:w-4 h-[2px] bg-brand-crimson rounded-full"></span>
         </div>
       </a>
 
@@ -109,9 +105,10 @@
   <div id="mobile-drawer" class="fixed top-0 right-0 w-72 h-full bg-white z-50 transform translate-x-full transition-transform duration-300 shadow-2xl p-6 flex flex-col justify-between">
     <div>
       <div class="flex items-center justify-between pb-4 border-b border-gray-100">
-        <div class="flex flex-col justify-center">
-          <span class="font-extrabold text-base tracking-tight text-brand-crimson leading-tight">Da Nang</span>
-          <span class="font-serif italic font-normal text-xs text-brand-crimson leading-none -mt-0.5">for less</span>
+        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-lg border-2 border-brand-crimson bg-white">
+          <span class="w-2.5 h-[2px] bg-brand-crimson rounded-full"></span>
+          <span class="font-black text-sm tracking-tight text-brand-crimson whitespace-nowrap">Da Nang for less</span>
+          <span class="w-2.5 h-[2px] bg-brand-crimson rounded-full"></span>
         </div>
         <button id="mobile-close-btn" class="text-gray-400 hover:text-gray-700 text-xl p-1">
           <i class="fa-solid fa-xmark"></i>
@@ -153,21 +150,12 @@
   <!-- ========================================================================= -->
   <section class="relative min-h-[620px] lg:min-h-[720px] flex items-center justify-center overflow-hidden">
     
-    <!-- Background Image with Ken Burns animation & Figma Sunset Overlays -->
+    <!-- Background Image with Ken Burns animation (No dark overlay) -->
     <div class="absolute inset-0 z-0 overflow-hidden">
       <img src="assets/images/hero-danang-beach.jpg" 
            onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=85'"
            alt="Da Nang Ocean & Sand Beach - Calm Horizon" 
            class="w-full h-full object-cover hero-ken-burns">
-      
-      <!-- Layer 1: Subtle Contrast Gradient for Crystal Clear Text & Vivid Background -->
-      <div class="absolute inset-0 hero-sunset-overlay pointer-events-none"></div>
-
-      <!-- Layer 2: Sunset Golden-Hour Glow & Atmospheric Warmth -->
-      <div class="absolute inset-0 hero-sunset-glow pointer-events-none"></div>
-
-      <!-- Layer 3: Contrast Vignette for Title & Search Card Clarity -->
-      <div class="absolute inset-0 hero-sunset-vignette pointer-events-none"></div>
     </div>
 
     <!-- Hero Content Container -->

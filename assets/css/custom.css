@@ -154,25 +154,8 @@ body {
   text-shadow: 0 3px 12px rgba(0, 0, 0, 0.35), 0 6px 24px rgba(0, 0, 0, 0.2);
 }
 
-.hero-sunset-overlay {
-  /* Lớp phủ gradient trong suốt nhẹ giúp màu biển và cát tự nhiên sáng rực rỡ */
-  background: linear-gradient(
-    180deg, 
-    rgba(15, 23, 42, 0.35) 0%, 
-    rgba(15, 23, 42, 0.08) 38%, 
-    rgba(15, 23, 42, 0.35) 100%
-  );
-}
-
-.hero-sunset-glow {
-  display: none;
-}
-
+.hero-sunset-overlay,
+.hero-sunset-glow,
 .hero-sunset-vignette {
-  /* Gradient chuyển tiếp êm dịu ở chân card tìm kiếm */
-  background: linear-gradient(
-    to top, 
-    rgba(15, 23, 42, 0.55) 0%, 
-    transparent 55%
-  );
+  display: none !important;
 }
