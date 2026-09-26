@@ -119,7 +119,10 @@ function initCounters() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const el = entry.target;
-        const targetNum = parseInt(el.dataset.counter, 10);
+        const rawTarget = el.dataset.counter;
+        const isDecimal = rawTarget.includes('.');
+        const targetNum = isDecimal ? parseFloat(rawTarget) : parseInt(rawTarget, 10);
+        const decimals = isDecimal ? (rawTarget.split('.')[1] || '').length : 0;
         const prefix = el.dataset.prefix || '';
         const suffix = el.dataset.suffix || '';
         const duration = 1800; // ms
@@ -130,14 +133,19 @@ function initCounters() {
           const progress = Math.min(elapsed / duration, 1);
           // Ease out cubic
           const easeProgress = 1 - Math.pow(1 - progress, 3);
-          const currentVal = Math.floor(easeProgress * targetNum);
           
-          el.textContent = `${prefix}${currentVal.toLocaleString()}${suffix}`;
+          if (isDecimal) {
+            const currentVal = (easeProgress * targetNum).toFixed(decimals);
+            el.textContent = `${prefix}${currentVal}${suffix}`;
+          } else {
+            const currentVal = Math.floor(easeProgress * targetNum);
+            el.textContent = `${prefix}${currentVal.toLocaleString()}${suffix}`;
+          }
 
           if (progress < 1) {
             requestAnimationFrame(updateCount);
           } else {
-            el.textContent = `${prefix}${targetNum.toLocaleString()}${suffix}`;
+            el.textContent = `${prefix}${isDecimal ? targetNum.toFixed(decimals) : targetNum.toLocaleString()}${suffix}`;
           }
         };
 

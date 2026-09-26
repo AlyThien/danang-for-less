@@ -160,10 +160,49 @@
   transform: translateY(0);
 }
 
-.stagger-delay-1 { transition-delay: 0.1s; }
-.stagger-delay-2 { transition-delay: 0.2s; }
-.stagger-delay-3 { transition-delay: 0.3s; }
-.stagger-delay-4 { transition-delay: 0.4s; }
+.stagger-delay-1 { transition-delay: 0.08s; }
+.stagger-delay-2 { transition-delay: 0.16s; }
+.stagger-delay-3 { transition-delay: 0.24s; }
+.stagger-delay-4 { transition-delay: 0.32s; }
+.stagger-delay-5 { transition-delay: 0.40s; }
+.stagger-delay-6 { transition-delay: 0.48s; }
+.stagger-delay-7 { transition-delay: 0.56s; }
+.stagger-delay-8 { transition-delay: 0.64s; }
+.stagger-delay-9 { transition-delay: 0.72s; }
+
+/* Additional Reveal Directions */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-35px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(35px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
 
 /* 7. Card Image Zoom & Shine */
 .img-zoom-container {
@@ -183,3 +222,102 @@
 .search-tab-pill {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+/* 9. Top Scroll Progress Bar */
+#scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #FF1E27, #FFA133, #FF1E27);
+  background-size: 200% 100%;
+  animation: gradientMove 3s linear infinite;
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.1s ease-out;
+  pointer-events: none;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* 10. Sticky Header Scrolled State */
+.header-scrolled {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08) !important;
+  border-bottom-color: rgba(255, 30, 39, 0.1) !important;
+}
+
+/* 11. Floating Back to Top Button */
+#back-to-top-btn {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.85);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s, background-color 0.2s, box-shadow 0.2s;
+}
+
+#back-to-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+#back-to-top-btn:hover {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 12px 28px rgba(255, 30, 39, 0.35);
+}
+
+/* 12. Wishlist Heart Pop Animation */
+@keyframes heartPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+
+.heart-pop {
+  animation: heartPop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 13. Button Shimmer Sweep Effect */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 25%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  animation: shimmerBtn 4s infinite;
+}
+
+@keyframes shimmerBtn {
+  0% { left: -60%; }
+  25%, 100% { left: 160%; }
+}
+
+/* 14. 3D Card Hover Depth */
+.card-hover-depth {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+
+.card-hover-depth:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 35px -8px rgba(255, 30, 39, 0.15), 0 10px 15px -4px rgba(0, 0, 0, 0.05);
+}
+

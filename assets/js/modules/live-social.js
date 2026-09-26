@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     toast.innerHTML = `
       <div class="relative flex-shrink-0">
-        <div class="w-10 h-10 rounded-full bg-primary-tint text-primary-crimson font-bold text-xs flex items-center justify-center border border-red-100 shadow-sm">
+        <div class="w-10 h-10 rounded-full bg-red-50 text-brand-crimson font-bold text-xs flex items-center justify-center border border-red-100 shadow-sm">
           ${item.avatar}
         </div>
         <span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white pulse-dot-green"></span>
