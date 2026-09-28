@@ -74,10 +74,37 @@
       </div>
 
       <div class="flex items-center space-x-3 sm:space-x-4">
-        <div class="lang-pill-switch bg-gray-100 px-3 py-1.5 rounded-full text-xs font-semibold text-gray-700 flex items-center gap-1.5 border border-gray-200">
-          <span data-lang="en" class="text-brand-crimson font-bold cursor-pointer">EN</span>
-          <span class="text-gray-300">|</span>
-          <span data-lang="vn" class="text-gray-400 hover:text-gray-700 cursor-pointer">VN</span>
+        <!-- Multilingual Dropdown Switcher (5 Languages: VN, EN, ZH, KO, JA) -->
+        <div class="lang-dropdown-container relative">
+          <button type="button" class="lang-dropdown-trigger flex items-center gap-1.5 bg-gray-100/90 hover:bg-gray-200/90 px-3 py-1.5 rounded-full text-xs font-bold text-gray-700 border border-gray-200 transition shadow-sm cursor-pointer select-none">
+            <i class="fa-solid fa-globe text-brand-crimson text-xs"></i>
+            <span class="current-lang-text uppercase">VN</span>
+            <i class="fa-solid fa-chevron-down text-[9px] text-gray-400 transition-transform"></i>
+          </button>
+          <div class="lang-dropdown-menu absolute right-0 mt-2 w-44 bg-white rounded-2xl shadow-xl border border-gray-100 py-1.5 hidden z-50 animate-fadeIn divide-y divide-gray-50">
+            <div class="py-1">
+              <button type="button" data-lang="vn" class="lang-dropdown-opt w-full text-left px-3.5 py-2 text-xs font-semibold hover:bg-red-50 hover:text-brand-crimson flex items-center justify-between transition cursor-pointer">
+                <span class="flex items-center gap-2"><span>🇻🇳</span> <span>Tiếng Việt</span></span>
+                <span class="text-[10px] text-gray-400 font-mono">VN</span>
+              </button>
+              <button type="button" data-lang="en" class="lang-dropdown-opt w-full text-left px-3.5 py-2 text-xs font-semibold hover:bg-red-50 hover:text-brand-crimson flex items-center justify-between transition cursor-pointer">
+                <span class="flex items-center gap-2"><span>🇬🇧</span> <span>English</span></span>
+                <span class="text-[10px] text-gray-400 font-mono">EN</span>
+              </button>
+              <button type="button" data-lang="zh" class="lang-dropdown-opt w-full text-left px-3.5 py-2 text-xs font-semibold hover:bg-red-50 hover:text-brand-crimson flex items-center justify-between transition cursor-pointer">
+                <span class="flex items-center gap-2"><span>🇨🇳</span> <span>中文 (简体)</span></span>
+                <span class="text-[10px] text-gray-400 font-mono">ZH</span>
+              </button>
+              <button type="button" data-lang="ko" class="lang-dropdown-opt w-full text-left px-3.5 py-2 text-xs font-semibold hover:bg-red-50 hover:text-brand-crimson flex items-center justify-between transition cursor-pointer">
+                <span class="flex items-center gap-2"><span>🇰🇷</span> <span>한국어</span></span>
+                <span class="text-[10px] text-gray-400 font-mono">KO</span>
+              </button>
+              <button type="button" data-lang="ja" class="lang-dropdown-opt w-full text-left px-3.5 py-2 text-xs font-semibold hover:bg-red-50 hover:text-brand-crimson flex items-center justify-between transition cursor-pointer">
+                <span class="flex items-center gap-2"><span>🇯🇵</span> <span>日本語</span></span>
+                <span class="text-[10px] text-gray-400 font-mono">JA</span>
+              </button>
+            </div>
+          </div>
         </div>
         <div class="header-auth-container flex items-center space-x-2"></div>
       </div>

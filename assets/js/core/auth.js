@@ -132,12 +132,12 @@ class AuthManager {
               <div class="py-1 text-xs font-semibold text-gray-700">
                 <a href="${userPortalUrl}" class="flex items-center gap-2.5 px-4 py-2 hover:bg-red-50 hover:text-brand-crimson transition">
                   <i class="fa-regular fa-calendar-check w-4 text-brand-crimson"></i>
-                  <span>${isVn ? 'Đơn Đặt Chỗ Của Tôi' : 'My Bookings'}</span>
+                  <span>${window.dnI18n ? window.dnI18n.t('nav.my_bookings') : 'My Bookings'}</span>
                 </a>
                 ${isAdmin ? `
                 <a href="${adminPortalUrl}" class="flex items-center gap-2.5 px-4 py-2 hover:bg-indigo-50 hover:text-indigo-700 transition">
                   <i class="fa-solid fa-gauge w-4 text-indigo-600"></i>
-                  <span>${isVn ? 'Bảng Quản Trị (Admin)' : 'Admin Dashboard'}</span>
+                  <span>${window.dnI18n ? window.dnI18n.t('nav.admin_dashboard') : 'Admin Dashboard'}</span>
                 </a>
                 ` : ''}
               </div>
@@ -145,7 +145,7 @@ class AuthManager {
               <div class="pt-1 border-t border-gray-100">
                 <button onclick="window.dnAuth.logout()" class="w-full text-left flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-red-600 hover:bg-red-50 transition">
                   <i class="fa-solid fa-arrow-right-from-bracket w-4"></i>
-                  <span>${isVn ? 'Đăng Xuất' : 'Sign Out'}</span>
+                  <span>${window.dnI18n ? window.dnI18n.t('nav.logout') : 'Sign Out'}</span>
                 </button>
               </div>
             </div>
@@ -153,13 +153,15 @@ class AuthManager {
         `;
       } else {
         // Guest / Logged out state -> Show Login & Sign Up buttons
+        const loginText = window.dnI18n ? window.dnI18n.t('nav.login') : 'Sign In';
+        const signupText = window.dnI18n ? window.dnI18n.t('nav.signup') : 'Sign Up';
         container.innerHTML = `
           <div class="flex items-center space-x-2">
             <a href="${loginUrl}" class="text-xs font-semibold text-gray-700 hover:text-brand-crimson px-3 py-2 rounded-xl hover:bg-gray-100 transition">
-              <span>${isVn ? 'Đăng nhập' : 'Sign In'}</span>
+              <span>${loginText}</span>
             </a>
             <a href="${registerUrl}" class="text-xs font-bold text-white bg-brand-crimson hover:bg-brand-darkcrimson px-3.5 py-2 rounded-xl shadow-md shadow-brand-crimson/20 transition hover:scale-[1.02]">
-              <span>${isVn ? 'Đăng ký' : 'Sign Up'}</span>
+              <span>${signupText}</span>
             </a>
           </div>
         `;
@@ -202,10 +204,10 @@ class AuthManager {
       mobileAuthContainer.innerHTML = `
         <div class="grid grid-cols-2 gap-2 mb-4">
           <a href="${basePath}pages/auth/login.html" class="w-full py-2.5 text-center text-xs font-bold rounded-xl border border-gray-200 text-gray-700 hover:bg-gray-50 transition">
-            ${isVn ? 'Đăng nhập' : 'Sign In'}
+            ${window.dnI18n ? window.dnI18n.t('nav.login') : 'Sign In'}
           </a>
           <a href="${basePath}pages/auth/register.html" class="w-full py-2.5 text-center text-xs font-bold rounded-xl bg-brand-crimson text-white shadow-sm hover:bg-brand-darkcrimson transition">
-            ${isVn ? 'Đăng ký' : 'Sign Up'}
+            ${window.dnI18n ? window.dnI18n.t('nav.signup') : 'Sign Up'}
           </a>
         </div>
       `;

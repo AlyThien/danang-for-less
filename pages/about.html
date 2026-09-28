@@ -74,11 +74,37 @@
 
       <!-- RIGHT CONTROLS -->
       <div class="flex items-center space-x-3 sm:space-x-4">
-        <!-- Language Switcher Pill -->
-        <div class="lang-pill-switch bg-gray-100/90 px-3 py-1.5 rounded-full text-xs font-semibold text-gray-700 flex items-center gap-1.5 border border-gray-200">
-          <span data-lang="en" class="text-gray-400 hover:text-gray-700 cursor-pointer">EN</span>
-          <span class="text-gray-300">|</span>
-          <span data-lang="vn" class="text-brand-crimson font-bold cursor-pointer">VN</span>
+        <!-- Multilingual Dropdown Switcher (5 Languages: VN, EN, ZH, KO, JA) -->
+        <div class="lang-dropdown-container relative">
+          <button type="button" class="lang-dropdown-trigger flex items-center gap-1.5 bg-gray-100/90 hover:bg-gray-200/90 px-3 py-1.5 rounded-full text-xs font-bold text-gray-700 border border-gray-200 transition shadow-sm cursor-pointer select-none">
+            <i class="fa-solid fa-globe text-brand-crimson text-xs"></i>
+            <span class="current-lang-text uppercase">VN</span>
+            <i class="fa-solid fa-chevron-down text-[9px] text-gray-400 transition-transform"></i>
+          </button>
+          <div class="lang-dropdown-menu absolute right-0 mt-2 w-44 bg-white rounded-2xl shadow-xl border border-gray-100 py-1.5 hidden z-50 animate-fadeIn divide-y divide-gray-50">
+            <div class="py-1">
+              <button type="button" data-lang="vn" class="lang-dropdown-opt w-full text-left px-3.5 py-2 text-xs font-semibold hover:bg-red-50 hover:text-brand-crimson flex items-center justify-between transition cursor-pointer">
+                <span class="flex items-center gap-2"><span>🇻🇳</span> <span>Tiếng Việt</span></span>
+                <span class="text-[10px] text-gray-400 font-mono">VN</span>
+              </button>
+              <button type="button" data-lang="en" class="lang-dropdown-opt w-full text-left px-3.5 py-2 text-xs font-semibold hover:bg-red-50 hover:text-brand-crimson flex items-center justify-between transition cursor-pointer">
+                <span class="flex items-center gap-2"><span>🇬🇧</span> <span>English</span></span>
+                <span class="text-[10px] text-gray-400 font-mono">EN</span>
+              </button>
+              <button type="button" data-lang="zh" class="lang-dropdown-opt w-full text-left px-3.5 py-2 text-xs font-semibold hover:bg-red-50 hover:text-brand-crimson flex items-center justify-between transition cursor-pointer">
+                <span class="flex items-center gap-2"><span>🇨🇳</span> <span>中文 (简体)</span></span>
+                <span class="text-[10px] text-gray-400 font-mono">ZH</span>
+              </button>
+              <button type="button" data-lang="ko" class="lang-dropdown-opt w-full text-left px-3.5 py-2 text-xs font-semibold hover:bg-red-50 hover:text-brand-crimson flex items-center justify-between transition cursor-pointer">
+                <span class="flex items-center gap-2"><span>🇰🇷</span> <span>한국어</span></span>
+                <span class="text-[10px] text-gray-400 font-mono">KO</span>
+              </button>
+              <button type="button" data-lang="ja" class="lang-dropdown-opt w-full text-left px-3.5 py-2 text-xs font-semibold hover:bg-red-50 hover:text-brand-crimson flex items-center justify-between transition cursor-pointer">
+                <span class="flex items-center gap-2"><span>🇯🇵</span> <span>日本語</span></span>
+                <span class="text-[10px] text-gray-400 font-mono">JA</span>
+              </button>
+            </div>
+          </div>
         </div>
 
         <!-- Dynamic Auth Container -->
@@ -142,14 +168,26 @@
     </div>
 
     <div class="border-t border-gray-100 pt-4 space-y-3">
-      <div class="flex items-center justify-between text-xs text-gray-500">
-        <span class="font-medium">Ngôn ngữ:</span>
-        <div class="lang-pill-switch flex gap-2 font-bold">
-          <span data-lang="vn" class="text-brand-crimson cursor-pointer">VN</span>
-          <span class="text-gray-300">|</span>
-          <span data-lang="en" class="text-gray-400 hover:text-brand-crimson cursor-pointer">EN</span>
+      <div class="pt-3 border-t border-gray-100">
+          <p class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">Ngôn ngữ / Language</p>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <button type="button" data-lang="vn" class="lang-dropdown-opt flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-50 hover:bg-red-50 hover:text-brand-crimson font-semibold transition border border-gray-100 cursor-pointer">
+              <span>🇻🇳</span> <span>Tiếng Việt</span>
+            </button>
+            <button type="button" data-lang="en" class="lang-dropdown-opt flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-50 hover:bg-red-50 hover:text-brand-crimson font-semibold transition border border-gray-100 cursor-pointer">
+              <span>🇬🇧</span> <span>English</span>
+            </button>
+            <button type="button" data-lang="zh" class="lang-dropdown-opt flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-50 hover:bg-red-50 hover:text-brand-crimson font-semibold transition border border-gray-100 cursor-pointer">
+              <span>🇨🇳</span> <span>中文</span>
+            </button>
+            <button type="button" data-lang="ko" class="lang-dropdown-opt flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-50 hover:bg-red-50 hover:text-brand-crimson font-semibold transition border border-gray-100 cursor-pointer">
+              <span>🇰🇷</span> <span>한국어</span>
+            </button>
+            <button type="button" data-lang="ja" class="lang-dropdown-opt col-span-2 flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-gray-50 hover:bg-red-50 hover:text-brand-crimson font-semibold transition border border-gray-100 cursor-pointer">
+              <span>🇯🇵</span> <span>日本語</span>
+            </button>
+          </div>
         </div>
-      </div>
       <div class="text-[11px] text-gray-400 text-center">
         Hotline 24/7: <a href="tel:0914136151" class="text-brand-crimson font-bold">+84 914 136 151</a>
       </div>
@@ -852,11 +890,24 @@
             <li><a href="#" data-i18n="footer.privacy" class="hover:text-white transition">Privacy Policy</a></li>
           </ul>
 
-          <div class="pt-2">
-            <div class="lang-pill-switch inline-flex bg-white/10 px-3 py-1.5 rounded-full text-xs font-semibold text-gray-300 items-center gap-1.5 border border-white/10">
-              <span data-lang="vn" class="text-white font-bold cursor-pointer">VN</span>
-              <span class="text-white/40">|</span>
-              <span data-lang="en" class="text-gray-400 hover:text-white cursor-pointer">EN</span>
+          <div class="pt-3">
+            <p class="text-[11px] font-bold uppercase tracking-wider text-white/60 mb-2">Ngôn ngữ / Language</p>
+            <div class="flex flex-wrap items-center gap-1.5">
+              <button type="button" data-lang="vn" class="px-2.5 py-1 rounded-lg text-xs font-semibold transition border border-white/10 cursor-pointer bg-white/20 text-white hover:bg-white/30">
+                🇻🇳 VN
+              </button>
+              <button type="button" data-lang="en" class="px-2.5 py-1 rounded-lg text-xs font-semibold transition border border-white/10 cursor-pointer bg-white/10 text-white/80 hover:bg-white/20">
+                🇬🇧 EN
+              </button>
+              <button type="button" data-lang="zh" class="px-2.5 py-1 rounded-lg text-xs font-semibold transition border border-white/10 cursor-pointer bg-white/10 text-white/80 hover:bg-white/20">
+                🇨🇳 中文
+              </button>
+              <button type="button" data-lang="ko" class="px-2.5 py-1 rounded-lg text-xs font-semibold transition border border-white/10 cursor-pointer bg-white/10 text-white/80 hover:bg-white/20">
+                🇰🇷 한국어
+              </button>
+              <button type="button" data-lang="ja" class="px-2.5 py-1 rounded-lg text-xs font-semibold transition border border-white/10 cursor-pointer bg-white/10 text-white/80 hover:bg-white/20">
+                🇯🇵 日本語
+              </button>
             </div>
           </div>
         </div>

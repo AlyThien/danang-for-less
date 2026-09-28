@@ -21,37 +21,37 @@ function initSearchTabs() {
   let activeMode = 'tours';
 
   const updateTabContent = (mode) => {
-    const isVn = (window.dnI18n && window.dnI18n.currentLang === 'vn');
+    const t = (key, fallback) => (window.dnI18n ? window.dnI18n.t(key) : fallback);
     if (mode === 'tours') {
-      if (destinationInput) destinationInput.placeholder = isVn ? 'Bà Nà, Hội An, Sơn Trà...' : 'Where are you going?';
+      if (destinationInput) destinationInput.placeholder = t('search.destination_placeholder', 'Bà Nà, Hội An, Sơn Trà...');
       if (dateInput) {
-        dateInput.textContent = isVn ? 'Chọn ngày khởi hành' : 'Select Departure Date';
+        dateInput.textContent = t('search.dates_tour_placeholder', 'Chọn ngày khởi hành');
         dateInput.removeAttribute('data-i18n');
       }
       if (guestsInput) {
-        guestsInput.textContent = isVn ? '2 Người lớn · Tour ghép' : '2 adults · Group Tour';
+        guestsInput.textContent = t('search.guests_tour_placeholder', '2 Người lớn · Tour ghép');
         guestsInput.removeAttribute('data-i18n');
       }
       if (searchBtn) searchBtn.setAttribute('data-target-url', 'pages/tours/index.html');
     } else if (mode === 'hotels') {
-      if (destinationInput) destinationInput.placeholder = isVn ? 'Bãi biển Mỹ Khê, Bán đảo Sơn Trà...' : 'My Khe Beach, Son Tra Peninsula...';
+      if (destinationInput) destinationInput.placeholder = t('search.destination_hotel_placeholder', 'Bãi biển Mỹ Khê, Bán đảo Sơn Trà...');
       if (dateInput) {
-        dateInput.textContent = isVn ? 'Nhận phòng — Trả phòng' : 'Check-in — Check-out';
+        dateInput.textContent = t('search.dates_placeholder', 'Nhận phòng — Trả phòng');
         dateInput.removeAttribute('data-i18n');
       }
       if (guestsInput) {
-        guestsInput.textContent = isVn ? '2 Người lớn · 1 Phòng' : '2 adults · 1 room';
+        guestsInput.textContent = t('search.guests_placeholder', '2 Người lớn · 1 Phòng');
         guestsInput.removeAttribute('data-i18n');
       }
       if (searchBtn) searchBtn.setAttribute('data-target-url', 'pages/stays/index.html');
     } else {
-      if (destinationInput) destinationInput.placeholder = isVn ? 'Combo Tour + Khách sạn tiết kiệm...' : 'Special Tour + Hotel Combos...';
+      if (destinationInput) destinationInput.placeholder = t('search.destination_combo_placeholder', 'Combo Tour + Khách sạn tiết kiệm...');
       if (dateInput) {
-        dateInput.textContent = isVn ? 'Thời gian linh hoạt' : 'Flexible Dates';
+        dateInput.textContent = t('search.dates_placeholder', 'Thời gian linh hoạt');
         dateInput.removeAttribute('data-i18n');
       }
       if (guestsInput) {
-        guestsInput.textContent = isVn ? '2 Người lớn' : '2 Adults';
+        guestsInput.textContent = t('search.guests_placeholder', '2 Người lớn');
         guestsInput.removeAttribute('data-i18n');
       }
       if (searchBtn) searchBtn.setAttribute('data-target-url', 'pages/tours/index.html');

@@ -65,16 +65,38 @@ function initMobileMenu() {
 }
 
 function initLanguageSwitcher() {
-  const langPills = document.querySelectorAll('.lang-pill-switch');
-  langPills.forEach(pill => {
-    pill.addEventListener('click', (e) => {
-      const target = e.target.closest('[data-lang]');
-      if (!target) return;
-      const lang = target.dataset.lang;
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('.lang-dropdown-trigger');
+    const dropdown = trigger ? trigger.closest('.lang-dropdown-container') : null;
+    const allMenus = document.querySelectorAll('.lang-dropdown-menu');
+
+    if (trigger && dropdown) {
+      e.preventDefault();
+      e.stopPropagation();
+      const menu = dropdown.querySelector('.lang-dropdown-menu');
+      const isClosed = !menu || menu.classList.contains('hidden');
+
+      allMenus.forEach(m => m.classList.add('hidden'));
+
+      if (menu && isClosed) {
+        menu.classList.remove('hidden');
+      }
+      return;
+    }
+
+    const langBtn = e.target.closest('[data-lang]');
+    if (langBtn) {
+      e.preventDefault();
+      const lang = langBtn.getAttribute('data-lang');
       if (window.dnI18n) {
         window.dnI18n.setLanguage(lang);
       }
-    });
+      allMenus.forEach(m => m.classList.add('hidden'));
+      return;
+    }
+
+    // Click outside closes dropdowns
+    allMenus.forEach(m => m.classList.add('hidden'));
   });
 }
 
