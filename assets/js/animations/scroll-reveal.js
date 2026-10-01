@@ -5,7 +5,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initScrollReveals();
-  initScrollProgress();
   initHeaderScroll();
   initBackToTop();
   initHeartMicroInteractions();
@@ -31,20 +30,6 @@ function initScrollReveals() {
   revealElements.forEach(el => revealObserver.observe(el));
 }
 
-function initScrollProgress() {
-  const progressBar = document.getElementById('scroll-progress-bar');
-  if (!progressBar) return;
-
-  const updateProgress = () => {
-    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-    if (scrollHeight <= 0) return;
-    const progress = Math.min(Math.max((window.scrollY / scrollHeight) * 100, 0), 100);
-    progressBar.style.width = progress + '%';
-  };
-
-  window.addEventListener('scroll', updateProgress, { passive: true });
-  updateProgress();
-}
 
 function initHeaderScroll() {
   const header = document.querySelector('header');

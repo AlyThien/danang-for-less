@@ -45,7 +45,6 @@
   <link rel="stylesheet" href="assets/css/animations.css">
 </head>
 <body class="bg-cream text-espresso font-sans antialiased overflow-x-hidden">
-  <div id="scroll-progress-bar"></div>
 
   <!-- ========================================================================= -->
   <!-- 1. GLOBAL HEADER                                                          -->
@@ -229,20 +228,20 @@
   <!-- ========================================================================= -->
   <section class="relative min-h-[620px] lg:min-h-[720px] flex items-center justify-center overflow-hidden">
     
-    <!-- Background Image with Ken Burns animation (No dark overlay) -->
+    <!-- Background Image (Clean, crisp, no distracting motion) -->
     <div class="absolute inset-0 z-0 overflow-hidden">
       <img src="assets/images/hero-danang-beach.jpg" 
            onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=85'"
            alt="Da Nang Ocean & Sand Beach - Calm Horizon" 
-           class="w-full h-full object-cover hero-ken-burns">
+           class="w-full h-full object-cover">
     </div>
 
     <!-- Hero Content Container -->
     <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center flex flex-col items-center">
       
-      <!-- Subtle Floating Badge -->
-      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/40 backdrop-blur-md border border-white/30 text-white text-xs font-semibold tracking-wide mb-6 animate-float shimmer-badge shadow-lg">
-        <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot-green"></span>
+      <!-- Trust Guarantee Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/45 backdrop-blur-md border border-white/25 text-white text-xs font-medium tracking-wide mb-6 shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
         <span data-i18n="hero.guarantee_badge">Cam kết giá tốt nhất Đà Nẵng • Tiết kiệm 20% - 40%</span>
       </div>
 
@@ -261,9 +260,9 @@
       </p>
 
       <!-- ===================================================================== -->
-      <!-- FLOATING SEARCH ISLAND (Exactly matching Figma Component)             -->
+      <!-- FLOATING SEARCH ISLAND (Rock-solid, authentic booking interface)      -->
       <!-- ===================================================================== -->
-      <div class="w-full mt-10 max-w-4xl hero-tilt-card transition-transform duration-200">
+      <div class="w-full mt-10 max-w-4xl">
         
         <!-- Search Tabs -->
         <div class="flex items-center justify-center sm:justify-start gap-2 mb-2 px-2">
@@ -315,7 +314,7 @@
 
           <!-- Action Button: Deep Crimson -->
           <div class="md:col-span-2">
-            <button id="hero-search-btn" data-target-url="pages/tours/index.html" class="w-full h-full py-3.5 px-6 rounded-xl bg-brand-crimson btn-shimmer hover:bg-brand-darkcrimson text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 transition shadow-lg shadow-brand-crimson/30 group">
+            <button id="hero-search-btn" data-target-url="pages/tours/index.html" class="w-full h-full py-3.5 px-6 rounded-xl bg-brand-crimson hover:bg-brand-darkcrimson active:scale-[0.98] text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 transition shadow-md shadow-brand-crimson/25 cursor-pointer group">
               <span data-i18n="search.btn">Tìm kiếm</span>
               <i class="fa-solid fa-magnifying-glass transition-transform group-hover:scale-110"></i>
             </button>
@@ -695,7 +694,7 @@
                   <span data-i18n="hotels.per_night" class="text-xs text-gray-500 font-medium">/đêm</span>
                 </div>
               </div>
-              <a href="pages/stays/detail.html" data-i18n="hotels.view_hotel" class="brand-btn-primary btn-shimmer px-5 py-2.5 text-xs sm:text-sm font-semibold">
+              <a href="pages/stays/detail.html" data-i18n="hotels.view_hotel" class="brand-btn-primary px-5 py-2.5 text-xs sm:text-sm font-semibold cursor-pointer active:scale-95">
                 Xem khách sạn
               </a>
             </div>
@@ -761,7 +760,7 @@
                   <span data-i18n="hotels.per_night" class="text-xs text-gray-500 font-medium">/đêm</span>
                 </div>
               </div>
-              <a href="pages/stays/detail.html" data-i18n="hotels.view_hotel" class="brand-btn-primary btn-shimmer px-5 py-2.5 text-xs sm:text-sm font-semibold">
+              <a href="pages/stays/detail.html" data-i18n="hotels.view_hotel" class="brand-btn-primary px-5 py-2.5 text-xs sm:text-sm font-semibold cursor-pointer active:scale-95">
                 Xem khách sạn
               </a>
             </div>
@@ -827,7 +826,7 @@
                   <span data-i18n="hotels.per_night" class="text-xs text-gray-500 font-medium">/đêm</span>
                 </div>
               </div>
-              <a href="pages/stays/detail.html" data-i18n="hotels.view_hotel" class="brand-btn-primary btn-shimmer px-5 py-2.5 text-xs sm:text-sm font-semibold">
+              <a href="pages/stays/detail.html" data-i18n="hotels.view_hotel" class="brand-btn-primary px-5 py-2.5 text-xs sm:text-sm font-semibold cursor-pointer active:scale-95">
                 Xem khách sạn
               </a>
             </div>
@@ -844,15 +843,11 @@
   <!-- 6. WHY WE STAND OUT SECTION (Inspired by Dacotours)                       -->
   <!-- ========================================================================= -->
   <section id="why-we-stand-out" class="py-16 sm:py-24 bg-gradient-to-b from-white via-brand-sand/30 to-white relative overflow-hidden">
-    <!-- Decorative background elements -->
-    <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-crimson/5 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
-
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
       <!-- Section Header -->
       <div class="text-center max-w-3xl mx-auto mb-14 sm:mb-16 reveal-scale">
-        <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-red-50 text-brand-crimson text-xs font-bold uppercase tracking-wider mb-3 border border-red-100 shadow-sm shimmer-badge">
+        <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-red-50 text-brand-crimson text-xs font-bold uppercase tracking-wider mb-3 border border-red-100/80 shadow-xs">
           <i class="fa-solid fa-crown text-[11px]"></i> <span data-i18n="why_us.badge">Lý Do Chọn Chúng Tôi</span>
         </span>
         <h2 data-i18n="why_us.title" class="text-3xl sm:text-4xl md:text-5xl font-black text-espresso tracking-tight">
@@ -867,171 +862,171 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         
         <!-- Feature 1: Fast Booking -->
-        <div class="brand-card card-hover-depth p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1.5 transition-all duration-300 border border-gray-100/80 hover:border-brand-crimson/30 hover:shadow-xl bg-white rounded-2xl reveal-init stagger-delay-1">
+        <div class="brand-card card-hover-depth p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 border border-gray-200/70 hover:border-brand-crimson/30 hover:shadow-lg bg-white rounded-2xl reveal-init stagger-delay-1">
           <div>
-            <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl sm:text-2xl mb-5 group-hover:scale-110 group-hover:bg-brand-crimson group-hover:text-white transition-all duration-300 shadow-sm">
+            <div class="w-12 h-12 rounded-xl bg-red-50 text-brand-crimson flex items-center justify-center text-xl mb-4 group-hover:bg-brand-crimson group-hover:text-white transition-all duration-300 border border-red-100/60 shadow-xs">
               <i class="fa-solid fa-bolt"></i>
             </div>
-            <h3 data-i18n="why_us.f1_title" class="font-extrabold text-lg text-espresso group-hover:text-brand-crimson transition-colors">
+            <h3 data-i18n="why_us.f1_title" class="font-extrabold text-base sm:text-lg text-espresso group-hover:text-brand-crimson transition-colors">
               Đặt Chỗ Nhanh Chóng & Dễ Dàng
             </h3>
             <p data-i18n="why_us.f1_desc" class="text-xs sm:text-sm text-gray-500 mt-2 leading-relaxed">
               Đặt tour dưới 60 giây, nhận vé điện tử tức thì qua email, không thủ tục rườm rà.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-bold text-brand-crimson">
+          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-semibold text-brand-crimson">
             <span data-i18n="why_us.f1_tag">Xác nhận tức thì</span>
             <i class="fa-solid fa-check text-[11px]"></i>
           </div>
         </div>
 
         <!-- Feature 2: 24/7 Local Support -->
-        <div class="brand-card card-hover-depth p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1.5 transition-all duration-300 border border-gray-100/80 hover:border-brand-crimson/30 hover:shadow-xl bg-white rounded-2xl reveal-init stagger-delay-2">
+        <div class="brand-card card-hover-depth p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 border border-gray-200/70 hover:border-brand-crimson/30 hover:shadow-lg bg-white rounded-2xl reveal-init stagger-delay-2">
           <div>
-            <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl sm:text-2xl mb-5 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-sm">
+            <div class="w-12 h-12 rounded-xl bg-red-50 text-brand-crimson flex items-center justify-center text-xl mb-4 group-hover:bg-brand-crimson group-hover:text-white transition-all duration-300 border border-red-100/60 shadow-xs">
               <i class="fa-solid fa-headset"></i>
             </div>
-            <h3 data-i18n="why_us.f2_title" class="font-extrabold text-lg text-espresso group-hover:text-brand-crimson transition-colors">
+            <h3 data-i18n="why_us.f2_title" class="font-extrabold text-base sm:text-lg text-espresso group-hover:text-brand-crimson transition-colors">
               Hỗ Trợ Bản Địa 24/7
             </h3>
             <p data-i18n="why_us.f2_desc" class="text-xs sm:text-sm text-gray-500 mt-2 leading-relaxed">
               Hotline, Zalo & WhatsApp trực tiếp với đội ngũ chuyên gia tại Đà Nẵng, đồng hành cùng bạn 24/7.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-bold text-blue-600">
+          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-semibold text-brand-crimson">
             <span data-i18n="why_us.f2_tag">Hotline / Zalo hỗ trợ 24/7</span>
             <i class="fa-solid fa-phone text-[11px]"></i>
           </div>
         </div>
 
         <!-- Feature 3: Expert Local Guides -->
-        <div class="brand-card card-hover-depth p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1.5 transition-all duration-300 border border-gray-100/80 hover:border-brand-crimson/30 hover:shadow-xl bg-white rounded-2xl reveal-init stagger-delay-3">
+        <div class="brand-card card-hover-depth p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 border border-gray-200/70 hover:border-brand-crimson/30 hover:shadow-lg bg-white rounded-2xl reveal-init stagger-delay-3">
           <div>
-            <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl sm:text-2xl mb-5 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-sm">
+            <div class="w-12 h-12 rounded-xl bg-red-50 text-brand-crimson flex items-center justify-center text-xl mb-4 group-hover:bg-brand-crimson group-hover:text-white transition-all duration-300 border border-red-100/60 shadow-xs">
               <i class="fa-solid fa-compass"></i>
             </div>
-            <h3 data-i18n="why_us.f3_title" class="font-extrabold text-lg text-espresso group-hover:text-brand-crimson transition-colors">
+            <h3 data-i18n="why_us.f3_title" class="font-extrabold text-base sm:text-lg text-espresso group-hover:text-brand-crimson transition-colors">
               Hướng Dẫn Viên Bản Địa Chuẩn
             </h3>
             <p data-i18n="why_us.f3_desc" class="text-xs sm:text-sm text-gray-500 mt-2 leading-relaxed">
               100% hướng dẫn viên địa phương có thẻ hành nghề, am hiểu sâu sắc, nhiệt tình và thân thiện.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-bold text-emerald-600">
+          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-semibold text-brand-crimson">
             <span data-i18n="why_us.f3_tag">100% HDV có thẻ hành nghề</span>
             <i class="fa-solid fa-id-badge text-[11px]"></i>
           </div>
         </div>
 
         <!-- Feature 4: Safe, Smooth & Stress-Free -->
-        <div class="brand-card card-hover-depth p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1.5 transition-all duration-300 border border-gray-100/80 hover:border-brand-crimson/30 hover:shadow-xl bg-white rounded-2xl reveal-init stagger-delay-4">
+        <div class="brand-card card-hover-depth p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 border border-gray-200/70 hover:border-brand-crimson/30 hover:shadow-lg bg-white rounded-2xl reveal-init stagger-delay-4">
           <div>
-            <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl sm:text-2xl mb-5 group-hover:scale-110 group-hover:bg-amber-600 group-hover:text-white transition-all duration-300 shadow-sm">
+            <div class="w-12 h-12 rounded-xl bg-red-50 text-brand-crimson flex items-center justify-center text-xl mb-4 group-hover:bg-brand-crimson group-hover:text-white transition-all duration-300 border border-red-100/60 shadow-xs">
               <i class="fa-solid fa-shield-halved"></i>
             </div>
-            <h3 data-i18n="why_us.f4_title" class="font-extrabold text-lg text-espresso group-hover:text-brand-crimson transition-colors">
+            <h3 data-i18n="why_us.f4_title" class="font-extrabold text-base sm:text-lg text-espresso group-hover:text-brand-crimson transition-colors">
               An Toàn, Tiện Nghi & Chu Đáo
             </h3>
             <p data-i18n="why_us.f4_desc" class="text-xs sm:text-sm text-gray-500 mt-2 leading-relaxed">
               Xe du lịch đời mới máy lạnh êm ái, tài xế kinh nghiệm và bảo hiểm du lịch trọn gói cho bạn an tâm tuyệt đối.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-bold text-amber-600">
+          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-semibold text-brand-crimson">
             <span data-i18n="why_us.f4_tag">Xe máy lạnh đời mới & bảo hiểm</span>
             <i class="fa-solid fa-van-shuttle text-[11px]"></i>
           </div>
         </div>
 
         <!-- Feature 5: Easy & Flexible Refund -->
-        <div class="brand-card card-hover-depth p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1.5 transition-all duration-300 border border-gray-100/80 hover:border-brand-crimson/30 hover:shadow-xl bg-white rounded-2xl reveal-init stagger-delay-5">
+        <div class="brand-card card-hover-depth p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 border border-gray-200/70 hover:border-brand-crimson/30 hover:shadow-lg bg-white rounded-2xl reveal-init stagger-delay-5">
           <div>
-            <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl sm:text-2xl mb-5 group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300 shadow-sm">
+            <div class="w-12 h-12 rounded-xl bg-red-50 text-brand-crimson flex items-center justify-center text-xl mb-4 group-hover:bg-brand-crimson group-hover:text-white transition-all duration-300 border border-red-100/60 shadow-xs">
               <i class="fa-solid fa-arrow-rotate-left"></i>
             </div>
-            <h3 data-i18n="why_us.f5_title" class="font-extrabold text-lg text-espresso group-hover:text-brand-crimson transition-colors">
+            <h3 data-i18n="why_us.f5_title" class="font-extrabold text-base sm:text-lg text-espresso group-hover:text-brand-crimson transition-colors">
               Hoàn Tiền Linh Hoạt & Minh Bạch
             </h3>
             <p data-i18n="why_us.f5_desc" class="text-xs sm:text-sm text-gray-500 mt-2 leading-relaxed">
               Miễn phí hủy tour trước 24h, linh hoạt đổi ngày đi nếu thời tiết xấu hoặc có việc đột xuất.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-bold text-indigo-600">
+          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-semibold text-brand-crimson">
             <span data-i18n="why_us.f5_tag">Miễn phí hủy tour trước 24h</span>
             <i class="fa-solid fa-calendar-check text-[11px]"></i>
           </div>
         </div>
 
         <!-- Feature 6: Best Value, Zero Hidden Fees -->
-        <div class="brand-card card-hover-depth p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1.5 transition-all duration-300 border border-gray-100/80 hover:border-brand-crimson/30 hover:shadow-xl bg-white rounded-2xl reveal-init stagger-delay-6">
+        <div class="brand-card card-hover-depth p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 border border-gray-200/70 hover:border-brand-crimson/30 hover:shadow-lg bg-white rounded-2xl reveal-init stagger-delay-6">
           <div>
-            <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-red-50 text-brand-crimson flex items-center justify-center text-xl sm:text-2xl mb-5 group-hover:scale-110 group-hover:bg-brand-crimson group-hover:text-white transition-all duration-300 shadow-sm">
+            <div class="w-12 h-12 rounded-xl bg-red-50 text-brand-crimson flex items-center justify-center text-xl mb-4 group-hover:bg-brand-crimson group-hover:text-white transition-all duration-300 border border-red-100/60 shadow-xs">
               <i class="fa-solid fa-hand-holding-dollar"></i>
             </div>
-            <h3 data-i18n="why_us.f6_title" class="font-extrabold text-lg text-espresso group-hover:text-brand-crimson transition-colors">
+            <h3 data-i18n="why_us.f6_title" class="font-extrabold text-base sm:text-lg text-espresso group-hover:text-brand-crimson transition-colors">
               Giá Tốt Nhất, Không Phụ Phí Ẩn
             </h3>
             <p data-i18n="why_us.f6_desc" class="text-xs sm:text-sm text-gray-500 mt-2 leading-relaxed">
               Minh bạch giá trọn gói, tuyệt đối không chèo kéo, không ép mua sắm và không có chi phí ẩn.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-bold text-brand-crimson">
+          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-semibold text-brand-crimson">
             <span data-i18n="why_us.f6_tag">Tiết kiệm 20% - 40% chi phí</span>
             <i class="fa-solid fa-tag text-[11px]"></i>
           </div>
         </div>
 
         <!-- Feature 7: Authentic Local Experiences -->
-        <div class="brand-card card-hover-depth p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1.5 transition-all duration-300 border border-gray-100/80 hover:border-brand-crimson/30 hover:shadow-xl bg-white rounded-2xl reveal-init stagger-delay-7">
+        <div class="brand-card card-hover-depth p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 border border-gray-200/70 hover:border-brand-crimson/30 hover:shadow-lg bg-white rounded-2xl reveal-init stagger-delay-7">
           <div>
-            <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center text-xl sm:text-2xl mb-5 group-hover:scale-110 group-hover:bg-orange-600 group-hover:text-white transition-all duration-300 shadow-sm">
+            <div class="w-12 h-12 rounded-xl bg-red-50 text-brand-crimson flex items-center justify-center text-xl mb-4 group-hover:bg-brand-crimson group-hover:text-white transition-all duration-300 border border-red-100/60 shadow-xs">
               <i class="fa-solid fa-utensils"></i>
             </div>
-            <h3 data-i18n="why_us.f7_title" class="font-extrabold text-lg text-espresso group-hover:text-brand-crimson transition-colors">
+            <h3 data-i18n="why_us.f7_title" class="font-extrabold text-base sm:text-lg text-espresso group-hover:text-brand-crimson transition-colors">
               Trải Nghiệm Bản Địa Chân Thực
             </h3>
             <p data-i18n="why_us.f7_desc" class="text-xs sm:text-sm text-gray-500 mt-2 leading-relaxed">
               Thưởng thức ẩm thực tại các quán ăn chuẩn vị người địa phương, thăm làng nghề truyền thống và ngắm hoàng hôn Hội An.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-bold text-orange-600">
+          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-semibold text-brand-crimson">
             <span data-i18n="why_us.f7_tag">Đậm đà phong vị bản địa</span>
             <i class="fa-solid fa-bowl-food text-[11px]"></i>
           </div>
         </div>
 
         <!-- Feature 8: Tailored Custom Itineraries -->
-        <div class="brand-card card-hover-depth p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1.5 transition-all duration-300 border border-gray-100/80 hover:border-brand-crimson/30 hover:shadow-xl bg-white rounded-2xl reveal-init stagger-delay-8">
+        <div class="brand-card card-hover-depth p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 border border-gray-200/70 hover:border-brand-crimson/30 hover:shadow-lg bg-white rounded-2xl reveal-init stagger-delay-8">
           <div>
-            <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl sm:text-2xl mb-5 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-sm">
+            <div class="w-12 h-12 rounded-xl bg-red-50 text-brand-crimson flex items-center justify-center text-xl mb-4 group-hover:bg-brand-crimson group-hover:text-white transition-all duration-300 border border-red-100/60 shadow-xs">
               <i class="fa-solid fa-sliders"></i>
             </div>
-            <h3 data-i18n="why_us.f8_title" class="font-extrabold text-lg text-espresso group-hover:text-brand-crimson transition-colors">
+            <h3 data-i18n="why_us.f8_title" class="font-extrabold text-base sm:text-lg text-espresso group-hover:text-brand-crimson transition-colors">
               Thiết Kế Tour Riêng Theo Ý Bạn
             </h3>
             <p data-i18n="why_us.f8_desc" class="text-xs sm:text-sm text-gray-500 mt-2 leading-relaxed">
               Tùy biến lịch trình riêng cho gia đình, cặp đôi hoặc đoàn thể theo ngân sách, sở thích và thời gian của bạn.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-bold text-purple-600">
+          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-semibold text-brand-crimson">
             <span data-i18n="why_us.f8_tag">Lên tour riêng theo yêu cầu</span>
             <i class="fa-solid fa-pen-ruler text-[11px]"></i>
           </div>
         </div>
 
         <!-- Feature 9: Responsible Tourism -->
-        <div class="brand-card card-hover-depth p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1.5 transition-all duration-300 border border-gray-100/80 hover:border-brand-crimson/30 hover:shadow-xl bg-white rounded-2xl reveal-init stagger-delay-9">
+        <div class="brand-card card-hover-depth p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 border border-gray-200/70 hover:border-brand-crimson/30 hover:shadow-lg bg-white rounded-2xl reveal-init stagger-delay-9">
           <div>
-            <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl sm:text-2xl mb-5 group-hover:scale-110 group-hover:bg-teal-600 group-hover:text-white transition-all duration-300 shadow-sm">
+            <div class="w-12 h-12 rounded-xl bg-red-50 text-brand-crimson flex items-center justify-center text-xl mb-4 group-hover:bg-brand-crimson group-hover:text-white transition-all duration-300 border border-red-100/60 shadow-xs">
               <i class="fa-solid fa-leaf"></i>
             </div>
-            <h3 data-i18n="why_us.f9_title" class="font-extrabold text-lg text-espresso group-hover:text-brand-crimson transition-colors">
+            <h3 data-i18n="why_us.f9_title" class="font-extrabold text-base sm:text-lg text-espresso group-hover:text-brand-crimson transition-colors">
               Du Lịch Trách Nhiệm & Bền Vững
             </h3>
             <p data-i18n="why_us.f9_desc" class="text-xs sm:text-sm text-gray-500 mt-2 leading-relaxed">
               Chung tay bảo vệ môi trường bán đảo Sơn Trà, tôn trọng di sản và ủng hộ kinh tế cộng đồng địa phương.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-bold text-teal-600">
+          <div class="pt-4 mt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs font-semibold text-brand-crimson">
             <span data-i18n="why_us.f9_tag">Du lịch xanh bảo vệ môi trường</span>
             <i class="fa-solid fa-seedling text-[11px]"></i>
           </div>
@@ -1054,7 +1049,7 @@
     </div>
     
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal-scale">
-      <span class="shimmer-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-amber-300 text-xs font-bold uppercase tracking-wider mb-6 border border-white/20 backdrop-blur-sm">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-amber-300 text-xs font-bold uppercase tracking-wider mb-6 border border-white/20 backdrop-blur-sm">
         <i class="fa-solid fa-sparkles text-xs"></i> <span data-i18n="stressfree.badge">12+ Năm Kinh Nghiệm Bản Địa</span>
       </span>
       
@@ -1090,7 +1085,7 @@
 
       <!-- Action Buttons -->
       <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="pages/contact.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-brand-crimson btn-shimmer hover:bg-brand-darkcrimson text-white font-bold text-sm sm:text-base px-8 py-4 rounded-xl shadow-lg shadow-brand-crimson/30 hover:scale-105 transition-all duration-300">
+        <a href="pages/contact.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-brand-crimson hover:bg-brand-darkcrimson active:scale-[0.98] text-white font-bold text-sm sm:text-base px-8 py-4 rounded-xl shadow-md shadow-brand-crimson/25 cursor-pointer transition-all duration-200">
           <span data-i18n="stressfree.btn">Nhận Lịch Trình Tùy Chỉnh Miễn Phí</span>
           <i class="fa-solid fa-arrow-right text-xs"></i>
         </a>
@@ -1112,7 +1107,7 @@
       
       <!-- Section Header -->
       <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-14 reveal-scale">
-        <span class="shimmer-badge inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-200 shadow-sm">
+        <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold uppercase tracking-wider mb-3 border border-emerald-200/80 shadow-xs">
           <i class="fa-solid fa-star text-amber-500 text-[11px]"></i> <span data-i18n="reviews.badge">Đánh Giá Từ Du Khách</span>
         </span>
         <h2 data-i18n="reviews.title" class="text-3xl sm:text-4xl md:text-5xl font-black text-espresso tracking-tight">
@@ -1405,7 +1400,7 @@
         
         <!-- Left Content -->
         <div class="lg:col-span-6 space-y-6 reveal-left">
-          <span data-i18n="guide.badge" class="shimmer-badge inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/20 text-white text-xs font-bold uppercase tracking-wider border border-white/30 backdrop-blur-sm">
+          <span data-i18n="guide.badge" class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/20 text-white text-xs font-semibold uppercase tracking-wider border border-white/30 backdrop-blur-sm">
             Cẩm nang du lịch
           </span>
 
@@ -1460,7 +1455,7 @@
       
       <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-gray-200/80 reveal-init">
         
-        <span data-i18n="deals.badge" class="shimmer-badge inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-red-50 text-brand-crimson text-xs font-bold uppercase tracking-wider mb-4 border border-red-100">
+        <span data-i18n="deals.badge" class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-red-50 text-brand-crimson text-xs font-semibold uppercase tracking-wider mb-4 border border-red-100">
           Ưu đãi độc quyền
         </span>
 
@@ -1479,7 +1474,7 @@
             <input type="email" data-i18n-placeholder="deals.placeholder" placeholder="Nhập địa chỉ email của bạn..." 
                    class="w-full pl-11 pr-4 py-3.5 rounded-xl bg-brand-sand border border-gray-200 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-brand-crimson focus:bg-white transition">
           </div>
-          <button data-i18n="deals.btn" class="brand-btn-primary btn-shimmer px-7 py-3.5 text-sm font-bold shadow-md whitespace-nowrap">
+          <button data-i18n="deals.btn" class="brand-btn-primary px-7 py-3.5 text-sm font-bold shadow-md whitespace-nowrap">
             Đăng ký ngay
           </button>
         </div>
@@ -1623,7 +1618,6 @@
   <script src="assets/js/core/i18n.js"></script>
   <script src="assets/js/core/auth.js"></script>
   <script src="assets/js/core/navigation.js"></script>
-  <script src="assets/js/modules/live-social.js"></script>
   <script src="assets/js/animations/hero-effects.js"></script>
   <script src="assets/js/animations/scroll-reveal.js"></script>
 

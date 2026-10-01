@@ -5,7 +5,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initSearchTabs();
-  initParallaxTilt();
   initCounters();
 });
 
@@ -91,25 +90,6 @@ function initSearchTabs() {
   }
 }
 
-function initParallaxTilt() {
-  const heroCard = document.querySelector('.hero-tilt-card');
-  if (!heroCard) return;
-
-  heroCard.addEventListener('mousemove', (e) => {
-    const rect = heroCard.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-    
-    const rotateX = -(y / rect.height) * 8;
-    const rotateY = (x / rect.width) * 8;
-
-    heroCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  });
-
-  heroCard.addEventListener('mouseleave', () => {
-    heroCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-  });
-}
 
 function initCounters() {
   const counterElements = document.querySelectorAll('[data-counter]');
