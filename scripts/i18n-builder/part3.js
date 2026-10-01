@@ -528,4 +528,7 @@ const jaPart3 = {
   "contact.faq_a4": "一切ございません。記載の料金には入場料、往復ロープウェイ、昼食（プラン記載時）、専用車、ガイド、旅行保険がすべて含まれております。"
 };
 
-module.exports = { zhPart3, koPart3, jaPart3 };
+const hiPart3 = require('./hi-part3.js');
+const ruPart3 = require('./ru-part3.js');
+
+module.exports = { zhPart3, koPart3, jaPart3, hiPart3, ruPart3 };

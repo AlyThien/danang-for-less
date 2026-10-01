@@ -1,14 +1,16 @@
 const fs = require('fs');
 const path = require('path');
 
-const keysData = require('../../keys_export.json');
-const { zhPart1, koPart1, jaPart1 } = require('./part1.js');
-const { zhPart2, koPart2, jaPart2 } = require('./part2.js');
-const { zhPart3, koPart3, jaPart3 } = require('./part3.js');
+const keysData = require('./keys_export.json');
+const { zhPart1, koPart1, jaPart1, hiPart1, ruPart1 } = require('./part1.js');
+const { zhPart2, koPart2, jaPart2, hiPart2, ruPart2 } = require('./part2.js');
+const { zhPart3, koPart3, jaPart3, hiPart3, ruPart3 } = require('./part3.js');
 
 const zh = { ...zhPart1, ...zhPart2, ...zhPart3 };
 const ko = { ...koPart1, ...koPart2, ...koPart3 };
 const ja = { ...jaPart1, ...jaPart2, ...jaPart3 };
+const hi = { ...hiPart1, ...hiPart2, ...hiPart3 };
+const ru = { ...ruPart1, ...ruPart2, ...ruPart3 };
 
 const expectedKeys = Object.keys(keysData.en);
 console.log(`Expected key count: ${expectedKeys.length}`);
@@ -17,6 +19,8 @@ console.log(`Expected key count: ${expectedKeys.length}`);
 const missingZh = expectedKeys.filter(k => zh[k] === undefined);
 const missingKo = expectedKeys.filter(k => ko[k] === undefined);
 const missingJa = expectedKeys.filter(k => ja[k] === undefined);
+const missingHi = expectedKeys.filter(k => hi[k] === undefined);
+const missingRu = expectedKeys.filter(k => ru[k] === undefined);
 
 if (missingZh.length > 0) {
   console.error(`Missing in ZH (${missingZh.length}):`, missingZh);
@@ -30,11 +34,21 @@ if (missingJa.length > 0) {
   console.error(`Missing in JA (${missingJa.length}):`, missingJa);
   process.exit(1);
 }
+if (missingHi.length > 0) {
+  console.error(`Missing in HI (${missingHi.length}):`, missingHi);
+  process.exit(1);
+}
+if (missingRu.length > 0) {
+  console.error(`Missing in RU (${missingRu.length}):`, missingRu);
+  process.exit(1);
+}
 
-console.log('✅ Validation passed! All 438 keys present in ZH, KO, and JA.');
+console.log('✅ Validation passed! All 450 keys present in ZH, KO, JA, HI, and RU.');
 console.log(`ZH keys count: ${Object.keys(zh).length}`);
 console.log(`KO keys count: ${Object.keys(ko).length}`);
 console.log(`JA keys count: ${Object.keys(ja).length}`);
+console.log(`HI keys count: ${Object.keys(hi).length}`);
+console.log(`RU keys count: ${Object.keys(ru).length}`);
 
 // Build complete dictionary
 const completeDict = {
@@ -42,13 +56,15 @@ const completeDict = {
   vn: keysData.vn,
   zh: zh,
   ko: ko,
-  ja: ja
+  ja: ja,
+  hi: hi,
+  ru: ru
 };
 
 // Generate updated i18n.js
 const i18nTemplate = `/**
  * DANANG FOR LESS - INTERNATIONALIZATION (i18n) ENGINE
- * Complete multilingual dictionary: EN, VN, ZH (中文), KO (한국어), JA (日本語)
+ * Complete multilingual dictionary: EN, VN, ZH (中文), KO (한국어), JA (日本語), HI (हिन्दी), RU (Русский)
  * Persists selection in localStorage, dispatches global events, and supports dynamic switcher
  */
 
@@ -57,14 +73,16 @@ const DN_LANGUAGES = {
   en: { code: 'en', htmlLang: 'en', label: 'English', short: 'EN', flag: '🇬🇧' },
   zh: { code: 'zh', htmlLang: 'zh-CN', label: '简体中文', short: '中', flag: '🇨🇳' },
   ko: { code: 'ko', htmlLang: 'ko', label: '한국어', short: '한', flag: '🇰🇷' },
-  ja: { code: 'ja', htmlLang: 'ja', label: '日本語', short: '日', flag: '🇯🇵' }
+  ja: { code: 'ja', htmlLang: 'ja', label: '日本語', short: '日', flag: '🇯🇵' },
+  hi: { code: 'hi', htmlLang: 'hi', label: 'हिन्दी', short: 'HI', flag: '🇮🇳' },
+  ru: { code: 'ru', htmlLang: 'ru', label: 'Русский', short: 'RU', flag: '🇷🇺' }
 };
 
 const DN_I18N_DICTIONARY = ${JSON.stringify(completeDict, null, 2)};
 
 class LanguageManager {
   constructor() {
-    const validLangs = ['vn', 'en', 'zh', 'ko', 'ja'];
+    const validLangs = ['vn', 'en', 'zh', 'ko', 'ja', 'hi', 'ru'];
     let saved = 'vn';
     if (typeof localStorage !== 'undefined') {
       saved = localStorage.getItem('dn_lang') || 'vn';
@@ -80,7 +98,7 @@ class LanguageManager {
   }
 
   setLanguage(lang) {
-    const validLangs = ['vn', 'en', 'zh', 'ko', 'ja'];
+    const validLangs = ['vn', 'en', 'zh', 'ko', 'ja', 'hi', 'ru'];
     if (!validLangs.includes(lang)) return;
     this.currentLang = lang;
     if (typeof localStorage !== 'undefined') {
@@ -227,4 +245,4 @@ if (typeof window !== 'undefined') {
 `;
 
 fs.writeFileSync(path.join(__dirname, '../../assets/js/core/i18n.js'), i18nTemplate, 'utf8');
-console.log('✅ assets/js/core/i18n.js successfully updated!');
+console.log('✅ assets/js/core/i18n.js successfully updated with 7 languages!');

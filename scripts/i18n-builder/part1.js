@@ -627,4 +627,7 @@ const jaPart1 = {
   "sort.price_high_low": "価格：高い順"
 };
 
-module.exports = { zhPart1, koPart1, jaPart1 };
+const hiPart1 = require('./hi-part1.js');
+const ruPart1 = require('./ru-part1.js');
+
+module.exports = { zhPart1, koPart1, jaPart1, hiPart1, ruPart1 };

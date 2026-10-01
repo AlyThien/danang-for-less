@@ -333,4 +333,7 @@ const jaPart2 = {
   "stays.free_bikes": "無料レンタル自転車"
 };
 
-module.exports = { zhPart2, koPart2, jaPart2 };
+const hiPart2 = require('./hi-part2.js');
+const ruPart2 = require('./ru-part2.js');
+
+module.exports = { zhPart2, koPart2, jaPart2, hiPart2, ruPart2 };
