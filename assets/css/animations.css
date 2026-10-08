@@ -155,6 +155,49 @@
   content: none !important;
 }
 
+/* 8. Hero Background Image Slider (Smooth, Cinematic Slide Animation) */
+.hero-slider-track {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+.hero-slide.is-active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  z-index: 1;
+}
+
+.hero-slide.is-leaving {
+  opacity: 0;
+  transform: translateX(-100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-slider-dot {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 /* 9. WCAG Accessibility: Respect User's Reduced Motion Settings */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -177,7 +220,10 @@
 
   .img-zoom-target,
   .brand-card:hover .img-zoom-target,
-  .card-hover-depth:hover {
+  .card-hover-depth:hover,
+  .hero-slide,
+  .hero-slide.is-active,
+  .hero-slide.is-leaving {
     transform: none !important;
   }
 }

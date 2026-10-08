@@ -224,16 +224,52 @@
 
 
   <!-- ========================================================================= -->
-  <!-- 2. HERO SECTION (WITH KEN BURNS EFFECT & FLOATING SEARCH CARD)             -->
+  <!-- 2. HERO SECTION (AUTOMATIC DUAL PHOTO SLIDER & BOOKING ISLAND)            -->
   <!-- ========================================================================= -->
-  <section class="relative min-h-[620px] lg:min-h-[720px] flex items-center justify-center overflow-hidden">
+  <section id="hero-section" class="relative min-h-[640px] lg:min-h-[740px] flex items-center justify-center overflow-hidden">
     
-    <!-- Background Image (Clean, crisp, no distracting motion) -->
-    <div class="absolute inset-0 z-0 overflow-hidden">
-      <img src="assets/images/hero-danang-beach.jpg" 
-           onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=85'"
-           alt="Da Nang Ocean & Sand Beach - Calm Horizon" 
-           class="w-full h-full object-cover">
+    <!-- Background Image Slider (Tự động lướt qua từng ảnh) -->
+    <div id="hero-slider-track" class="hero-slider-track" aria-live="polite">
+      
+      <!-- Slide 1: Bãi Biển Mỹ Khê - I Love Da Nang (Nắng vàng & biển xanh ban ngày) -->
+      <div class="hero-slide is-active" data-index="0" data-caption="Bãi biển Mỹ Khê • I Love Da Nang">
+        <img src="assets/images/hero-danang-my-khe-beach-day.jpg" 
+             onerror="this.src='ecfbded0-e26d-4aa2-8b55-f88c1c62e547.jpg'"
+             alt="Bãi biển Mỹ Khê Đà Nẵng - I Love Da Nang" 
+             class="w-full h-full object-cover"
+             fetchpriority="high">
+      </div>
+
+      <!-- Slide 2: Cầu Rồng Pháo Hoa Sông Hàn (Lung linh rực rỡ ban đêm) -->
+      <div class="hero-slide" data-index="1" data-caption="Cầu Rồng Pháo Hoa • Đêm Sông Hàn">
+        <img src="assets/images/hero-danang-dragon-bridge-night.jpg" 
+             onerror="this.src='5dd42596-b7a8-4716-b484-39ffd737cbd7.jpg'"
+             alt="Cầu Rồng Đà Nẵng Pháo Hoa Sông Hàn Đêm" 
+             class="w-full h-full object-cover">
+      </div>
+
+    </div>
+
+    <!-- Slider Navigation Arrows (Desktop) -->
+    <button id="hero-slider-prev" type="button" aria-label="Xem ảnh trước" 
+            class="hidden sm:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/35 hover:bg-black/60 text-white/90 hover:text-white backdrop-blur-md border border-white/25 items-center justify-center transition duration-200 cursor-pointer shadow-lg active:scale-95">
+      <i class="fa-solid fa-chevron-left text-sm"></i>
+    </button>
+    <button id="hero-slider-next" type="button" aria-label="Xem ảnh kế tiếp" 
+            class="hidden sm:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/35 hover:bg-black/60 text-white/90 hover:text-white backdrop-blur-md border border-white/25 items-center justify-center transition duration-200 cursor-pointer shadow-lg active:scale-95">
+      <i class="fa-solid fa-chevron-right text-sm"></i>
+    </button>
+
+    <!-- Slider Navigation Dots & Scene Indicator -->
+    <div class="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 px-4 py-2 rounded-full bg-black/45 backdrop-blur-md border border-white/25 shadow-lg">
+      <div class="flex items-center gap-2">
+        <button type="button" class="hero-slider-dot w-7 h-2 rounded-full bg-white transition-all duration-300 cursor-pointer" data-slide="0" aria-label="Ảnh 1: Biển Mỹ Khê"></button>
+        <button type="button" class="hero-slider-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 cursor-pointer" data-slide="1" aria-label="Ảnh 2: Cầu Rồng pháo hoa"></button>
+      </div>
+      <span class="w-[1px] h-3 bg-white/30"></span>
+      <span id="hero-slide-caption" class="text-[11px] font-semibold text-white/90 tracking-wide select-none">
+        Bãi biển Mỹ Khê • I Love Da Nang
+      </span>
     </div>
 
     <!-- Hero Content Container -->

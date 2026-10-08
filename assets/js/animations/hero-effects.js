@@ -4,6 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initHeroSlider();
   initSearchTabs();
   initCounters();
 });
@@ -136,4 +137,173 @@ function initCounters() {
   }, { threshold: 0.2 });
 
   counterElements.forEach(el => observer.observe(el));
+}
+
+/**
+ * Hero Background Image Slider (Smooth, Automatic Slide Transition)
+ * Rotates between the uploaded Da Nang highlights with tactile dots & swipe
+ */
+function initHeroSlider() {
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-slider-dot');
+  const captionEl = document.getElementById('hero-slide-caption');
+  const prevBtn = document.getElementById('hero-slider-prev');
+  const nextBtn = document.getElementById('hero-slider-next');
+  const heroSection = document.getElementById('hero-section');
+
+  if (slides.length <= 1) return;
+
+  let currentIndex = 0;
+  let isTransitioning = false;
+  let autoplayTimer = null;
+  const slideDuration = 5500; // 5.5s per image
+
+  function updateDotsAndCaption(index) {
+    dots.forEach((dot, idx) => {
+      if (idx === index) {
+        dot.classList.add('w-7', 'bg-white');
+        dot.classList.remove('w-2', 'bg-white/50');
+      } else {
+        dot.classList.remove('w-7', 'bg-white');
+        dot.classList.add('w-2', 'bg-white/50');
+      }
+    });
+
+    if (captionEl && slides[index]) {
+      const caption = slides[index].getAttribute('data-caption') || '';
+      captionEl.style.opacity = '0';
+      setTimeout(() => {
+        captionEl.textContent = caption;
+        captionEl.style.opacity = '1';
+      }, 200);
+    }
+  }
+
+  function goToSlide(nextIndex, direction = 'next') {
+    if (isTransitioning || nextIndex === currentIndex) return;
+    isTransitioning = true;
+
+    const currentSlide = slides[currentIndex];
+    const targetSlide = slides[nextIndex];
+
+    // Position target slide offstage in the appropriate direction
+    targetSlide.style.transition = 'none';
+    targetSlide.style.transform = direction === 'next' ? 'translateX(100%)' : 'translateX(-100%)';
+    targetSlide.style.opacity = '0';
+    void targetSlide.offsetWidth; // Force reflow
+
+    // Re-enable smooth transition
+    targetSlide.style.transition = '';
+    currentSlide.style.transition = '';
+
+    // Animate current out
+    currentSlide.classList.remove('is-active');
+    currentSlide.classList.add('is-leaving');
+    currentSlide.style.transform = direction === 'next' ? 'translateX(-100%)' : 'translateX(100%)';
+    currentSlide.style.opacity = '0';
+
+    // Animate target in
+    targetSlide.classList.add('is-active');
+    targetSlide.classList.remove('is-leaving');
+    targetSlide.style.transform = 'translateX(0)';
+    targetSlide.style.opacity = '1';
+
+    currentIndex = nextIndex;
+    updateDotsAndCaption(currentIndex);
+
+    setTimeout(() => {
+      currentSlide.classList.remove('is-leaving');
+      currentSlide.style.transition = 'none';
+      currentSlide.style.transform = 'translateX(100%)';
+      currentSlide.style.opacity = '0';
+      void currentSlide.offsetWidth;
+      currentSlide.style.transition = '';
+      isTransitioning = false;
+    }, 1250);
+  }
+
+  function nextSlide() {
+    const next = (currentIndex + 1) % slides.length;
+    goToSlide(next, 'next');
+  }
+
+  function prevSlide() {
+    const prev = (currentIndex - 1 + slides.length) % slides.length;
+    goToSlide(prev, 'prev');
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayTimer = setInterval(nextSlide, slideDuration);
+  }
+
+  function stopAutoplay() {
+    if (autoplayTimer) {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  }
+
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (idx !== currentIndex) {
+        goToSlide(idx, idx > currentIndex ? 'next' : 'prev');
+        startAutoplay();
+      }
+    });
+  });
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      prevSlide();
+      startAutoplay();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      nextSlide();
+      startAutoplay();
+    });
+  }
+
+  if (heroSection) {
+    heroSection.addEventListener('mouseenter', stopAutoplay);
+    heroSection.addEventListener('mouseleave', startAutoplay);
+
+    // Touch swipe support on mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    heroSection.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    heroSection.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchStartX - touchEndX > 45) {
+        nextSlide();
+        startAutoplay();
+      } else if (touchEndX - touchStartX > 45) {
+        prevSlide();
+        startAutoplay();
+      }
+    }, { passive: true });
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      stopAutoplay();
+    } else {
+      startAutoplay();
+    }
+  });
+
+  if (captionEl) {
+    captionEl.style.transition = 'opacity 0.2s ease';
+  }
+
+  updateDotsAndCaption(0);
+  startAutoplay();
 }
