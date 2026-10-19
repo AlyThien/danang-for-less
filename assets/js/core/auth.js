@@ -157,7 +157,7 @@ class AuthManager {
         const signupText = window.dnI18n ? window.dnI18n.t('nav.signup') : 'Sign Up';
         container.innerHTML = `
           <div class="flex items-center space-x-2">
-            <a href="${loginUrl}" class="text-xs font-semibold text-gray-700 hover:text-brand-crimson px-3 py-2 rounded-xl hover:bg-gray-100 transition">
+            <a href="${loginUrl}" class="hidden sm:inline-block text-xs font-semibold text-gray-700 hover:text-brand-crimson px-3 py-2 rounded-xl hover:bg-gray-100 transition">
               <span>${loginText}</span>
             </a>
             <a href="${registerUrl}" class="text-xs font-bold text-white bg-brand-crimson hover:bg-brand-darkcrimson px-3.5 py-2 rounded-xl shadow-md shadow-brand-crimson/20 transition hover:scale-[1.02]">

@@ -61,6 +61,15 @@ const completeDict = {
   ru: ru
 };
 
+// Company info + About page overrides (merged last)
+const part4 = require('./part4-company.js');
+const p4keys = Object.keys(part4.en);
+for (const lang of Object.keys(completeDict)) {
+  const miss = p4keys.filter(k => !(k in part4[lang]));
+  if (miss.length) { console.error(`Missing in part4 ${lang}:`, miss); process.exit(1); }
+  Object.assign(completeDict[lang], part4[lang]);
+}
+
 // Generate updated i18n.js
 const i18nTemplate = `/**
  * DANANG FOR LESS - INTERNATIONALIZATION (i18n) ENGINE
