@@ -16,6 +16,7 @@ const en = {
   "footer.copyright": "© 2026 DA NANG FOR LESS. All rights reserved.",
   "contact.address_val": "67 Doãn Khuê Street, Hải Châu District, Da Nang City, Vietnam",
   "contact.phone_placeholder": "+84 905 123 456",
+  "contact.email_val": "booking@danangforless.com",
 
   "aboutv2.hero_badge": "Your Local Travel Advisor",
   "aboutv2.hero_title": "Our Story",
@@ -63,6 +64,7 @@ const vn = {
   "footer.copyright": "© 2026 DA NANG FOR LESS. Bảo lưu mọi quyền.",
   "contact.address_val": "67 Doãn Khuê, Quận Hải Châu, TP. Đà Nẵng, Việt Nam",
   "contact.phone_placeholder": "0905 123 456",
+  "contact.email_val": "booking@danangforless.com",
 
   "aboutv2.hero_badge": "Cố vấn du lịch bản địa của bạn",
   "aboutv2.hero_title": "Câu Chuyện Của Chúng Tôi",
@@ -110,6 +112,7 @@ const zh = {
   "footer.copyright": "© 2026 DA NANG FOR LESS. 保留所有权利。",
   "contact.address_val": "越南岘港市海洲郡 Doãn Khuê 街 67 号",
   "contact.phone_placeholder": "+84 905 123 456",
+  "contact.email_val": "booking@danangforless.com",
 
   "aboutv2.hero_badge": "您身边的本地旅行顾问",
   "aboutv2.hero_title": "我们的故事",
@@ -157,6 +160,7 @@ const ko = {
   "footer.copyright": "© 2026 DA NANG FOR LESS. 모든 권리 보유.",
   "contact.address_val": "베트남 다낭시 하이쩌우군 Doãn Khuê 거리 67번지",
   "contact.phone_placeholder": "+84 905 123 456",
+  "contact.email_val": "booking@danangforless.com",
 
   "aboutv2.hero_badge": "당신의 현지 여행 어드바이저",
   "aboutv2.hero_title": "우리의 이야기",
@@ -204,6 +208,7 @@ const ja = {
   "footer.copyright": "© 2026 DA NANG FOR LESS. All rights reserved.",
   "contact.address_val": "ベトナム ダナン市 ハイチャウ区 Doãn Khuê 通り 67番地",
   "contact.phone_placeholder": "+84 905 123 456",
+  "contact.email_val": "booking@danangforless.com",
 
   "aboutv2.hero_badge": "あなたの地元トラベルアドバイザー",
   "aboutv2.hero_title": "私たちのストーリー",
@@ -251,6 +256,7 @@ const hi = {
   "footer.copyright": "© 2026 DA NANG FOR LESS. सर्वाधिकार सुरक्षित।",
   "contact.address_val": "67 Doãn Khuê स्ट्रीट, हाई चाउ ज़िला, दा नांग शहर, वियतनाम",
   "contact.phone_placeholder": "+84 905 123 456",
+  "contact.email_val": "booking@danangforless.com",
 
   "aboutv2.hero_badge": "आपका स्थानीय यात्रा सलाहकार",
   "aboutv2.hero_title": "हमारी कहानी",
@@ -298,6 +304,7 @@ const ru = {
   "footer.copyright": "© 2026 DA NANG FOR LESS. Все права защищены.",
   "contact.address_val": "ул. Doãn Khuê, 67, район Хайчау, г. Дананг, Вьетнам",
   "contact.phone_placeholder": "+84 905 123 456",
+  "contact.email_val": "booking@danangforless.com",
 
   "aboutv2.hero_badge": "Ваш местный туристический консультант",
   "aboutv2.hero_title": "Наша история",
